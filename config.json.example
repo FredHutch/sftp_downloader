@@ -1,0 +1,7 @@
+{
+"host": "",
+"port": 22,
+"user": "",
+"password": "",
+"local_download_folder": "."
+}
