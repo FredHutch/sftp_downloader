@@ -10,7 +10,7 @@ It is designed to be run daily via [crontab](http://www.adminschoice.com/crontab
 You only have to run these steps once.
 
 Run the following steps in your home directory
-on one of the `rhino` machines (`ssh rhino`).
+on `rhino1` (`ssh rhino1`).
 
 ```bash
 git clone https://github.com/FredHutch/sftp_downloader.git
