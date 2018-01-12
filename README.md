@@ -37,7 +37,9 @@ text-based editor), add a line like the following
 to your crontab, replacing `MYUSERNAME` with your
 HutchNet ID.
 
+```
 15 13 * * * /app/easybuild/software/Python/3.6.4-foss-2016b-fh1/bin/python /home/MYUSERNAME/sftp_downloader/sftp_downloader.py >> /home/MYUSERNAME/sftp_downloader/sftp_downloader.log 2>&1
+```
 
 The script will now run every day at 1:15PM (1315 hours).
 
