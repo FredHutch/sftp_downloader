@@ -17,17 +17,14 @@ git clone https://github.com/FredHutch/sftp_downloader.git
 cd sftp_downloader
 ml Python/3.6.4-foss-2016b-fh1
 pipenv install
-
 # create a configuration file from a template:
 cp config.json.example config.json
 
 # Now edit config.json to add the username, password, etc., of
 # the SFTP server.
 
-# Make a note of the path to Python and
-# the current directory:
+# Make a note of the current directory:
 
-which python
 pwd
 
 ```
@@ -38,7 +35,8 @@ to your crontab, replacing `MYUSERNAME` with your
 HutchNet ID.
 
 ```
-15 13 * * * /app/easybuild/software/Python/3.6.4-foss-2016b-fh1/bin/python /home/MYUSERNAME/sftp_downloader/sftp_downloader.py >> /home/MYUSERNAME/sftp_downloader/sftp_downloader.log 2>&1
+SHELL=/bin/bash
+15 13 * * * /home/MYUSERNAME/sftp_downloader/sftp_downloader.sh >> /home/MYUSERNAME/sftp_downloader/sftp_downloader.log 2>&1
 ```
 
 The script will now run every day at 1:15PM (1315 hours).
