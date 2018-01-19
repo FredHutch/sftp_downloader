@@ -5,34 +5,41 @@ import (
 	"log"
 	"os"
 
-	"github.com/kr/fs"
+	"github.com/FredHutch/sftp_downloader/iface"
 	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"
 )
 
-// Sftper helps make things testable
-type Sftper interface {
-	Close() error
-	Create(path string) (*sftp.File, error)
-	Lstat(p string) (os.FileInfo, error)
-	Walk(root string) *fs.Walker
+// SftpWrapper is a thin wrapper around sftp, implements Sftper
+type SftpWrapper struct {
+	cl *sftp.Client
 }
 
-// Walker helps make things testable
-type Walker interface {
-	Step() bool
-	Err() error
-	Path() string
+// Walk method of concrete implementation
+func (w *SftpWrapper) Walk(root string) iface.Walker {
+	return w.cl.Walk(root)
 }
 
-var sftpclient Sftper
-var w Walker
+// Create method of concrete implementation
+func (w *SftpWrapper) Create(path string) (iface.Filer, error) {
+	return w.cl.Create(path)
+}
 
-func doTheWork(sftpclient Sftper) {
+// Lstat method of concrete implementation
+func (w *SftpWrapper) Lstat(p string) (os.FileInfo, error) {
+	return w.cl.Lstat(p)
+}
+
+// Close method of concrete implementation
+func (w *SftpWrapper) Close() error {
+	return w.cl.Close()
+}
+
+func doTheWork(sftpclient iface.Sftper) {
 	defer sftpclient.Close()
 
 	// walk a directory
-	w = sftpclient.Walk("/tmp/")
+	w := sftpclient.Walk("/tmp/")
 	for w.Step() {
 		if w.Err() != nil {
 			continue
@@ -77,9 +84,10 @@ func main() {
 
 	// open an SFTP session over an existing ssh connection.
 	var err error
-	sftpclient, err = sftp.NewClient(conn)
+	client, err := sftp.NewClient(conn)
 	if err != nil {
 		log.Fatal(err)
 	}
+	sftpclient := &SftpWrapper{client}
 	doTheWork(sftpclient)
 }
