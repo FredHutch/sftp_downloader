@@ -7,7 +7,7 @@ go get github.com/golang/mock/mockgen
 
 go generate ./...
 
-mkdir -p builds
+mkdir -p builds mocks
 
 GOOS=linux   GOARCH=amd64 go build -o builds/sftp_downloader_linux
 GOOS=windows GOARCH=amd64 go build -o builds/sftp_downloader_x64.exe
