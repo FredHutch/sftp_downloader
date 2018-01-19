@@ -3,6 +3,6 @@
 "port": 22,
 "user": "",
 "password": "",
-"rar_encryption_password": "",
+"rar_decryption_password": "",
 "local_download_folder": "."
 }
