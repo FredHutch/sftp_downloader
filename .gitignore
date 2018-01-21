@@ -2,3 +2,9 @@ config.json
 sftp_downloader.log
 p
 builds/
+downloads/
+profile.cov
+coverage.html
+coverage.out
+profile.tmp
+cover-profile.out

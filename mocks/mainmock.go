@@ -7,6 +7,7 @@ package mocks
 import (
 	iface "github.com/FredHutch/sftp_downloader/iface"
 	gomock "github.com/golang/mock/gomock"
+	io "io"
 	os "os"
 	reflect "reflect"
 )
@@ -72,6 +73,32 @@ func (mr *MockSftperMockRecorder) Lstat(arg0 interface{}) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Lstat", reflect.TypeOf((*MockSftper)(nil).Lstat), arg0)
 }
 
+// Open mocks base method
+func (m *MockSftper) Open(arg0 string) (io.Reader, error) {
+	ret := m.ctrl.Call(m, "Open", arg0)
+	ret0, _ := ret[0].(io.Reader)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// Open indicates an expected call of Open
+func (mr *MockSftperMockRecorder) Open(arg0 interface{}) *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Open", reflect.TypeOf((*MockSftper)(nil).Open), arg0)
+}
+
+// ReadDir mocks base method
+func (m *MockSftper) ReadDir(arg0 string) ([]os.FileInfo, error) {
+	ret := m.ctrl.Call(m, "ReadDir", arg0)
+	ret0, _ := ret[0].([]os.FileInfo)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ReadDir indicates an expected call of ReadDir
+func (mr *MockSftperMockRecorder) ReadDir(arg0 interface{}) *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ReadDir", reflect.TypeOf((*MockSftper)(nil).ReadDir), arg0)
+}
+
 // Walk mocks base method
 func (m *MockSftper) Walk(arg0 string) iface.Walker {
 	ret := m.ctrl.Call(m, "Walk", arg0)
@@ -105,6 +132,18 @@ func NewMockFiler(ctrl *gomock.Controller) *MockFiler {
 // EXPECT returns an object that allows the caller to indicate expected use
 func (m *MockFiler) EXPECT() *MockFilerMockRecorder {
 	return m.recorder
+}
+
+// Close mocks base method
+func (m *MockFiler) Close() error {
+	ret := m.ctrl.Call(m, "Close")
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// Close indicates an expected call of Close
+func (mr *MockFilerMockRecorder) Close() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockFiler)(nil).Close))
 }
 
 // Write mocks base method

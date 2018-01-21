@@ -1,6 +1,9 @@
 package iface
 
-import "os"
+import (
+	"io"
+	"os"
+)
 
 // run this with:
 // go generate ./...
@@ -21,11 +24,16 @@ type Sftper interface {
 	Lstat(p string) (os.FileInfo, error)
 
 	Close() error
+
+	ReadDir(p string) ([]os.FileInfo, error)
+
+	Open(path string) (io.Reader, error)
 }
 
 // Filer interface has methods used by doTheWork
 type Filer interface {
 	Write([]byte) (int, error)
+	Close() error
 }
 
 // Walker helps make things testable

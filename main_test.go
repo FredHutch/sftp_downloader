@@ -14,9 +14,6 @@ func getTheTime() time.Time {
 	return ret
 }
 
-// shite = getTheTime
-// currentTimeFunction = getTheTime
-
 func TestDoTheWork(t *testing.T) {
 	mockCtrl := gomock.NewController(t)
 	defer mockCtrl.Finish()
@@ -39,33 +36,25 @@ func TestDoTheWork(t *testing.T) {
 
 }
 
-func exitcode() string {
-	ret, ok := os.LookupEnv("SFTP_DOWNLOADER_EXIT_CODE")
-	if !ok {
-		return "<exit() not called>"
-	}
-	return ret
-}
-
 func TestGetDateString(t *testing.T) {
 	oldArgs := os.Args
-	os.Setenv("TESTING_SFTP_DOWNLOADER", "true")
-	defer func() { os.Unsetenv("TESTING_SFTP_DOWNLOADER") }()
 	defer func() { os.Args = oldArgs }()
-	defer func() { os.Unsetenv("SFTP_DOWNLOADER_EXIT_CODE") }()
 
 	t.Run("garbage", func(t *testing.T) {
 		os.Args = []string{"sftp_uploader", "config.json", "garbage"}
-		getDateString()
-		if exitcode() != "1" {
-			t.Error("Expected exit with code 1, got", exitcode(), ".")
+		_, err := getDateString()
+		if err == nil {
+			t.Error("Expected error with getDateString() and invalid date string")
 		}
 	})
 
 	t.Run("yesterday", func(t *testing.T) {
 		os.Args = []string{"sftp_uploader", "config.json"}
 		currentTimeFunction = getTheTime
-		ds := getDateString()
+		ds, err := getDateString()
+		if err != nil {
+			t.Error("Did not expect error in getDateString()")
+		}
 		if ds != "01-01-2006" {
 			t.Error("Expected 01-01-2006, got", ds)
 		}
