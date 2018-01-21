@@ -10,11 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/FredHutch/sftp_downloader/config"
 	"github.com/FredHutch/sftp_downloader/iface"
-	"github.com/FredHutch/sftp_downloader/impl"
-	"github.com/FredHutch/sftp_downloader/unrar"
-	"github.com/FredHutch/sftp_downloader/util"
 	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"
 )
@@ -93,7 +89,7 @@ func filter(vs []os.FileInfo, f func(string) bool) []string {
 }
 
 // TODO refactor into smaller functions
-func downloadFile(fileDate string, config config.Config, sftpclient iface.Sftper) (rarFile string, retErr error) {
+func downloadFile(fileDate string, config Config, sftpclient iface.Sftper) (rarFile string, retErr error) {
 	filePattern := fmt.Sprintf("Reportes_diarios_acumulados-%s", fileDate)
 	remoteDir := "/" // TODO factor this out to json config
 	matchingFiles, err := sftpclient.ReadDir(remoteDir)
@@ -115,7 +111,7 @@ func downloadFile(fileDate string, config config.Config, sftpclient iface.Sftper
 		return "", fmt.Errorf("Could not open remote file %s: %s", remoteFile, err.Error())
 	}
 	// check that destination directory exists
-	exists, err := util.FileExists(config.LocalDownloadFolder)
+	exists, err := FileExists(config.LocalDownloadFolder)
 	if err != nil {
 		return "", fmt.Errorf("error checking if local download folder exists: %s", err.Error())
 	}
@@ -124,7 +120,7 @@ func downloadFile(fileDate string, config config.Config, sftpclient iface.Sftper
 			config.LocalDownloadFolder)
 	}
 
-	isdir, err := util.IsDir(config.LocalDownloadFolder)
+	isdir, err := IsDir(config.LocalDownloadFolder)
 	if err != nil {
 		return "", fmt.Errorf("Error checking if local download dir is a dir: %s", err.Error())
 	}
@@ -182,7 +178,7 @@ See complete documentation at:
 		return
 	}
 
-	config, err := config.GetConfig(os.Args[1])
+	config, err := GetConfig(os.Args[1])
 	if err != nil {
 		exit(1, err.Error())
 		return
@@ -208,12 +204,12 @@ See complete documentation at:
 		exit(1, "Could not create sftp client.")
 		return
 	}
-	sftpclient := &impl.SftpWrapper{Cl: client}
+	sftpclient := &SftpWrapper{Cl: client}
 	rarFile, err := downloadFile(fileDate, config, sftpclient)
 	if err != nil {
 		exit(1, fmt.Sprintf("Could not download file: %s", err.Error()))
 	}
-	err = unrar.UncompressFile(rarFile, fileDate, config)
+	err = UncompressFile(rarFile, fileDate, config)
 	if err != nil {
 		exit(1, fmt.Sprintf("Could not unrar file: %s", err.Error()))
 	}

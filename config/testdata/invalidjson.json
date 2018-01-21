@@ -1,8 +1,0 @@
-{
-"host": "somehost",
-"port": 1234,
-"user": "someuser",
-"password": "somepassword",
-"rar_decryption_password": "anotherpassword",
-"local_download_folder": "somedir",
-}
