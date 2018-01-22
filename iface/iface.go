@@ -12,6 +12,8 @@ import (
 
 //go:generate mockgen -destination=../mocks/fileinfo.go -package=mocks os FileInfo
 
+//go:generate mockgen -destination=../mocks/ioreader.go -package=mocks io Reader
+
 // Sftper helps make things testable
 type Sftper interface {
 	// return interface
