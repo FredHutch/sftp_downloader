@@ -23,12 +23,12 @@ func GetConfig(jsonFileName string) (Config, error) {
 	// (should not be readable by group or other)
 	file, e := ioutil.ReadFile(jsonFileName)
 	if e != nil {
-		return Config{}, fmt.Errorf("Unable to open file %s.", jsonFileName)
+		return Config{}, fmt.Errorf("unable to open file %s", jsonFileName)
 	}
 	var config Config
 	err := json.Unmarshal(file, &config)
 	if err != nil {
-		return config, errors.New("Could not unmarshal JSON file.")
+		return config, errors.New("could not unmarshal JSON file")
 	}
 	return config, nil
 }

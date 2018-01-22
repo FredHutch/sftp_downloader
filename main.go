@@ -53,7 +53,7 @@ func getDateString() (string, error) {
 	if len(os.Args) == 3 {
 		t, err := time.Parse("2006-01-02", os.Args[2])
 		if err != nil {
-			return "", fmt.Errorf("Error formatting date %s, must be in YYYY-MM-DD format.", os.Args[2])
+			return "", fmt.Errorf("error formatting date %s, must be in YYYY-MM-DD format", os.Args[2])
 		}
 		fileDate = t.Format("02-01-2006")
 	} else {

@@ -4,12 +4,20 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"testing"
 	"time"
 
 	"github.com/FredHutch/sftp_downloader/mocks"
 	"github.com/golang/mock/gomock"
+	"github.com/udhos/equalfile"
 )
+
+func areFilesEqual(file1 string, file2 string) (bool, error) {
+	options := equalfile.Options{}
+	cmp := equalfile.New(nil, options)
+	return cmp.CompareFile(file1, file2)
+}
 
 type FakeFileInfo struct {
 	name string
@@ -50,7 +58,7 @@ func bollocks() os.FileInfo {
 var _ os.FileInfo = FakeFileInfo{}
 var _ os.FileInfo = (*FakeFileInfo)(nil)
 
-func TestDownloadFile(t *testing.T) {
+func TestGetFileNameToDownload(t *testing.T) {
 	// see https://github.com/golang/mock/issues/51#issuecomment-324427140
 	// for why we have to put code in subtests that should be in outer test func
 
@@ -60,42 +68,70 @@ func TestDownloadFile(t *testing.T) {
 			t.Fail()
 		}
 		config := Config{LocalDownloadFolder: tempDir}
-		// TODO remove tempdir in defer...
+		defer os.RemoveAll(tempDir)
 
 		mockCtrl := gomock.NewController(t)
 		defer mockCtrl.Finish()
 		mockSftper := mocks.NewMockSftper(mockCtrl)
-		mockReader := mocks.NewMockReader(mockCtrl)
 		f := FakeFileInfo{name: "Reportes_diarios_acumulados-2018-01-01"}
 
 		var fs []os.FileInfo
 		fs = append(fs, f)
 
-		// reader, err := os.Open("testdata/test.rar")
-		// if err != nil {
-		// 	t.Fail()
-		// }
-		// defer reader.Close()
-
 		mockSftper.EXPECT().ReadDir("/").Return(fs, nil).Times(1)
-		mockSftper.EXPECT().Open(gomock.Any()).Return(mockReader, nil).Times(1)
-		mockReader.EXPECT().Read(gomock.Any()).Times(1)
 
-		res, err := downloadFile("2018-01-01", config, mockSftper)
-		t.Log("after calling downloadfile")
+		res, err := getFileNameToDownload("2018-01-01", config, mockSftper)
+		if err != nil {
+			t.Error("Expected success, got error")
+		}
+		if res != "/Reportes_diarios_acumulados-2018-01-01" {
+			t.Error("Expected '/Reportes_diarios_acumulados-2018-01-01', got", res)
+		}
 		if err == nil {
 			t.Log("res is", res)
-			// t.Error("Expected non-nil value")
-
 		}
-		// t.Log("athabasca")
-		// t.Log("err is", err.Error())
-		// if err.Error() != "Found no file matching pattern 'Reportes_diarios_acumulados-2018-01-01'" {
-		// 	t.Errorf("Got unexpected error message: %s", err.Error())
-		// }
 	})
 
 	t.Run("changeme", func(t *testing.T) {
+	})
+
+}
+
+func TestDoDownload(t *testing.T) {
+
+	tempDir, err := ioutil.TempDir("", "sftp-test-dir")
+	if err != nil {
+		t.Fail()
+	}
+	defer os.RemoveAll(tempDir)
+
+	t.Run("changeme", func(t *testing.T) {
+		config := Config{LocalDownloadFolder: tempDir}
+
+		mockCtrl := gomock.NewController(t)
+		defer mockCtrl.Finish()
+		mockSftper := mocks.NewMockSftper(mockCtrl)
+
+		fh, err := os.Open(filepath.Join("testdata", "test.rar"))
+		if err != nil {
+			t.Fail()
+		}
+		mockSftper.EXPECT().Open(gomock.Any()).Return(fh, nil).Times(1)
+
+		res, err := doDownload("remoteFile", config, mockSftper)
+		if err != nil {
+			t.Error("did not expect error")
+		}
+
+		ok, err := areFilesEqual(res, filepath.Join("testdata", "test.rar"))
+		if err != nil {
+			t.Fail()
+		}
+
+		if !ok {
+			t.Error("copied file not identical to text fixture!")
+		}
+
 	})
 
 }
