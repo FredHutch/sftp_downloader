@@ -48,6 +48,18 @@ func TestGetDateString(t *testing.T) {
 		}
 	})
 
+	t.Run("valid-custom-date", func(t *testing.T) {
+		os.Args = []string{"sftp_uploader", "config.json", "2018-01-02"}
+		ds, err := getDateString()
+		if err != nil {
+			t.Error("unexpected error")
+		}
+		if ds != "02-01-2018" {
+			t.Errorf("Expected '02-01-2018', got '%s'", ds)
+		}
+
+	})
+
 	t.Run("yesterday", func(t *testing.T) {
 		os.Args = []string{"sftp_uploader", "config.json"}
 		currentTimeFunction = getTheTime

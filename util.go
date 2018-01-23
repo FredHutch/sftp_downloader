@@ -18,6 +18,20 @@ func FileExists(fileName string) (bool, error) {
 	return true, nil
 }
 
+// AllFilesExist tells you if all files in a list exist
+func AllFilesExist(fileNames ...string) (bool, error) {
+	for _, fileName := range fileNames {
+		ok, err := FileExists(fileName)
+		if err != nil {
+			return false, err
+		}
+		if !ok {
+			return false, nil
+		}
+	}
+	return true, nil
+}
+
 // IsDir tells you if fileName is a directory
 func IsDir(fileName string) (bool, error) {
 	stat, err := os.Stat(fileName)

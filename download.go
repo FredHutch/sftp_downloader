@@ -82,7 +82,6 @@ func doDownload(remoteFile string, config Config, sftpclient iface.Sftper) (rarF
 	return filepath.Join(config.LocalDownloadFolder, filepath.Base(remoteFile)), nil
 }
 
-// TODO refactor into smaller functions
 func downloadFile(fileDate string, config Config, sftpclient iface.Sftper) (rarFile string, retErr error) {
 	remoteFile, err := getFileNameToDownload(fileDate, config, sftpclient)
 	if err != nil {
