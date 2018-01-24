@@ -36,15 +36,20 @@ jobs:
       - run: go install -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
       - run: echo gopath is $GOPATH
 
+      - persist_to_workspace:
+          root: $GOPATH/bin
+
   deploy-job:
     docker:
       # specify the version
       - image: circleci/golang:1.9.2
     steps:
+      - attach_workspace:
+          at: /tmp/workspace
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
       - run: python get-pip.py --user
       - run: ~/.local/bin/pip install awscli --upgrade --user
-      - run: ~/.local/bin/aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
+      - run: ~/.local/bin/aws s3 cp /tmp/workspace/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
 
 
 workflows:
