@@ -1,3 +1,5 @@
+[![ci badge](https://circleci.com/gh/FredHutch/sftp_downloader.png?style=shield)](https://circleci.com/gh/FredHutch/sftp_downloader)
+
 # SFTP Downloader Script
 
 This script will download a file (if present) from the
