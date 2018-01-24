@@ -50,3 +50,6 @@ workflows:
       - downstream:
           requires:
             - flow
+          filters:
+            branches:
+              only: master
