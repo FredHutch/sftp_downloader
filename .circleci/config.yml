@@ -31,8 +31,8 @@ jobs:
       - run: go install -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
       - run: python get-pip.py --user
-      - run: pip install awscli --upgrade --user
-      - run: aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader
+      - run: ~/.local/bin/pip install awscli --upgrade --user
+      - run: ~/.local/bin/aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader
 
 # deployment:
 #   prod:
