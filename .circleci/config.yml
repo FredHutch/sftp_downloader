@@ -42,8 +42,8 @@ jobs:
     docker:
       # specify the version
       - image: circleci/golang:1.9.2
-      steps:
-          - run: ~/.local/bin/aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
+    steps:
+      - run: ~/.local/bin/aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
 
 
 workflows:
