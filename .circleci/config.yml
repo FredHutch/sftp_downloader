@@ -7,6 +7,7 @@ version: 2
 jobs:
   flow:
     <<: *defaults
+    working_directory: /go/src/github.com/FredHutch/sftp_downloader
     steps:
       - checkout
       - run: go get -v -t -d ./...
