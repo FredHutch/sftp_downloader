@@ -7,7 +7,7 @@ SFTP server in Perú.
 
 It is designed to be run daily via [crontab](http://www.adminschoice.com/crontab-quick-reference).
 
-## Installation
+## Installation / Upgrading
 
 On the system where you want this script to run, download the tool.
 
@@ -24,25 +24,25 @@ FIXME - replace the rest of this....
 
 You only have to run these steps once.
 
-Run the following steps in your home directory
-on `rhino1` (`ssh rhino1`).
-
-```bash
-git clone https://github.com/FredHutch/sftp_downloader.git
-cd sftp_downloader
-ml Python/3.6.4-foss-2016b-fh1
-pipenv install
-# create a configuration file from a template:
-cp config.json.example config.json
-
-# Now edit config.json to add the username, password, etc., of
-# the SFTP server.
-
-# Make a note of the current directory:
-
-pwd
+Download the example JSON file:
 
 ```
+curl https://raw.githubusercontent.com/FredHutch/sftp_downloader/master/config.json.example > config.json
+chmod 0600 config.json
+```
+
+Edit the `config.json` file. Values should be as follows:
+
+* `host` - IP address or hostname of SFTP server
+* `port` - port number (not in quotes) of SFTP server
+* `user` - username to log into SFTP server
+* `password` - password to log into SFTP server
+* `rar_decryption_password` - password to decrypt RAR file
+* `local_download_folder` - folder in which to download/extract RAR file
+
+<more to come>
+
+
 
 Using the `crontab -e` command (and your favorite
 text-based editor), add a line like the following
@@ -51,15 +51,27 @@ HutchNet ID.
 
 ```
 SHELL=/bin/bash
-15 13 * * * /home/MYUSERNAME/sftp_downloader/sftp_downloader.sh >> /home/MYUSERNAME/sftp_downloader/sftp_downloader.log 2>&1
+15 01 * * * /home/MYUSERNAME/sftp_downloader >> /home/MYUSERNAME/sftp_downloader.log 2>&1
 ```
 
-The script will now run every day at 1:15PM (1315 hours).
+The script will now run every day at 1:15AM (0115 hours).
 
 It will append to the log file
-`/home/MYUSERNAME/sftp_downloader/sftp_downloader.log`.
+`/home/MYUSERNAME/sftp_downloader.log`.
 If the files do not show up as expected, check this file
 for error information.
+
+## Running the script manually
+
+You can run the script manually. You may want to do this, for example, if you
+have a backlog of RAR files to download from before `sftp_downloader` was available.
+
+To run the script manually, just add a date to the command line. For example, to
+download the files from January 5th, 2018, do this:
+
+```
+./sftp_downloader config.json 2018-01-05
+```
 
 ## Problems
 
