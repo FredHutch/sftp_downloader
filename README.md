@@ -7,6 +7,20 @@ It is designed to be run daily via [crontab](http://www.adminschoice.com/crontab
 
 ## Installation
 
+On the system where you want this script to run, download the tool.
+
+The tool is a single executable, called `sftp_downloader`, built to run on Linux.
+
+To download it, change to the directory where you want the executable to live and run this command:
+
+```
+curl -O https://s3-us-west-2.amazonaws.com/fredhutch-scicomp-tools/sftp_downloader/sftp_downloader
+chmod +x sftp_downloader
+```
+
+FIXME - replace the rest of this....
+
+
 You only have to run these steps once.
 
 Run the following steps in your home directory
