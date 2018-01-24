@@ -49,7 +49,7 @@ jobs:
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
       - run: python get-pip.py --user
       - run: ~/.local/bin/pip install awscli --upgrade --user
-      - run: ~/.local/bin/aws s3 cp /tmp/workspace/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
+      - run: ~/.local/bin/aws s3 cp ./sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
 
 
 workflows:
