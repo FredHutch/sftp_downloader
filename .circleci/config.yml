@@ -33,11 +33,11 @@ jobs:
       - run: mkdir -p builds mocks
       - run: go generate ./...
       - run: go test -v ./...
-      - run: go install -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
+      - run: go build -o sftp_downloader -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
       - run: echo gopath is $GOPATH
 
       - persist_to_workspace:
-          root: $GOPATH/bin
+          root: /go/src/github.com/FredHutch/sftp_downloader
 
   deploy-job:
     docker:
