@@ -1,79 +1,43 @@
-# Golang CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-go/ for more details
-general:
-  branches:
-    only:
-      - master
+defaults: &defaults
+  working_directory: /tmp
+  docker:
+    - image: buildpack-deps:jessie
 
 version: 2
 jobs:
-  build-job:
-    docker:
-      # specify the version
-      - image: circleci/golang:1.9.2
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    #### TEMPLATE_NOTE: go expects specific checkout path representing url
-    #### expecting it in the form of
-    ####   /go/src/github.com/circleci/go-tool
-    ####   /go/src/bitbucket.org/circleci/go-tool
-    working_directory: /go/src/github.com/FredHutch/sftp_downloader
+  flow:
+    <<: *defaults
     steps:
-      - checkout
-
-      # specify any bash command here prefixed with `run: `
-      - run: go get -v -t -d ./...
-      - run: go get github.com/golang/mock/gomock
-      - run: go get github.com/golang/mock/mockgen
-      - run: mkdir -p builds mocks
-      - run: go generate ./...
-      - run: go test -v ./...
-      - run: go build -o builds/sftp_downloader -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
-      - run: echo gopath is $GOPATH
+      - run: mkdir -p workspace
+      - run: echo "Hello, world!" > workspace/echo-output
 
       - persist_to_workspace:
-          root: builds
+          # Must be an absolute path, or relative path from working_directory
+          root: workspace
+          # Must be relative path from root
+          paths:
+            - echo-output
 
-  deploy-job:
-    docker:
-      # specify the version
-      - image: circleci/golang:1.9.2
+  downstream:
+    <<: *defaults
     steps:
       - attach_workspace:
+          # Must be absolute path or relative path from working_directory
           at: /tmp/workspace
-      - run: curl -O https://bootstrap.pypa.io/get-pip.py
-      - run: python get-pip.py --user
-      - run: ~/.local/bin/pip install awscli --upgrade --user
-      - run: ~/.local/bin/aws s3 cp ./sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
 
+      - run: |
+          if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
+            echo "It worked!";
+          else
+            echo "Nope!"; exit 1
+          fi
 
 workflows:
   version: 2
 
   btd:
     jobs:
-      - build-job
-      - deploy-job:
+      - flow
+      - downstream:
           requires:
-            - build-job
-  # build-deploy:
-  #   jobs:
-  #     - build-job
-  #     - deploy-job:
-  #         requires:
-  #           - build-job
-  #         filters:
-  #           branches:
-  #             only: master
-  #
-
-# deployment:
-#   prod:
-#     branch: master
-#     commands:
-#       - aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader
+            - flow
