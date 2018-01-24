@@ -40,12 +40,6 @@ jobs:
       - run: python get-pip.py --user
       - run: ~/.local/bin/pip install awscli --upgrade --user
       - run: ~/.local/bin/aws s3 cp /tmp/workspace/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
-      # - run: |
-      #     if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
-      #       echo "It worked!";
-      #     else
-      #       echo "Nope!"; exit 1
-      #     fi
 
 workflows:
   version: 2
