@@ -1,22 +1,32 @@
 defaults: &defaults
   working_directory: /tmp
   docker:
-    - image: buildpack-deps:jessie
+    - image: circleci/golang:1.9.2
 
 version: 2
 jobs:
   flow:
     <<: *defaults
     steps:
+      - checkout
+      - run: go get -v -t -d ./...
+      - run: go get github.com/golang/mock/gomock
+      - run: go get github.com/golang/mock/mockgen
+      - run: mkdir -p builds mocks
+      - run: go generate ./...
+      - run: go test -v ./...
+      - run: go build -o builds/sftp_downloader -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
+
+
       - run: mkdir -p workspace
       - run: echo "Hello, world!" > workspace/echo-output
 
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
-          root: workspace
+          root: builds
           # Must be relative path from root
           paths:
-            - echo-output
+            - sftp_downloader
 
   downstream:
     <<: *defaults
@@ -25,12 +35,16 @@ jobs:
           # Must be absolute path or relative path from working_directory
           at: /tmp/workspace
 
-      - run: |
-          if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
-            echo "It worked!";
-          else
-            echo "Nope!"; exit 1
-          fi
+      - run: curl -O https://bootstrap.pypa.io/get-pip.py
+      - run: python get-pip.py --user
+      - run: ~/.local/bin/pip install awscli --upgrade --user
+      - run: ~/.local/bin/aws s3 cp /tmp/workspace/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
+      # - run: |
+      #     if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
+      #       echo "It worked!";
+      #     else
+      #       echo "Nope!"; exit 1
+      #     fi
 
 workflows:
   version: 2
