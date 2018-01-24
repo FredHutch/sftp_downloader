@@ -6,7 +6,7 @@ jobs:
   build:
     docker:
       # specify the version
-      - image: circleci/golang:1.8
+      - image: circleci/golang:1.9.2
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -29,7 +29,7 @@ jobs:
       - run: go generate ./...
       - run: go test -v ./...
       - run: go install -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
-      - run: curl -O https://bootstrap.pypa.io/get-pip.py | python
+      - run: curl https://bootstrap.pypa.io/get-pip.py | python
       - run: pip install awscli --upgrade --user
       # - run: aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader
 
