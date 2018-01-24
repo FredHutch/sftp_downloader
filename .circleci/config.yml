@@ -1,6 +1,11 @@
 # Golang CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-go/ for more details
+general:
+  branches:
+    only:
+      - master
+
 version: 2
 jobs:
   build:
@@ -32,7 +37,7 @@ jobs:
       - run: curl -O https://bootstrap.pypa.io/get-pip.py
       - run: python get-pip.py --user
       - run: ~/.local/bin/pip install awscli --upgrade --user
-      - run: ~/.local/bin/aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read 
+      - run: ~/.local/bin/aws s3 cp $GOPATH/bin/sftp_downloader s3://fredhutch-scicomp-tools/sftp_downloader/sftp_downloader --acl public-read
 
 # deployment:
 #   prod:
