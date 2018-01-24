@@ -87,15 +87,16 @@ func filter(vs []os.FileInfo, f func(string) bool) []string {
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Printf(`
+		fmt.Printf(`sftp_downloader, commit %s
+			
 usage: %s config-file [date-string]
 
 config-file: the path to a JSON file containing configuration information
 date-string [optional]: the date of a file to process, defaults to yesterday.
 		format: YYYY-MM-DD (example: 2018-01-19)
 See complete documentation at:
-   https://github.com/FredHutch/sftp_downloader/tree/%s
-`, os.Args[0], gitBranch)
+   https://github.com/FredHutch/sftp_downloader/blob/%s/README.md
+`, gitCommit, os.Args[0], gitBranch)
 		os.Exit(1) // TODO change to exit() ? No point if not testable?
 	}
 
