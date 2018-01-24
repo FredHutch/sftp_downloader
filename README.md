@@ -15,7 +15,6 @@ To download it, change to the directory where you want the executable to live an
 
 ```
 curl -O https://s3-us-west-2.amazonaws.com/fredhutch-scicomp-tools/sftp_downloader/sftp_downloader
-chmod +x sftp_downloader
 ```
 
 FIXME - replace the rest of this....
