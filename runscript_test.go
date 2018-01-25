@@ -13,6 +13,7 @@ func TestRunScript(t *testing.T) {
 	if err != nil {
 		t.Fail()
 	}
+	defer os.RemoveAll(tempDir)
 	pwd, err := os.Getwd()
 	if err != nil {
 		t.Fail()
