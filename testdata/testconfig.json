@@ -4,5 +4,6 @@
 "user": "someuser",
 "password": "somepassword",
 "rar_decryption_password": "anotherpassword",
-"local_download_folder": "somedir"
+"local_download_folder": "somedir",
+"postprocessing_command": "echo hello world"
 }

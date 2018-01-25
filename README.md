@@ -39,8 +39,8 @@ Edit the `config.json` file. Values should be as follows:
 * `password` - password to log into SFTP server
 * `rar_decryption_password` - password to decrypt RAR file
 * `local_download_folder` - folder in which to download/extract RAR file
-
-<more to come>
+* `postprocessing_command` - a command to run after downloading and extraction is complete
+  (command will be run in the directory where the files have been archived).
 
 
 

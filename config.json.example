@@ -4,5 +4,6 @@
 "user": "",
 "password": "",
 "rar_decryption_password": "",
-"local_download_folder": "."
+"local_download_folder": ".",
+"postprocessing_command": "echo current directory is $PWD"
 }

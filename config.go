@@ -15,6 +15,7 @@ type Config struct {
 	Password              string `json:"password"`
 	LocalDownloadFolder   string `json:"local_download_folder"`
 	RarDecryptionPassword string `json:"rar_decryption_password"`
+	PostProcessingCommand string `json:"postprocessing_command"`
 }
 
 // GetConfig populates the Config struct from a json file

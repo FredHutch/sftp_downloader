@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"strconv"
 	"time"
 
@@ -88,7 +89,7 @@ func filter(vs []os.FileInfo, f func(string) bool) []string {
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Printf(`sftp_downloader, commit %s
-			
+
 usage: %s config-file [date-string]
 
 config-file: the path to a JSON file containing configuration information
@@ -119,6 +120,7 @@ See complete documentation at:
 		},
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
+	fmt.Println("Connecting to SFTP server...")
 	conn, err0 := ssh.Dial("tcp",
 		fmt.Sprintf("%s:%d", config.Host, config.Port), sshConfig)
 	if err0 != nil {
@@ -133,16 +135,22 @@ See complete documentation at:
 		return
 	}
 	sftpclient := &SftpWrapper{Cl: client}
+	fmt.Println("Downloading file...")
 	rarFile, err := downloadFile(fileDate, config, sftpclient)
 	if err != nil {
 		exit(1, fmt.Sprintf("Could not download file: %s", err.Error()))
 	}
+	fmt.Println("Unarchiving file...")
 	err = UncompressFile(rarFile, fileDate, config)
 	if err != nil {
 		exit(1, fmt.Sprintf("Could not unrar file: %s", err.Error()))
 	}
+	rundir := filepath.Join(config.LocalDownloadFolder, fileDate)
+	fmt.Println("Running postprocessing command...")
+	exitCode, _, _ := runScript(config.PostProcessingCommand, rundir)
 	fmt.Println("Done:")
 	fmt.Printf("Downloaded %s and unarchived files to %s/%s.\n", rarFile,
 		config.LocalDownloadFolder, fileDate)
-	// TODO run a custom script in the directory where files were archived
+	fmt.Printf("Exiting with exit code %d.\n", exitCode)
+	os.Exit(exitCode)
 }
