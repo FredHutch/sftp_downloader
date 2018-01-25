@@ -85,4 +85,5 @@ download the files from January 5th, 2018, do this:
 
 ## Problems
 
-Contact Dan or `scicomp@fredhutch.org`.
+Contact Dan or `scicomp@fredhutch.org`, or
+[file an issue](https://github.com/FredHutch/sftp_downloader/issues/new).
