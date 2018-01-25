@@ -49,7 +49,7 @@ HutchNet ID.
 
 ```
 SHELL=/bin/bash
-15 01 * * 2-6 /home/MYUSERNAME/sftp_downloader >> /home/MYUSERNAME/sftp_downloader.log 2>&1
+15 01 * * 2-6 /home/MYUSERNAME/sftp_downloader /home/MYUSERNAME/config.json >> /home/MYUSERNAME/sftp_downloader.log 2>&1
 ```
 
 The script will now run every day at 1:15AM (0115 hours), Tuesday through Saturday
