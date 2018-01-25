@@ -15,7 +15,7 @@ jobs:
       - run: go get github.com/golang/mock/mockgen
       - run: mkdir -p builds mocks
       - run: go generate ./...
-      - run: go test -coverprofile=coverage.out -v ./...
+      - run: go test -coverprofile=coverage.out -v
       - run: go tool cover -func=coverage.out
       - run: go build -o builds/sftp_downloader -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
 
