@@ -49,15 +49,27 @@ HutchNet ID.
 
 ```
 SHELL=/bin/bash
-15 01 * * * /home/MYUSERNAME/sftp_downloader >> /home/MYUSERNAME/sftp_downloader.log 2>&1
+15 01 * * 2-6 /home/MYUSERNAME/sftp_downloader >> /home/MYUSERNAME/sftp_downloader.log 2>&1
 ```
 
-The script will now run every day at 1:15AM (0115 hours).
+The script will now run every day at 1:15AM (0115 hours), Tuesday through Saturday
+(the day after each weekday).
 
 It will append to the log file
 `/home/MYUSERNAME/sftp_downloader.log`.
 If the files do not show up as expected, check this file
 for error information.
+
+## What the script does
+
+When invoked in a crontab, as above, the script will do the following:
+
+* Connect to the SFTP server
+* Download yesterday's file (to download the file from a different day, see the next section).
+* Unarchive the RAR file.
+* Run a post-processing script (based on a command-line that you supply in the `config.json` file)
+  in the directory where the files have been unarchived.
+
 
 ## Running the script manually
 
