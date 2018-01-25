@@ -3,7 +3,7 @@
 # SFTP Downloader Script
 
 This script will download a file (if present) from the
-SFTP server in Perú.
+SFTP server in Peru.
 
 It is designed to be run daily via [crontab](http://www.adminschoice.com/crontab-quick-reference).
 
@@ -18,8 +18,6 @@ To download it, change to the directory where you want the executable to live an
 ```
 curl -O https://s3-us-west-2.amazonaws.com/fredhutch-scicomp-tools/sftp_downloader/sftp_downloader
 ```
-
-FIXME - replace the rest of this....
 
 
 You only have to run these steps once.
