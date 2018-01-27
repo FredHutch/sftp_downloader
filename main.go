@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strconv"
 	"time"
 
 	"github.com/FredHutch/sftp_downloader/iface"
@@ -65,17 +64,6 @@ func getDateString() (string, error) {
 	return fileDate, nil
 }
 
-func exit(exitCode int, msg string) int { // TODO remove - only called from main() which is not tested (??)
-	if _, ok := os.LookupEnv("TESTING_SFTP_DOWNLOADER"); ok {
-		os.Setenv("SFTP_DOWNLOADER_EXIT_CODE", strconv.Itoa(exitCode))
-		os.Setenv("SFTP_EXIT_MESSAGE", msg)
-	} else { // These four lines can't be covered by
-		fmt.Println(msg)  // tests
-		os.Exit(exitCode) // without a lot of
-	} // hassle.
-	return exitCode
-}
-
 func filter(vs []os.FileInfo, f func(string) bool) []string {
 	vsf := make([]string, 0)
 	for _, v := range vs {
@@ -103,14 +91,15 @@ See complete documentation at:
 
 	fileDate, err := getDateString()
 	if err != nil {
-		exit(1, err.Error())
+		fmt.Println(err.Error())
+		os.Exit(1)
 		return
 	}
 
 	config, err := GetConfig(os.Args[1])
 	if err != nil {
-		exit(1, err.Error())
-		return
+		fmt.Println(err.Error())
+		os.Exit(1)
 	}
 
 	sshConfig := &ssh.ClientConfig{
@@ -124,26 +113,31 @@ See complete documentation at:
 	conn, err0 := ssh.Dial("tcp",
 		fmt.Sprintf("%s:%d", config.Host, config.Port), sshConfig)
 	if err0 != nil {
-		exit(1, "Failed to connect to ssh server.")
-		return
+
+		fmt.Println("Failed to connect to ssh server.")
+		os.Exit(1)
 	}
 
 	// open an SFTP session over an existing ssh connection.
 	client, err := sftp.NewClient(conn)
 	if err != nil {
-		exit(1, "Could not create sftp client.")
-		return
+		fmt.Println("Could not create sftp client.")
+		os.Exit(1)
 	}
 	sftpclient := &SftpWrapper{Cl: client}
 	fmt.Println("Downloading file...")
 	rarFile, err := downloadFile(fileDate, config, sftpclient)
 	if err != nil {
-		exit(1, fmt.Sprintf("Could not download file: %s", err.Error()))
+
+		fmt.Printf("Could not download file: %s\n", err.Error())
+		os.Exit(1)
 	}
 	fmt.Println("Unarchiving file...")
 	err = UncompressFile(rarFile, fileDate, config)
 	if err != nil {
-		exit(1, fmt.Sprintf("Could not unrar file: %s", err.Error()))
+
+		fmt.Printf("Could not unrar file: %s\n", err.Error())
+		os.Exit(1)
 	}
 	fmt.Println("Moving CSV and SAV files to top level...")
 	rundir := filepath.Join(config.LocalDownloadFolder, fileDate)
