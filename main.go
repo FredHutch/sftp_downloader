@@ -145,7 +145,9 @@ See complete documentation at:
 	if err != nil {
 		exit(1, fmt.Sprintf("Could not unrar file: %s", err.Error()))
 	}
+	fmt.Println("Moving CSV and SAV files to top level...")
 	rundir := filepath.Join(config.LocalDownloadFolder, fileDate)
+	moveFiles(rundir)
 	fmt.Println("Running postprocessing command...")
 	exitCode, _, _ := runScript(config.PostProcessingCommand, rundir)
 	fmt.Println("Done:")
