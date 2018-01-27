@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	path0 "path"
 	"path/filepath"
@@ -28,6 +29,13 @@ func moveFiles(root string) error {
 			return nil
 		}
 		newname := filepath.Join(root, filepath.Base(path))
+		ok, err := FileExists(newname)
+		if err != nil {
+			return err
+		}
+		if ok {
+			return fmt.Errorf("File %s already exists", newname)
+		}
 		err = Rename(path, newname)
 		return err
 	})

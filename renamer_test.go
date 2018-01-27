@@ -56,7 +56,10 @@ func TestMoveFiles(t *testing.T) {
 		touch(filepath.Join(dirB, "bar.csv"))
 		touch(filepath.Join(dirB, "BAR.SAV"))
 		touch(filepath.Join(dirB, "nothing.txt"))
-		moveFiles(tempDir)
+		err = moveFiles(tempDir)
+		if err != nil {
+			t.Errorf("Expected no error, got '%s'", err.Error())
+		}
 		fh, err := os.Open(tempDir)
 		if err != nil {
 			t.Fail()

@@ -141,7 +141,10 @@ See complete documentation at:
 	}
 	fmt.Println("Moving CSV and SAV files to top level...")
 	rundir := filepath.Join(config.LocalDownloadFolder, fileDate)
-	moveFiles(rundir)
+	err = moveFiles(rundir)
+	if err != nil {
+		fmt.Printf("Error renaming files: %s.\n", err.Error())
+	}
 	fmt.Println("Running postprocessing command...")
 	exitCode, _, _ := runScript(config.PostProcessingCommand, rundir)
 	fmt.Println("Done:")
