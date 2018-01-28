@@ -79,5 +79,9 @@ func TestMoveFiles(t *testing.T) {
 			t.Errorf("Not all items from %s were in directory which contains:\n%s", want, names)
 		}
 
+		if len(want) != len(infos) {
+			t.Errorf("Directory should contain %d items, got %d", len(want), len(infos))
+		}
+
 	})
 }

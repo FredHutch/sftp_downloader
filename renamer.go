@@ -39,5 +39,28 @@ func moveFiles(root string) error {
 		err = Rename(path, newname)
 		return err
 	})
-	return err
+
+	if err != nil {
+		return err
+	}
+
+	fh, err := os.Open(root)
+	if err != nil {
+		return fmt.Errorf("Could not open %s for reading", root)
+	}
+	defer fh.Close()
+	infos, err := fh.Readdir(-1)
+	if err != nil {
+		return fmt.Errorf("Could not read directory %s", root)
+	}
+	for _, info := range infos {
+		if info.IsDir() {
+			err = os.RemoveAll(filepath.Join(root, info.Name()))
+			if err != nil {
+				return fmt.Errorf("Could not remove subdirectory %s", info.Name())
+			}
+		}
+	}
+
+	return nil
 }

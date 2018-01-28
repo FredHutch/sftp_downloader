@@ -68,6 +68,8 @@ When invoked in a crontab, as above, the script will do the following:
 * Connect to the SFTP server
 * Download yesterday's file (to download the file from a different day, see the next section).
 * Unarchive the RAR file.
+* Move all CSV and SAV files to the top level of the unarchived files and delete all other
+  files/directories.
 * Run a post-processing script (based on a command-line that you supply in the `config.json` file)
   in the directory where the files have been unarchived.
 
