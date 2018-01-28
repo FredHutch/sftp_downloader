@@ -19,10 +19,6 @@ jobs:
       - run: go tool cover -func=coverage.out
       - run: go build -o builds/sftp_downloader -ldflags "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
 
-
-      - run: mkdir -p workspace
-      - run: echo "Hello, world!" > workspace/echo-output
-
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
           root: builds
