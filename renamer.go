@@ -23,12 +23,27 @@ func predicate(root string, path string) bool {
 	return path0.Dir(root) != path0.Dir(path)
 }
 
+func removeSuffix(filename string) string {
+	dotsegs := strings.Split(filename, ".")
+	extension := dotsegs[len(dotsegs)-1]
+	segs := strings.Split(filename, "-")
+	if len(segs) > 1 {
+		segs = segs[:len(segs)-1]
+	}
+
+	out := strings.Join(segs, "-")
+	if len(segs) > 1 {
+		out = fmt.Sprintf("%s.%s", out, extension)
+	}
+	return out
+}
+
 func moveFiles(root string) error {
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 		if !predicate(root, path) {
 			return nil
 		}
-		newname := filepath.Join(root, filepath.Base(path))
+		newname := filepath.Join(root, removeSuffix(filepath.Base(path)))
 		ok, err := FileExists(newname)
 		if err != nil {
 			return err

@@ -85,3 +85,42 @@ func TestMoveFiles(t *testing.T) {
 
 	})
 }
+
+func TestRemoveSuffix(t *testing.T) {
+	t.Run("basic-test", func(t *testing.T) {
+		input := "STI-EX.MERLIN-29012018220001.csv"
+		expected := "STI-EX.MERLIN.csv"
+		actual := removeSuffix(input)
+		if actual != expected {
+			t.Errorf("expected %s, got %s", expected, actual)
+		}
+	})
+	t.Run("without-dashes", func(t *testing.T) {
+		input := "bar.csv"
+		expected := "bar.csv"
+		actual := removeSuffix(input)
+		if actual != expected {
+			t.Errorf("expected %s, got %s", expected, actual)
+		}
+	})
+
+	t.Run("sav-extension-no-dashes", func(t *testing.T) {
+		input := "bar.sav"
+		expected := "bar.sav"
+		actual := removeSuffix(input)
+		if actual != expected {
+			t.Errorf("expected %s, got %s", expected, actual)
+		}
+	})
+
+	t.Run("sav-extension-with-dashes", func(t *testing.T) {
+		input := "bar-foo-quux.sav"
+		expected := "bar-foo.sav"
+		actual := removeSuffix(input)
+		if actual != expected {
+			t.Errorf("expected %s, got %s", expected, actual)
+		}
+	})
+
+	// TODO FIXME add text with .sav suffix - make sure func changes that too
+}
