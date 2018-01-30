@@ -128,14 +128,12 @@ See complete documentation at:
 	fmt.Println("Downloading file...")
 	rarFile, err := downloadFile(fileDate, config, sftpclient)
 	if err != nil {
-
 		fmt.Printf("Could not download file: %s\n", err.Error())
 		os.Exit(1)
 	}
 	fmt.Println("Unarchiving file...")
 	err = UncompressFile(rarFile, fileDate, config)
 	if err != nil {
-
 		fmt.Printf("Could not unrar file: %s\n", err.Error())
 		os.Exit(1)
 	}
@@ -144,7 +142,15 @@ See complete documentation at:
 	err = moveFiles(rundir)
 	if err != nil {
 		fmt.Printf("Error renaming files: %s.\n", err.Error())
+		os.Exit(1)
 	}
+	fmt.Println("Renaming download directory...")
+	fileDate, err = renameDownloadDir(config, fileDate)
+	if err != nil {
+		fmt.Printf("Error renaming download directory: %s\n", err.Error())
+		os.Exit(1)
+	}
+	rundir = filepath.Join(config.LocalDownloadFolder, fileDate)
 	fmt.Println("Running postprocessing command...")
 	exitCode, _, _ := runScript(config.PostProcessingCommand, rundir)
 	fmt.Println("Done:")

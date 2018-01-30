@@ -3,6 +3,7 @@ package main
 import (
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"testing"
 )
 
@@ -88,4 +89,49 @@ func TestIsDir(t *testing.T) {
 		t.Error("Expected false, got true")
 	}
 
+}
+
+//func renameDownloadDir(config Config, fileDate string) (string, error)
+func TestRenameDownloadDir(t *testing.T) {
+	tempDir, err := ioutil.TempDir("", "sftp_downloader_test")
+	if err != nil {
+		t.Fail()
+	}
+	defer os.RemoveAll(tempDir)
+
+	t.Run("changeme", func(t *testing.T) {
+		config := Config{LocalDownloadFolder: tempDir}
+		oldName := "24-01-2018"
+		err := os.Mkdir(filepath.Join(tempDir, oldName), os.ModePerm)
+		if err != nil {
+			t.Fail()
+		}
+		newName, err := renameDownloadDir(config, oldName)
+		if err != nil {
+			t.Errorf("Got unexpected error: %s", err.Error())
+		}
+		if newName != "2018-01-24" {
+			t.Errorf("Expected 2018-01-24, got %s", newName)
+		}
+		fh, err := os.Open(tempDir)
+		if err != nil {
+			t.Fail()
+		}
+		infos, err := fh.Readdir(-1)
+		if err != nil {
+			t.Fail()
+		}
+		if err != nil {
+			t.Fail()
+		}
+		if len(infos) != 1 {
+			t.Errorf("expected 1 item, got %d", len(infos))
+		}
+		if infos[0].Name() != newName {
+			t.Errorf("expected %s, got %s", newName, infos[0].Name())
+		}
+		if !infos[0].IsDir() {
+			t.Error("expected directory, got file")
+		}
+	})
 }

@@ -9,8 +9,8 @@ import (
 	"github.com/golang/mock/gomock"
 )
 
-func getTheTime() time.Time {
-	ret, _ := time.Parse(time.RFC822, time.RFC822) // 2006-01-02 15:04:00 +0000 MST
+func getTheTime() time.Time { //     1   2 3  4  5  6      7
+	ret, _ := time.Parse(time.RFC822, time.RFC822) // Mon Jan 2 15:04:05 2006 -0700
 	return ret
 }
 
