@@ -122,5 +122,14 @@ func TestRemoveSuffix(t *testing.T) {
 		}
 	})
 
+	t.Run("bug-from-lili", func(t *testing.T) {
+		input := "AE.MERLIN-29012018220001.csv"
+		expected := "AE.MERLIN.csv"
+		actual := removeSuffix(input)
+		if actual != expected {
+			t.Errorf("expected %s, got %s", expected, actual)
+		}
+	})
+
 	// TODO FIXME add text with .sav suffix - make sure func changes that too
 }

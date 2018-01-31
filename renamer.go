@@ -30,9 +30,8 @@ func removeSuffix(filename string) string {
 	if len(segs) > 1 {
 		segs = segs[:len(segs)-1]
 	}
-
 	out := strings.Join(segs, "-")
-	if len(segs) > 1 {
+	if !strings.HasSuffix(out, fmt.Sprintf(".%s", extension)) {
 		out = fmt.Sprintf("%s.%s", out, extension)
 	}
 	return out
