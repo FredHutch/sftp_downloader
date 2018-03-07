@@ -43,14 +43,15 @@ func IsDir(fileName string) (bool, error) {
 	return stat.IsDir(), nil
 }
 
-func renameDownloadDir(config Config, fileDate string) (string, error) {
+func renameDownloadDir(config Config, fileDate string, phase Phase) (string, error) {
+	downloadFolder := getDownloadFolder(phase, config)
 	t, err := time.Parse("02-01-2006", fileDate)
 	if err != nil {
 		return "", fmt.Errorf("Could not convert %s to Time object: %s", fileDate, err.Error())
 	}
 	newName := t.Format("2006-01-02")
-	err = os.Rename(filepath.Join(config.LocalDownloadFolder, fileDate),
-		filepath.Join(config.LocalDownloadFolder, newName))
+	err = os.Rename(filepath.Join(downloadFolder, fileDate),
+		filepath.Join(downloadFolder, newName))
 	if err != nil {
 		return "", fmt.Errorf("Could not rename download directory: %s", err.Error())
 	}

@@ -9,6 +9,13 @@ import (
 	"syscall"
 )
 
+func getScriptName(config Config, phase Phase) string {
+	if phase == ClinicalPhase {
+		return config.PostProcessingCommandClinical
+	}
+	return config.PostProcessingCommandLab
+}
+
 func runScript(cmdline string, rundir string) (int, string, error) {
 	currentDir, _ := os.Getwd()
 	defer os.Chdir(currentDir)

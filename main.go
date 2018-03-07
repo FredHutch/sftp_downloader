@@ -89,13 +89,6 @@ See complete documentation at:
 		os.Exit(1) // TODO change to exit() ? No point if not testable?
 	}
 
-	fileDate, err := getDateString()
-	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
-		return
-	}
-
 	config, err := GetConfig(os.Args[1])
 	if err != nil {
 		fmt.Println(err.Error())
@@ -125,37 +118,68 @@ See complete documentation at:
 		os.Exit(1)
 	}
 	sftpclient := &SftpWrapper{Cl: client}
-	fmt.Println("Downloading file...")
-	rarFile, err := downloadFile(fileDate, config, sftpclient)
-	if err != nil {
-		fmt.Printf("Could not download file: %s\n", err.Error())
-		os.Exit(1)
+
+	var exitCodes []int
+
+	for _, phase := range phases {
+
+		fileDate, err := getDateString()
+		if err != nil {
+			fmt.Println(err.Error())
+			os.Exit(1)
+			return
+		}
+
+		downloadFolder := getDownloadFolder(phase, config)
+		fmt.Printf("Downloading %s file...\n", getPhaseName(phase))
+
+		rarFile, err := downloadFile(fileDate, config, sftpclient, phase)
+		if err != nil {
+			fmt.Printf("Could not download file: %s\n", err.Error())
+			os.Exit(1)
+		}
+
+		fmt.Printf("Unarchiving %s file...\n", getPhaseName(phase))
+		err = UncompressFile(rarFile, fileDate, config, phase)
+		if err != nil {
+			fmt.Printf("Could not unrar file: %s\n", err.Error())
+			os.Exit(1)
+		}
+
+		fmt.Println("Moving CSV and SAV files to top level...")
+		rundir := filepath.Join(downloadFolder, fileDate)
+		err = moveFiles(rundir) // TODO needs to behave differently depending on phase??
+		if err != nil {
+			fmt.Printf("Error renaming files: %s.\n", err.Error())
+			os.Exit(1)
+		}
+
+		fmt.Println("Renaming download directory...")
+		fileDate, err = renameDownloadDir(config, fileDate, phase)
+		if err != nil {
+			fmt.Printf("Error renaming download directory: %s\n", err.Error())
+			os.Exit(1)
+		}
+
+		rundir = filepath.Join(downloadFolder, fileDate)
+		fmt.Printf("Running %s postprocessing command...\n", getPhaseName(phase))
+		exitCode, _, _ := runScript(getScriptName(config, phase), rundir)
+		exitCodes = append(exitCodes, exitCode)
+		fmt.Printf("%s postprocessing command exited with code %d.\n", getPhaseName(phase), exitCode)
+
+		fmt.Println("Done:") // TODO remove?
+		fmt.Printf("(%s) Downloaded %s and unarchived files to %s/%s.\n", getPhaseName(phase), rarFile,
+			downloadFolder, fileDate)
+
+	} // end of for phase in phases
+
+	var overallExitCode int
+	for _, code := range exitCodes {
+		if code > 0 {
+			overallExitCode = code
+		}
 	}
-	fmt.Println("Unarchiving file...")
-	err = UncompressFile(rarFile, fileDate, config)
-	if err != nil {
-		fmt.Printf("Could not unrar file: %s\n", err.Error())
-		os.Exit(1)
-	}
-	fmt.Println("Moving CSV and SAV files to top level...")
-	rundir := filepath.Join(config.LocalDownloadFolder, fileDate)
-	err = moveFiles(rundir)
-	if err != nil {
-		fmt.Printf("Error renaming files: %s.\n", err.Error())
-		os.Exit(1)
-	}
-	fmt.Println("Renaming download directory...")
-	fileDate, err = renameDownloadDir(config, fileDate)
-	if err != nil {
-		fmt.Printf("Error renaming download directory: %s\n", err.Error())
-		os.Exit(1)
-	}
-	rundir = filepath.Join(config.LocalDownloadFolder, fileDate)
-	fmt.Println("Running postprocessing command...")
-	exitCode, _, _ := runScript(config.PostProcessingCommand, rundir)
-	fmt.Println("Done:")
-	fmt.Printf("Downloaded %s and unarchived files to %s/%s.\n", rarFile,
-		config.LocalDownloadFolder, fileDate)
-	fmt.Printf("Exiting with exit code %d.\n", exitCode)
-	os.Exit(exitCode)
+
+	fmt.Printf("Exiting with exit code %d.\n", overallExitCode)
+	os.Exit(overallExitCode)
 }

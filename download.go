@@ -10,8 +10,13 @@ import (
 	"github.com/FredHutch/sftp_downloader/iface"
 )
 
-func getFileNameToDownload(fileDate string, config Config, sftpclient iface.Sftper) (string, error) {
-	filePattern := fmt.Sprintf("Reportes_diarios_acumulados-%s", fileDate)
+func getFileNameToDownload(fileDate string, config Config, sftpclient iface.Sftper, phase Phase) (string, error) {
+	var filePattern string
+	if phase == ClinicalPhase {
+		filePattern = fmt.Sprintf("Reportes_diarios_acumulados-%s", fileDate)
+	} else if phase == LabPhase {
+		filePattern = fmt.Sprintf("Reportes_diarios_acumulados_laboratorio-%s", fileDate)
+	}
 	remoteDir := "/" // TODO factor this out to json config
 	matchingFiles, err := sftpclient.ReadDir(remoteDir)
 	if err != nil {
@@ -29,31 +34,44 @@ func getFileNameToDownload(fileDate string, config Config, sftpclient iface.Sftp
 	return fmt.Sprintf("%s%s", remoteDir, matches[0]), nil
 }
 
-func doDownload(remoteFile string, config Config, sftpclient iface.Sftper) (rarFile string, retErr error) {
+func getDownloadFolder(phase Phase, config Config) string {
+	if phase == ClinicalPhase {
+		return config.LocalDownloadFolderClinical
+	} else if phase == LabPhase {
+		return config.LocalDownloadFolderLab
+	} else {
+		fmt.Println("Invalid phase:", phase)
+		os.Exit(1)
+		return ""
+	}
+}
+
+func doDownload(remoteFile string, config Config, sftpclient iface.Sftper, phase Phase) (rarFile string, retErr error) {
 	f, err := sftpclient.Open(remoteFile)
 	if err != nil {
 		return "", fmt.Errorf("Could not open remote file %s: %s", remoteFile, err.Error())
 	}
+	downloadFolder := getDownloadFolder(phase, config)
 	// check that destination directory exists
-	exists, err := FileExists(config.LocalDownloadFolder)
+	exists, err := FileExists(downloadFolder)
 	if err != nil {
 		return "", fmt.Errorf("error checking if local download folder exists: %s", err.Error())
 	}
 	if !exists {
 		return "", fmt.Errorf("local download directory '%s' does not exist",
-			config.LocalDownloadFolder)
+			downloadFolder)
 	}
 
-	isdir, err := IsDir(config.LocalDownloadFolder)
+	isdir, err := IsDir(downloadFolder)
 	if err != nil {
 		return "", fmt.Errorf("Error checking if local download dir is a dir: %s", err.Error())
 	}
 
 	if !isdir {
-		return "", fmt.Errorf("'%s' exists but is not a directory", config.LocalDownloadFolder)
+		return "", fmt.Errorf("'%s' exists but is not a directory", downloadFolder)
 	}
 
-	destFile := filepath.Join(config.LocalDownloadFolder, filepath.Base(remoteFile))
+	destFile := filepath.Join(downloadFolder, filepath.Base(remoteFile))
 	outfile, err := os.Create(destFile)
 	if err != nil {
 		return "", fmt.Errorf("Error creating destination file '%s'", destFile)
@@ -79,15 +97,15 @@ func doDownload(remoteFile string, config Config, sftpclient iface.Sftper) (rarF
 			return "", fmt.Errorf("error writing to outfile: %s", err.Error())
 		}
 	}
-	return filepath.Join(config.LocalDownloadFolder, filepath.Base(remoteFile)), nil
+	return filepath.Join(downloadFolder, filepath.Base(remoteFile)), nil
 }
 
-func downloadFile(fileDate string, config Config, sftpclient iface.Sftper) (rarFile string, retErr error) {
-	remoteFile, err := getFileNameToDownload(fileDate, config, sftpclient)
+func downloadFile(fileDate string, config Config, sftpclient iface.Sftper, phase Phase) (rarFile string, retErr error) {
+	remoteFile, err := getFileNameToDownload(fileDate, config, sftpclient, phase)
 	if err != nil {
 		return "", err
 	}
-	rarFile, err = doDownload(remoteFile, config, sftpclient)
+	rarFile, err = doDownload(remoteFile, config, sftpclient, phase)
 	if err != nil {
 		return "", err
 	}

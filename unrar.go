@@ -95,8 +95,8 @@ func writeNewFile(fpath string, in io.Reader, fm os.FileMode) error {
 }
 
 // UncompressFile uncompresses a rar file with a password
-func UncompressFile(rarFile, fileDate string, config Config) error {
-	destFolder := filepath.Join(config.LocalDownloadFolder, fileDate)
+func UncompressFile(rarFile, fileDate string, config Config, phase Phase) error {
+	destFolder := filepath.Join(getDownloadFolder(phase, config), fileDate)
 	exists, err := FileExists(destFolder)
 	if err != nil {
 		return fmt.Errorf("Error checking directory existence")

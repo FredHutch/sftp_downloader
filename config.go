@@ -9,13 +9,33 @@ import (
 
 // Config is a representation of the JSON config file
 type Config struct {
-	Host                  string `json:"host"`
-	Port                  int    `json:"port"`
-	User                  string `json:"user"`
-	Password              string `json:"password"`
-	LocalDownloadFolder   string `json:"local_download_folder"`
-	RarDecryptionPassword string `json:"rar_decryption_password"`
-	PostProcessingCommand string `json:"postprocessing_command"`
+	Host                          string `json:"host"`
+	Port                          int    `json:"port"`
+	User                          string `json:"user"`
+	Password                      string `json:"password"`
+	LocalDownloadFolderClinical   string `json:"local_download_folder_clinical"`
+	LocalDownloadFolderLab        string `json:"local_download_folder_lab"`
+	RarDecryptionPassword         string `json:"rar_decryption_password"`
+	PostProcessingCommandClinical string `json:"postprocessing_command_clinical"`
+	PostProcessingCommandLab      string `json:"postprocessing_command_lab"`
+}
+
+type Phase int
+
+const (
+	ClinicalPhase Phase = iota
+	LabPhase
+)
+
+var (
+	phases = []Phase{ClinicalPhase, LabPhase}
+)
+
+func getPhaseName(phase Phase) string {
+	if phase == ClinicalPhase {
+		return "clinical"
+	}
+	return "lab"
 }
 
 // GetConfig populates the Config struct from a json file
