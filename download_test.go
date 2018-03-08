@@ -67,7 +67,8 @@ func TestGetFileNameToDownload(t *testing.T) {
 		if err != nil {
 			t.Fail()
 		}
-		config := Config{LocalDownloadFolder: tempDir}
+
+		config := Config{LocalDownloadFolderClinical: tempDir}
 		defer os.RemoveAll(tempDir)
 
 		mockCtrl := gomock.NewController(t)
@@ -80,7 +81,7 @@ func TestGetFileNameToDownload(t *testing.T) {
 
 		mockSftper.EXPECT().ReadDir("/").Return(fs, nil).Times(1)
 
-		res, err := getFileNameToDownload("2018-01-01", config, mockSftper)
+		res, err := getFileNameToDownload("2018-01-01", config, mockSftper, ClinicalPhase)
 		if err != nil {
 			t.Error("Expected success, got error")
 		}
@@ -106,7 +107,7 @@ func TestDoDownload(t *testing.T) {
 	defer os.RemoveAll(tempDir)
 
 	t.Run("changeme", func(t *testing.T) {
-		config := Config{LocalDownloadFolder: tempDir}
+		config := Config{LocalDownloadFolderClinical: tempDir}
 
 		mockCtrl := gomock.NewController(t)
 		defer mockCtrl.Finish()
@@ -118,7 +119,7 @@ func TestDoDownload(t *testing.T) {
 		}
 		mockSftper.EXPECT().Open(gomock.Any()).Return(fh, nil).Times(1)
 
-		res, err := doDownload("remoteFile", config, mockSftper)
+		res, err := doDownload("remoteFile", config, mockSftper, ClinicalPhase)
 		if err != nil {
 			t.Error("did not expect error")
 		}

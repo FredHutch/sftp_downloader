@@ -54,8 +54,8 @@ func TestUncompressFile(t *testing.T) {
 
 	setUp := func() {
 		tempDir = getTempDir()
-		config = Config{LocalDownloadFolder: tempDir}
-		destFolder = filepath.Join(config.LocalDownloadFolder, fileDate)
+		config = Config{LocalDownloadFolderClinical: tempDir}
+		destFolder = filepath.Join(config.LocalDownloadFolderClinical, fileDate)
 	}
 
 	tearDown := func() {
@@ -66,7 +66,7 @@ func TestUncompressFile(t *testing.T) {
 
 	t.Run("badpassword", func(t *testing.T) {
 		config.RarDecryptionPassword = "badpassword"
-		err := UncompressFile(filepath.Join("testdata", "test.rar"), fileDate, config)
+		err := UncompressFile(filepath.Join("testdata", "test.rar"), fileDate, config, ClinicalPhase)
 		if err == nil {
 			t.Error("Expected error, got nil")
 		}
@@ -80,7 +80,7 @@ func TestUncompressFile(t *testing.T) {
 
 	t.Run("goodpassword", func(t *testing.T) {
 		config.RarDecryptionPassword = "password"
-		err := UncompressFile(filepath.Join("testdata", "test.rar"), fileDate, config)
+		err := UncompressFile(filepath.Join("testdata", "test.rar"), fileDate, config, ClinicalPhase)
 		if err != nil {
 			t.Error("unexpected error:", err.Error())
 		}
@@ -92,7 +92,7 @@ func TestUncompressFile(t *testing.T) {
 
 	t.Run("changeme", func(t *testing.T) {
 		config.RarDecryptionPassword = "password"
-		err := UncompressFile(filepath.Join("testdata", "test.rar"), fileDate, config)
+		err := UncompressFile(filepath.Join("testdata", "test.rar"), fileDate, config, ClinicalPhase)
 		if err != nil {
 			t.Error("unexpected error:", err.Error())
 		}

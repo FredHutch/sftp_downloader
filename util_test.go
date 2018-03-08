@@ -100,13 +100,13 @@ func TestRenameDownloadDir(t *testing.T) {
 	defer os.RemoveAll(tempDir)
 
 	t.Run("changeme", func(t *testing.T) {
-		config := Config{LocalDownloadFolder: tempDir}
+		config := Config{LocalDownloadFolderClinical: tempDir}
 		oldName := "24-01-2018"
 		err := os.Mkdir(filepath.Join(tempDir, oldName), os.ModePerm)
 		if err != nil {
 			t.Fail()
 		}
-		newName, err := renameDownloadDir(config, oldName)
+		newName, err := renameDownloadDir(config, oldName, ClinicalPhase)
 		if err != nil {
 			t.Errorf("Got unexpected error: %s", err.Error())
 		}

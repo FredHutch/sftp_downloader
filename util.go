@@ -5,6 +5,10 @@ import (
 	"os"
 	"path/filepath"
 	"time"
+	"unicode"
+
+	"golang.org/x/text/transform"
+	"golang.org/x/text/unicode/norm"
 )
 
 // FileExists tells you if fileName exists
@@ -57,4 +61,17 @@ func renameDownloadDir(config Config, fileDate string, phase Phase) (string, err
 	}
 	return newName, nil
 
+}
+
+func isMn(r rune) bool {
+	return unicode.Is(unicode.Mn, r) // Mn: nonspacing marks
+}
+
+func convertAccentedToPlain(accented string) (string, error) {
+	t := transform.Chain(norm.NFD, transform.RemoveFunc(isMn), norm.NFC)
+	result, _, err := transform.String(t, accented)
+	if err != nil {
+		return "", err
+	}
+	return result, nil
 }

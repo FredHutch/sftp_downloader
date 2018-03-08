@@ -136,7 +136,11 @@ See complete documentation at:
 		rarFile, err := downloadFile(fileDate, config, sftpclient, phase)
 		if err != nil {
 			fmt.Printf("Could not download file: %s\n", err.Error())
-			os.Exit(1)
+			if phase == ClinicalPhase {
+				os.Exit(1)
+			} else {
+				os.Exit(0)
+			}
 		}
 
 		fmt.Printf("Unarchiving %s file...\n", getPhaseName(phase))
