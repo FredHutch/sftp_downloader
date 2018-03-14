@@ -1,0 +1,959 @@
+total 0
+drwxr-xr-x   9 dtenenba  staff  306 Mar  2 22:36 MERLIN
+drwxr-xr-x   9 dtenenba  staff  306 Mar  2 22:37 MERLIN-A
+drwxr-xr-x   9 dtenenba  staff  306 Mar  2 22:37 MERLIN-B-CU
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:37 MERLIN-LEUCO-A
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:37 MERLIN-LEUCO-B
+drwxr-xr-x   4 dtenenba  staff  136 Mar  2 22:37 MERLIN-PL-A
+drwxr-xr-x   4 dtenenba  staff  136 Mar  2 22:37 MERLIN-PL-B
+drwxr-xr-x   6 dtenenba  staff  204 Mar  2 22:36 NEURO
+drwxr-xr-x   5 dtenenba  staff  170 Mar  2 22:33 OBS-A
+drwxr-xr-x   5 dtenenba  staff  170 Mar  2 22:33 OBS-B-CE
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:36 OBS-B-CU
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:34 OBS-C-CE
+drwxr-xr-x   4 dtenenba  staff  136 Mar  2 22:36 OBS-C-CU
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:34 OBS-D-CE
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:36 OBS-D-CU
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:36 OBS-LEUCO-A
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:36 OBS-LEUCO-B
+drwxr-xr-x   5 dtenenba  staff  170 Mar  2 22:36 OBS-PL-A
+drwxr-xr-x   5 dtenenba  staff  170 Mar  2 22:36 OBS-PL-B
+drwxr-xr-x  11 dtenenba  staff  374 Mar  2 22:33 SABES 1
+drwxr-xr-x   6 dtenenba  staff  204 Mar  2 22:30 SABES 2
+drwxr-xr-x   9 dtenenba  staff  306 Mar  2 22:36 SABES 2A
+drwxr-xr-x   3 dtenenba  staff  102 Mar  2 22:36 SABES 2A COCA
+drwxr-xr-x  13 dtenenba  staff  442 Mar  2 22:33 SABES 3
+drwxr-xr-x  14 dtenenba  staff  476 Mar  2 22:32 SABES 3A-TI
+drwxr-xr-x  14 dtenenba  staff  476 Mar  2 22:35 SABES 3B-TD
+
+../REPORTE-CSV-BD-LAB//MERLIN:
+total 0
+drwxr-xr-x   6 dtenenba  staff  204 Mar 13 19:46 Anglolab
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  15 dtenenba  staff  510 Mar  3 23:20 Bioquímica
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 Citometría
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Hematología
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Inmunología
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Urianálisis
+
+../REPORTE-CSV-BD-LAB//MERLIN/Anglolab:
+total 24
+-rw-r--r--  1 dtenenba  staff  193 Mar 13 20:03 Gamma Glutamil Transpeptidasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    0 Mar  9 22:36 Hemograma completo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  622 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  193 Mar 13 20:03 new.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN/Biología Molecular:
+total 24
+-rw-r--r--  1 dtenenba  staff  9991 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:36 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:36 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN/Bioquímica:
+total 264
+-rw-r--r--  1 dtenenba  staff  10481 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    338 Mar 13 20:03 Bilirrubina total y fraccionada-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10586 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10695 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    212 Mar 13 20:03 Electrolitos(Na, Cl, K)  -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10778 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10586 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10158 Mar 13 20:03 Glucosa sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10503 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  12249 Mar 13 20:03 Perfil Lipídico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    192 Mar 13 20:03 Sodio sérico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10810 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10384 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN/Citometría:
+total 32
+-rw-r--r--  1 dtenenba  staff  15329 Mar 13 20:03 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN/Hematología:
+total 48
+-rw-r--r--  1 dtenenba  staff  19678 Mar 13 20:03 Hemograma - -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:36 Hemograma-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   1913 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN/Inmunología:
+total 32
+-rw-r--r--  1 dtenenba  staff   1907 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10852 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN/Urianálisis:
+total 24
+-rw-r--r--  1 dtenenba  staff  2625 Mar 13 20:03 Dipstick Orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  1583 Mar 13 20:03 OneStep EtG test Dip Card-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2276 Mar 13 20:03 OneStep Multidrug test Dip Card-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-A:
+total 0
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Anglolab
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  13 dtenenba  staff  442 Mar  3 23:20 Bioquímica
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 Citometría
+drwxr-xr-x   6 dtenenba  staff  204 Mar  3 23:20 Hematología
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Inmunología
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Urianálisis
+
+../REPORTE-CSV-BD-LAB//MERLIN-A/Anglolab:
+total 16
+-rw-r--r--  1 dtenenba  staff  194 Mar 13 20:03 Gamma Glutamil Transpeptidasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  193 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-A/Biología Molecular:
+total 8
+-rw-r--r--  1 dtenenba  staff  2070 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:37 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-A/Bioquímica:
+total 88
+-rw-r--r--  1 dtenenba  staff  2684 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   217 Mar 13 20:03 Bilirrubina total y fraccionada-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2681 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2681 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2801 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2681 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  1977 Mar 13 20:03 Glucosa sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2688 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2531 Mar 13 20:03 Perfil Lipídico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2791 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2899 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-A/Citometría:
+total 8
+-rw-r--r--  1 dtenenba  staff  4053 Mar 13 20:03 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-A/Hematología:
+total 24
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:37 Hemoglobina - Hematocrito --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  5800 Mar 13 20:03 Hemograma - -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:37 Hemograma-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   209 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-A/Inmunología:
+total 16
+-rw-r--r--  1 dtenenba  staff   393 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2809 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-A/Urianálisis:
+total 24
+-rw-r--r--  1 dtenenba  staff   324 Mar 13 20:03 Dipstick Orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   805 Mar 13 20:03 OneStep EtG test Dip Card-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  1183 Mar 13 20:03 OneStep Multidrug test Dip Card-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU:
+total 0
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 Anglolab
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  12 dtenenba  staff  408 Mar  3 23:20 Bioquímica
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 Citometría
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Hematología
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Inmunología
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Urianálisis
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU/Anglolab:
+total 8
+-rw-r--r--  1 dtenenba  staff  299 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU/Biología Molecular:
+total 8
+-rw-r--r--  1 dtenenba  staff  2614 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:37 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:37 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU/Bioquímica:
+total 80
+-rw-r--r--  1 dtenenba  staff  3437 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3327 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3327 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3329 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3327 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2186 Mar 13 20:03 Glucosa sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3340 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2644 Mar 13 20:03 Perfil Lipídico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3435 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3220 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU/Citometría:
+total 16
+-rw-r--r--  1 dtenenba  staff  4842 Mar 13 20:03 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU/Hematología:
+total 24
+-rw-r--r--  1 dtenenba  staff  6477 Mar 13 20:03 Hemograma - -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:37 Hemograma-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   229 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU/Inmunología:
+total 16
+-rw-r--r--  1 dtenenba  staff   797 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3455 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-B-CU/Urianálisis:
+total 16
+-rw-r--r--  1 dtenenba  staff  1327 Mar 13 20:03 OneStep EtG test Dip Card-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  1930 Mar 13 20:03 OneStep Multidrug test Dip Card-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-LEUCO-A:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//MERLIN-LEUCO-A/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:37 PBMC - leucoaféresis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-LEUCO-B:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//MERLIN-LEUCO-B/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:37 PBMC - leucoaféresis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-PL-A:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Anglolab
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Hematología
+
+../REPORTE-CSV-BD-LAB//MERLIN-PL-A/Anglolab:
+total 8
+-rw-r--r--  1 dtenenba  staff  225 Mar 13 20:03 Estudio Bioquímico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-PL-A/Hematología:
+total 8
+-rw-r--r--  1 dtenenba  staff  327 Mar 13 20:03 Estudio Citológico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-PL-B:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Anglolab
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Hematología
+
+../REPORTE-CSV-BD-LAB//MERLIN-PL-B/Anglolab:
+total 8
+-rw-r--r--  1 dtenenba  staff  226 Mar 13 20:03 Estudio Bioquímico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//MERLIN-PL-B/Hematología:
+total 8
+-rw-r--r--  1 dtenenba  staff  336 Mar 13 20:03 Estudio Citológico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//NEURO:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Anglolab
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  5 dtenenba  staff  170 Mar  3 23:20 Bioquímica
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Hematología
+
+../REPORTE-CSV-BD-LAB//NEURO/Anglolab:
+total 8
+-rw-r--r--  1 dtenenba  staff  329 Mar 13 20:03 Estudio Bioquímico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//NEURO/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//NEURO/Bioquímica:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//NEURO/Hematología:
+total 8
+-rw-r--r--  1 dtenenba  staff  460 Mar 13 20:03 Estudio Citológico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-A:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Anglolab
+drwxr-xr-x  4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Hematología
+
+../REPORTE-CSV-BD-LAB//OBS-A/Anglolab:
+total 8
+-rw-r--r--  1 dtenenba  staff  200 Mar 13 20:03 Hemoglobina-Hematocrito-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-A/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-A/Hematología:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 Hemoglobina-Hematocrito(Hgb-Hct)-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-B-CE:
+total 0
+drwxr-xr-x  6 dtenenba  staff  204 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Citometría
+drwxr-xr-x  4 dtenenba  staff  136 Mar  3 23:20 Hematología
+
+../REPORTE-CSV-BD-LAB//OBS-B-CE/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 DCP-PBMC no viable-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-B-CE/Citometría:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-B-CE/Hematología:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 Hemograma - -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 Lámina Periférica-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-B-CU:
+total 0
+drwxr-xr-x  4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//OBS-B-CU/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-C-CE:
+total 0
+drwxr-xr-x  4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//OBS-C-CE/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-C-CU:
+total 0
+drwxr-xr-x  4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Urianálisis
+
+../REPORTE-CSV-BD-LAB//OBS-C-CU/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-C-CU/Urianálisis:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 Orina Completa-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-D-CE:
+total 0
+drwxr-xr-x  4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//OBS-D-CE/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:34 DBS Dried blood spots-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:34 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-D-CU:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//OBS-D-CU/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-LEUCO-A:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//OBS-LEUCO-A/Biología Molecular:
+total 8
+-rw-r--r--  1 dtenenba  staff  235 Mar 13 20:03 PBMC - leucoaféresis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-LEUCO-B:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//OBS-LEUCO-B/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 PBMC - leucoaféresis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-PL-A:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Anglolab
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Hematología
+
+../REPORTE-CSV-BD-LAB//OBS-PL-A/Anglolab:
+total 8
+-rw-r--r--  1 dtenenba  staff  3605 Mar 13 20:03 Estudio Bioquímico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-PL-A/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-PL-A/Hematología:
+total 16
+-rw-r--r--  1 dtenenba  staff  4744 Mar 13 20:03 Estudio Citológico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-PL-B:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Anglolab
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 DISA II -C.S. Chorrillos I
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Hematología
+
+../REPORTE-CSV-BD-LAB//OBS-PL-B/Anglolab:
+total 8
+-rw-r--r--  1 dtenenba  staff  4025 Mar 13 20:03 Estudio Bioquímico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-PL-B/DISA II -C.S. Chorrillos I:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 Investigación Bacteriológica en Tuberculosis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//OBS-PL-B/Hematología:
+total 16
+-rw-r--r--  1 dtenenba  staff  5320 Mar 13 20:03 Estudio Citológico de LCR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1:
+total 0
+drwxr-xr-x  15 dtenenba  staff  510 Mar  3 23:20 Anglolab
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 BSL III
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  11 dtenenba  staff  374 Mar  3 23:20 Bioquímica
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 Citometría
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 DISA II -C.S. Chorrillos I
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 DISA V
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 INS
+drwxr-xr-x   6 dtenenba  staff  204 Mar  3 23:20 Inmunología
+
+../REPORTE-CSV-BD-LAB//SABES 1/Anglolab:
+total 104
+-rw-r--r--  1 dtenenba  staff  1309 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   699 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   288 Mar 13 20:03 Creatinina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   289 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   492 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3622 Mar 13 20:03 Hepatitis Anti HB core-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   286 Mar 13 20:03 Hepatitis Anti HBc IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3724 Mar 13 20:03 Hepatitis Anti-HBS (AUSAB)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3724 Mar 13 20:03 Hepatitis HBsAg (Antigeno Australiano)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   387 Mar 13 20:03 Investigación de HIV I-II-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3761 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   288 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   287 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/BSL III:
+total 8
+-rw-r--r--  1 dtenenba  staff  306 Mar 13 20:03 Carga Viral HIV1 Xpert-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/Biología Molecular:
+total 568
+-rw-r--r--  1 dtenenba  staff     532 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  284912 Mar 13 20:03 Liat HIV RNA Plasma Quant (IQPB)-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/Bioquímica:
+total 64
+-rw-r--r--  1 dtenenba  staff  2539 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3247 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3658 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3669 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3454 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:33 Glucosa en orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   186 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3659 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3661 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/Citometría:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/DISA II -C.S. Chorrillos I:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:33 Investigación Bacteriológica en Tuberculosis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/DISA V:
+total 8
+-rw-r--r--  1 dtenenba  staff  193 Mar 13 20:03 Investigación Bacteriológica TBC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/INS:
+total 72
+-rw-r--r--  1 dtenenba  staff  15902 Mar 13 20:03 ELISA Control de Calidad VIH-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  15275 Mar 13 20:03 IFI-VIH-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    600 Mar 13 20:03 INMUNOBLOT VIH 1-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 1/Inmunología:
+total 1568
+-rw-r--r--  1 dtenenba  staff  348951 Mar 13 20:03 Determine HIV 1_2 Rapitest-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   20828 Mar 13 20:03 HIV-1 Western Blot Genetic System-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   67316 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  354692 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2:
+total 0
+drwxr-xr-x  7 dtenenba  staff  238 Mar  3 23:20 Anglolab
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  8 dtenenba  staff  272 Mar  3 23:20 Bioquímica
+drwxr-xr-x  8 dtenenba  staff  272 Mar  3 23:20 Inmunología
+
+../REPORTE-CSV-BD-LAB//SABES 2/Anglolab:
+total 40
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  185 Mar 13 20:03 Hepatitis Anti HB core-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  185 Mar 13 20:03 Hepatitis Anti-HBS (AUSAB)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  185 Mar 13 20:03 Hepatitis HBsAg (Antigeno Australiano)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 Lipasa-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2/Biología Molecular:
+total 936
+-rw-r--r--  1 dtenenba  staff  475257 Mar 13 20:03 Liat HIV RNA Plasma Quant (IQPB)-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2/Bioquímica:
+total 48
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  186 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2/Inmunología:
+total 1552
+-rw-r--r--  1 dtenenba  staff  464229 Mar 13 20:03 Determine HIV 1_2 Rapitest-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    5873 Mar 13 20:03 HIV-1 Western Blot Genetic System-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff       0 Mar  9 22:30 HIV-1 Western Blot New Lab Blot 1-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   43210 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     184 Mar 13 20:03 Oraquick Advance HIV 1_2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  267696 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A:
+total 0
+drwxr-xr-x  18 dtenenba  staff  612 Mar  3 23:20 Anglolab
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 BSL III
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  12 dtenenba  staff  408 Mar  3 23:20 Bioquímica
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 INS
+drwxr-xr-x   7 dtenenba  staff  238 Mar  3 23:20 Inmunología
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 NAMRU-6
+
+../REPORTE-CSV-BD-LAB//SABES 2A/Anglolab:
+total 248
+-rw-r--r--  1 dtenenba  staff   9466 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   5589 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2020 Mar 13 20:03 Creatinina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2027 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3037 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  16329 Mar 13 20:03 Hepatitis Anti HB core-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    286 Mar 13 20:03 Hepatitis Anti HBc IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    185 Mar 13 20:03 Hepatitis Anti HBeAg-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  16329 Mar 13 20:03 Hepatitis Anti-HBS (AUSAB)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    185 Mar 13 20:03 Hepatitis HBeAg-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  16329 Mar 13 20:03 Hepatitis HBsAg (Antigeno Australiano)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   1096 Mar 13 20:03 Investigación de HIV I-II-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:35 Lactato-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  16391 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2020 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2022 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A/BSL III:
+total 16
+-rw-r--r--  1 dtenenba  staff  6722 Mar 13 20:03 Carga Viral HIV1 Xpert-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A/Biología Molecular:
+total 2720
+-rw-r--r--  1 dtenenba  staff     2371 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  1387379 Mar 13 20:03 Liat HIV RNA Plasma Quant (IQPB)-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A/Bioquímica:
+total 216
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 Albumina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   7030 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  10985 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  14555 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:35 Electrolitos(Na, Cl, K)  -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  14388 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  13232 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    482 Mar 13 20:03 Perfil Lipídico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  14557 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  14561 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A/INS:
+total 16
+-rw-r--r--  1 dtenenba  staff  286 Mar 13 20:03 ELISA Control de Calidad VIH-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    0 Mar  9 22:36 IFI-VIH-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  286 Mar 13 20:03 INMUNOBLOT VIH 1-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A/Inmunología:
+total 3880
+-rw-r--r--  1 dtenenba  staff  1478761 Mar 13 20:03 Determine HIV 1_2 Rapitest-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    11458 Mar 13 20:03 HIV-1 Western Blot Genetic System-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff        0 Mar  9 22:35 HIV-1 Western Blot New Lab Blot 1-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    18239 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   469613 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A/NAMRU-6:
+total 8
+-rw-r--r--  1 dtenenba  staff  196 Mar 13 20:03 APTIMA NG_CT H.R.-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 2A COCA:
+total 0
+drwxr-xr-x  3 dtenenba  staff  102 Mar  3 23:20 Biología Molecular
+
+../REPORTE-CSV-BD-LAB//SABES 2A COCA/Biología Molecular:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:36 PBMC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3:
+total 0
+drwxr-xr-x  26 dtenenba  staff  884 Mar  3 23:20 Anglolab
+drwxr-xr-x   4 dtenenba  staff  136 Mar  3 23:20 BSL III
+drwxr-xr-x   7 dtenenba  staff  238 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  14 dtenenba  staff  476 Mar  3 23:20 Bioquímica
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 Citometría
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 DISA II -C.S. Chorrillos I
+drwxr-xr-x   3 dtenenba  staff  102 Mar  3 23:20 DISA V
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Hematología
+drwxr-xr-x   7 dtenenba  staff  238 Mar  3 23:20 Inmunología
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 NAMRU-6
+drwxr-xr-x   5 dtenenba  staff  170 Mar  3 23:20 Urianálisis
+
+../REPORTE-CSV-BD-LAB//SABES 3/Anglolab:
+total 224
+-rw-r--r--  1 dtenenba  staff  2384 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   211 Mar 13 20:03 Bilirrubinas Totales y Fraccionadas-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  6153 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   290 Mar 13 20:03 Calcio sérico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   185 Mar 13 20:03 Citomegalovirus IgG, AC.anti-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   185 Mar 13 20:03 Citomegalovirus IgM, AC.anti-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  1129 Mar 13 20:03 Creatinina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   292 Mar 13 20:03 Dehidrogenasa Lactica - DHL-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:32 Electrolitos(Na, Cl, K)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2353 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   613 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff     0 Mar  9 22:32 Glucosa sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  5819 Mar 13 20:03 Hemograma completo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   185 Mar 13 20:03 Hepatitis Anti HAV IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  7368 Mar 13 20:03 Hepatitis Anti HB core-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   924 Mar 13 20:03 Hepatitis Anti HBc IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  7368 Mar 13 20:03 Hepatitis Anti-HBS (AUSAB)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  7479 Mar 13 20:03 Hepatitis HBsAg (Antigeno Australiano)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   352 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  7957 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  1503 Mar 13 20:03 Perfil Lipidico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   290 Mar 13 20:03 Proteina C reactiva (PCR) _ultrasensible_-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  2554 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  3172 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/BSL III:
+total 8
+-rw-r--r--  1 dtenenba  staff    0 Mar  9 22:32 Xpert CT_NG - orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  194 Mar 13 20:03 Xpert MTB_RIF-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/Biología Molecular:
+total 64
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:32 CV HIV1 Abbott RT DIF-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  27437 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    471 Mar 13 20:03 Liat HIV RNA Plasma Quant (IQPB)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:32 SE CT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:32 SE NG-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/Bioquímica:
+total 184
+-rw-r--r--  1 dtenenba  staff   5453 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    210 Mar 13 20:03 Bilirrubina total y fraccionada-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   1691 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   4869 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    212 Mar 13 20:03 Electrolitos(Na, Cl, K)  -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   5716 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   6909 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 Glucosa sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  26715 Mar 13 20:03 Perfil Lipídico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:32 Perfil hepático-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   5595 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   4985 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/Citometría:
+total 72
+-rw-r--r--  1 dtenenba  staff  34474 Mar 13 20:03 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/DISA II -C.S. Chorrillos I:
+total 8
+-rw-r--r--  1 dtenenba  staff  2754 Mar 13 20:03 Investigación Bacteriológica en Tuberculosis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/DISA V:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:32 Investigación Bacteriológica TBC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/Hematología:
+total 88
+-rw-r--r--  1 dtenenba  staff   3944 Mar 13 20:03 Hemograma - -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  36684 Mar 13 20:03 Hemograma-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    563 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/Inmunología:
+total 56
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:32 Determine HIV 1_2 Rapitest-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:32 Elisa para Herpes Tipo 2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2562 Mar 13 20:03 HIV-1 Western Blot Genetic System-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2222 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  17054 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/NAMRU-6:
+total 96
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:33 APTIMA NG_CT H. U.-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  23091 Mar 13 20:03 APTIMA NG_CT H.R.-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  23559 Mar 13 20:03 APTIMA NG_CT orina-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3/Urianálisis:
+total 72
+-rw-r--r--  1 dtenenba  staff  34901 Mar 13 20:03 Dipstick Orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:33 Orina Completa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:33 Sedimento urinario-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI:
+total 0
+drwxr-xr-x  47 dtenenba  staff  1598 Mar  3 23:20 Anglolab
+drwxr-xr-x   3 dtenenba  staff   102 Mar  3 23:20 BSL III
+drwxr-xr-x   4 dtenenba  staff   136 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  22 dtenenba  staff   748 Mar  3 23:20 Bioquímica
+drwxr-xr-x   3 dtenenba  staff   102 Mar  3 23:20 Citometría
+drwxr-xr-x   3 dtenenba  staff   102 Mar  3 23:20 DISA II -C.S. Chorrillos I
+drwxr-xr-x   3 dtenenba  staff   102 Mar  3 23:20 DISA V
+drwxr-xr-x   6 dtenenba  staff   204 Mar  3 23:20 Hematología
+drwxr-xr-x   6 dtenenba  staff   204 Mar  3 23:20 Inmunología
+drwxr-xr-x   5 dtenenba  staff   170 Mar  3 23:20 NAMRU-6
+drwxr-xr-x   4 dtenenba  staff   136 Mar  3 23:20 Otro Lab
+drwxr-xr-x   5 dtenenba  staff   170 Mar  3 23:20 Urianálisis
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Anglolab:
+total 536
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 AFP - Alfa feto proteínas-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:30 Albumina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  22287 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    197 Mar 13 20:03 Anticuerpos antinucleares-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 Antígeno carcinoembrionario - CEA-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    660 Mar 13 20:03 Bilirrubinas Totales y Fraccionadas-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 CA 19-9 SERICO-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  17038 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:30 Colesterol-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    357 Mar 13 20:03 Coprocultivo - examen directo- antibiograma-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 Cortisol AM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    395 Mar 13 20:03 Creatin Kinasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2698 Mar 13 20:03 Creatinina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    188 Mar 13 20:03 Dehidro-epi-androsterona-sulfato-DHEA-S-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    339 Mar 13 20:03 Electrolitos(Na, Cl, K)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 Estradiol sérico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 FSH - Hormona folículo estimulante-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2960 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3003 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    406 Mar 13 20:03 Gamma Glutamil Transpeptidasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    194 Mar 13 20:03 HAV IgG, AC. ANTI-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    311 Mar 13 20:03 Hemoglobina-Hematocrito-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  18044 Mar 13 20:03 Hemograma completo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    185 Mar 13 20:03 Hepatitis A total-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    497 Mar 13 20:03 Hepatitis Anti HAV IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    295 Mar 13 20:03 Hepatitis Anti HB core-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    295 Mar 13 20:03 Hepatitis Anti HBc IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    185 Mar 13 20:03 Hepatitis Anti-HBS (AUSAB)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    386 Mar 13 20:03 Hepatitis HBsAg (Antigeno Australiano)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 LH Hormona luteinizante-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    740 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  50894 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 Mitocondriales, Ac. Anti-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 Musculo Liso, AC. ANTI.-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   1206 Mar 13 20:03 Parasitologico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   1487 Mar 13 20:03 Perfil Lipidico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 Prolactina sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    185 Mar 13 20:03 Reacción inflamatoria leucocitos en heces-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 Testosterona sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    236 Mar 13 20:03 Tiempo de Protrombina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3045 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3763 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:31 Trigliceridos-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    185 Mar 13 20:03 Urea-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    185 Mar 13 20:03 Urocultivo-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/BSL III:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:31 Xpert MTB_RIF-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Biología Molecular:
+total 136
+-rw-r--r--  1 dtenenba  staff    606 Mar 13 20:03 CV HIV1 Abbott RT DIF-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  61974 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Bioquímica:
+total 848
+-rw-r--r--  1 dtenenba  staff    298 Mar 13 20:03 Albumina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  31595 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 BUN-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    781 Mar 13 20:03 Bilirrubina total y fraccionada-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  36254 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 Colesterol-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  51063 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 Direct HDL Colesterol-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  54242 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  51409 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    290 Mar 13 20:03 Glucosa sérica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 LDL Colesterol-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2817 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  38379 Mar 13 20:03 Perfil Lipídico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:31 Perfil hepático-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    322 Mar 13 20:03 Proteinas Totales y Fraccionadas-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  56106 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  55519 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 Triglicéridos-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    391 Mar 13 20:03 Urea-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Citometría:
+total 160
+-rw-r--r--  1 dtenenba  staff  79865 Mar 13 20:03 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/DISA II -C.S. Chorrillos I:
+total 8
+-rw-r--r--  1 dtenenba  staff  3160 Mar 13 20:03 Investigación Bacteriológica en Tuberculosis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/DISA V:
+total 8
+-rw-r--r--  1 dtenenba  staff  298 Mar 13 20:03 Investigación Bacteriológica TBC-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Hematología:
+total 184
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:31 Hemoglobina-Hematocrito(Hgb-Hct)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  23019 Mar 13 20:03 Hemograma - -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  64956 Mar 13 20:03 Hemograma-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    584 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Inmunología:
+total 96
+-rw-r--r--  1 dtenenba  staff    627 Mar 13 20:03 Determine HIV 1_2 Rapitest-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    197 Mar 13 20:03 Elisa para Herpes Tipo 2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2951 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  33905 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/NAMRU-6:
+total 120
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:31 APTIMA NG_CT H.F.-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  27217 Mar 13 20:03 APTIMA NG_CT H.R.-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  28989 Mar 13 20:03 APTIMA NG_CT orina-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Otro Lab:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:31 APTIMA PCR NG_CT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:31 Genotipificación HIV-1-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3A-TI/Urianálisis:
+total 128
+-rw-r--r--  1 dtenenba  staff  55482 Mar 13 20:03 Dipstick Orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   1180 Mar 13 20:03 Orina Completa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2560 Mar 13 20:03 Sedimento urinario-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD:
+total 0
+drwxr-xr-x  30 dtenenba  staff  1020 Mar  3 23:20 Anglolab
+drwxr-xr-x   4 dtenenba  staff   136 Mar  3 23:20 BSL III
+drwxr-xr-x   6 dtenenba  staff   204 Mar  3 23:20 Biología Molecular
+drwxr-xr-x  20 dtenenba  staff   680 Mar  3 23:20 Bioquímica
+drwxr-xr-x   5 dtenenba  staff   170 Mar  3 23:20 Blufstein
+drwxr-xr-x   3 dtenenba  staff   102 Mar  3 23:20 Citometría
+drwxr-xr-x   3 dtenenba  staff   102 Mar  3 23:20 DISA II -C.S. Chorrillos I
+drwxr-xr-x   7 dtenenba  staff   238 Mar  3 23:20 Hematología
+drwxr-xr-x   4 dtenenba  staff   136 Mar  3 23:20 Inmunología
+drwxr-xr-x   4 dtenenba  staff   136 Mar  3 23:20 NAMRU-6
+drwxr-xr-x   3 dtenenba  staff   102 Mar  3 23:20 Otro Lab
+drwxr-xr-x   5 dtenenba  staff   170 Mar  3 23:20 Urianálisis
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Anglolab:
+total 432
+-rw-r--r--  1 dtenenba  staff    237 Mar 13 20:03 Aglutinaciones en Lámina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  22553 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    211 Mar 13 20:03 Bilirrubinas Totales y Fraccionadas-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  17968 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3193 Mar 13 20:03 Creatinina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    460 Mar 13 20:03 Electrolitos(Na, Cl, K)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3460 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   4439 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    202 Mar 13 20:03 Hemoglobina-Hematocrito-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  19142 Mar 13 20:03 Hemograma completo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    193 Mar 13 20:03 Hepatitis Anti HAV IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    395 Mar 13 20:03 Hepatitis Anti HB core-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    289 Mar 13 20:03 Hepatitis Anti HBc IgM-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    193 Mar 13 20:03 Hepatitis Anti-HBS (AUSAB)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    498 Mar 13 20:03 Hepatitis HBsAg (Antigeno Australiano)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    931 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  53643 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    791 Mar 13 20:03 Parasitologico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   2467 Mar 13 20:03 Perfil Lipidico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 T4 Libre - Tiroxina Libre-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 TSH Ultrasensible-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:34 TSH-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    236 Mar 13 20:03 Tiempo de Protrombina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    202 Mar 13 20:03 Tiempo de Tromboplastina Parcial-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3146 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   3765 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    184 Mar 13 20:03 VSG _-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    187 Mar 13 20:03 Vitamina B12-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/BSL III:
+total 8
+-rw-r--r--  1 dtenenba  staff    0 Mar  9 22:34 Xpert CT_NG - orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  306 Mar 13 20:03 Xpert MTB_RIF-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Biología Molecular:
+total 128
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:34 CV HIV1 Abbott RT DIF-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  64725 Mar 13 20:03 Carga Viral HIV1 Abbott RT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:34 SE CT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:34 SE NG-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Bioquímica:
+total 848
+-rw-r--r--  1 dtenenba  staff  32901 Mar 13 20:03 Amilasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    330 Mar 13 20:03 Bilirrubina total y fraccionada-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  37204 Mar 13 20:03 CO2-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    290 Mar 13 20:03 Colesterol-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  51919 Mar 13 20:03 Creatinina --09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    288 Mar 13 20:03 Direct HDL Colesterol-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  53399 Mar 13 20:03 Fosfatasa Alcalina-ALP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  51128 Mar 13 20:03 Fósforo-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    289 Mar 13 20:03 LDL Colesterol-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff   1943 Mar 13 20:03 Lipasa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  37918 Mar 13 20:03 Perfil Lipídico-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    323 Mar 13 20:03 Proteinas Totales y Fraccionadas-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:34 Proteinas Totales-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  53997 Mar 13 20:03 Transaminasa Oxalacetica(TGO)-AST-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  53506 Mar 13 20:03 Transaminasa Piruvica(TGP)-ALT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    290 Mar 13 20:03 Triglicéridos-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    389 Mar 13 20:03 Urea-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    186 Mar 13 20:03 VLDL -09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Blufstein:
+total 16
+-rw-r--r--  1 dtenenba  staff    0 Mar  9 22:34 Cultivo de micobacterias Bactec MGIT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  199 Mar 13 20:03 Cultivo de microbacterias Bactec MGIT-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  191 Mar 13 20:03 Estudio directo de BK en Esputo-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Citometría:
+total 168
+-rw-r--r--  1 dtenenba  staff  82890 Mar 13 20:03 Linf. CD3 - CD4 - CD8-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/DISA II -C.S. Chorrillos I:
+total 16
+-rw-r--r--  1 dtenenba  staff  5008 Mar 13 20:03 Investigación Bacteriológica en Tuberculosis-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Hematología:
+total 200
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:34 Hemoglobina-Hematocrito(Hgb-Hct)-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  21383 Mar 13 20:03 Hemograma - -09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  68662 Mar 13 20:03 Hemograma-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    956 Mar 13 20:03 Lámina Periférica-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    184 Mar 13 20:03 Tiempo de sangría-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Inmunología:
+total 80
+-rw-r--r--  1 dtenenba  staff   3571 Mar 13 20:03 MHA-TP-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  35345 Mar 13 20:03 RPR-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/NAMRU-6:
+total 120
+-rw-r--r--  1 dtenenba  staff  28267 Mar 13 20:03 APTIMA NG_CT H.R.-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff  29226 Mar 13 20:03 APTIMA NG_CT orina-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Otro Lab:
+total 0
+-rw-r--r--  1 dtenenba  staff  0 Mar  9 22:35 APTIMA PCR NG_CT-09032018223003.csv
+
+../REPORTE-CSV-BD-LAB//SABES 3B-TD/Urianálisis:
+total 128
+-rw-r--r--  1 dtenenba  staff  59212 Mar 13 20:03 Dipstick Orina-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff    732 Mar 13 20:03 Orina Completa-09032018223003.csv
+-rw-r--r--  1 dtenenba  staff      0 Mar  9 22:35 Sedimento urinario-09032018223003.csv
