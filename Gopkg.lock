@@ -96,6 +96,11 @@
   revision = "c92b0e41854b49e567ba269dcc572ada60e48e7b"
 
 [[projects]]
+  name = "github.com/yeka/zip"
+  packages = ["."]
+  revision = "6c433e67d3a0462cf5a95e1c2603bdffe667a10c"
+
+[[projects]]
   branch = "master"
   name = "golang.org/x/crypto"
   packages = [
@@ -103,6 +108,7 @@
     "ed25519",
     "ed25519/internal/edwards25519",
     "internal/chacha20",
+    "pbkdf2",
     "poly1305",
     "ssh"
   ]
@@ -124,6 +130,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "19b4fd4061144a3faf93aa4c420cb418b191710a4e427136c565141310326a56"
+  inputs-digest = "86324885d018b2e51f2fc1b440b10979d4f58990663fd028fef5c1d5869c5143"
   solver-name = "gps-cdcl"
   solver-version = 1

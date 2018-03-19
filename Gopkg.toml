@@ -53,3 +53,7 @@
 [[constraint]]
   name = "github.com/kniren/gota"
   revision = "737ddace4c9ee84d774f8747c855639a81b5f7c2"
+
+[[constraint]]
+  name = "github.com/yeka/zip"
+  revision = "6c433e67d3a0462cf5a95e1c2603bdffe667a10c"

@@ -1,13 +1,18 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
+	"unicode"
 
 	"github.com/kniren/gota/dataframe"
 	"github.com/kniren/gota/series"
+	"github.com/yeka/zip"
 )
 
 var dfMap map[string]dataframe.DataFrame
@@ -129,10 +134,45 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 	if err != nil {
 		return err
 	}
-	// fmt.Println("dfMap:")
-	// fmt.Println(dfMap)
-	// fmt.Println("phiDataFrame:")
-	// fmt.Println(phiDataFrame)
+	for k, v := range dfMap {
+		filename, err := keyToFileName(k)
+		if err != nil {
+			return err
+		}
+		fullpath := filepath.Join(config.LocalDownloadFolderLab, filename)
+		outfh, err := os.Create(fullpath)
+		if err != nil {
+			return err
+		}
+		err = v.WriteCSV(outfh, dataframe.WriteHeader(true))
+		if err != nil {
+			return err
+		}
+		outfh.Close()
+
+		var buffer bytes.Buffer
+		err0 := phiDataFrame.WriteCSV(&buffer, dataframe.WriteHeader(true))
+		if err0 != nil {
+			return err0
+		}
+		phiZipName := filepath.Join(config.LocalDownloadFolderLab, "phi.zip")
+		fzip, err := os.Create(phiZipName)
+		if err != nil {
+			return err
+		}
+		zipw := zip.NewWriter(fzip)
+		defer zipw.Close()
+		w, err := zipw.Encrypt("phi.csv", config.PhiZipPassword, zip.StandardEncryption)
+		if err != nil {
+			return err
+		}
+		_, err = io.Copy(w, bytes.NewReader(buffer.Bytes()))
+		if err != nil {
+			return err
+		}
+		zipw.Flush()
+
+	}
 	return nil
 }
 
@@ -154,4 +194,57 @@ func ptidExists(ptid string, df dataframe.DataFrame) bool {
 		},
 	)
 	return filt.Nrow() > 0
+}
+
+// This should probably be done with a regex but that gave a lot of problems
+// with mixed-case abbreviations.
+func toLowerExceptAbbreviations(in string) string {
+	runes := []rune(in)
+	max := len(runes) - 1
+
+	for i, r := range runes {
+		if unicode.IsUpper(r) {
+			/* pseudocode:
+			if i am uppercase and
+				either there is no character before me or it is non-uppercase
+					and
+				either there is no character after me or it is non-uppercase
+				then:
+					change me to lowercase
+				otherwise, leave me alone
+			*/
+			if unicode.IsUpper(r) && (i == 0 || !unicode.IsUpper(runes[i-1])) &&
+				(i == max || !unicode.IsUpper(runes[i+1])) {
+				runes[i] = unicode.ToLower(r)
+			}
+		}
+	}
+	out := string(runes)
+	return out
+}
+
+func keyToFileName(key string) (string, error) {
+	key, err := convertAccentedToPlain(key)
+	if err != nil {
+		return "", err
+	}
+	replaceMe := []string{".", "-", "(", ")", "/", " "}
+	for _, badchar := range replaceMe {
+		key = strings.Replace(key, badchar, "_", -1)
+	}
+	re := regexp.MustCompile("_{2,}")
+	key = re.ReplaceAllString(key, "_")
+	// failed regex attempt would not change e.g. CnC to cnc:
+	// re2 := regexp.MustCompile("[^[[:upper:]]]*([[:upper:]]{1})[^[[:upper:]]]*")
+	// key = " " + key // this is silly but i am dumb
+	// matches := re2.FindAllStringSubmatch(key, -1)
+	// for _, match := range matches {
+	// 	key = strings.Replace(key, match[0], strings.ToLower(match[0]), -1)
+	// }
+	//
+	// key = re2.ReplaceAllString(key, strings.ToLower("$1"))
+	key = toLowerExceptAbbreviations(key)
+	key += ".csv"
+	// key = strings.TrimSpace(key)
+	return key, nil
 }

@@ -18,12 +18,16 @@ type Config struct {
 	RarDecryptionPassword         string `json:"rar_decryption_password"`
 	PostProcessingCommandClinical string `json:"postprocessing_command_clinical"`
 	PostProcessingCommandLab      string `json:"postprocessing_command_lab"`
+	PhiZipPassword                string `json:"phi_zip_password"`
 }
 
+// Phase represents which phase of downloading we are doing (Clinical or Lab)
 type Phase int
 
 const (
+	// ClinicalPhase is bla
 	ClinicalPhase Phase = iota
+	// LabPhase is bla
 	LabPhase
 )
 

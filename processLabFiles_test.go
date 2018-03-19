@@ -26,7 +26,7 @@ func TestProcessLabFiles(t *testing.T) {
 		if err != nil {
 			t.Fail()
 		}
-		config := Config{LocalDownloadFolderLab: tempDir}
+		config := Config{LocalDownloadFolderLab: tempDir, PhiZipPassword: "foobar"}
 		defer os.RemoveAll(tempDir)
 		err = processLabFiles(config, filepath.Join("testdata", "example_lab_data"))
 		if err != nil {
@@ -62,4 +62,25 @@ func TestPtidExists(t *testing.T) {
 			t.Errorf("got true, expected false")
 		}
 	})
+}
+
+var keyToFileNameTable = []struct {
+	in  string
+	out string
+}{
+	{"Bioquímica/Transaminasa Piruvica(TGP)-ALT", "bioquimica_transaminasa_piruvica_TGP_ALT.csv"},
+	{"Blufstein/Estudio directo de BK en Esputo", "blufstein_estudio_directo_de_BK_en_esputo.csv"},
+	{"Urianálisis/OneStep EtG test Dip Card", "urianalisis_onestep_etg_test_dip_card.csv"},
+}
+
+func TestKeyToFileName(t *testing.T) {
+	for _, tt := range keyToFileNameTable {
+		actual, err := keyToFileName(tt.in)
+		if err != nil {
+			t.Error()
+		}
+		if actual != tt.out {
+			t.Errorf("Expected %s, got %s", tt.out, actual)
+		}
+	}
 }
