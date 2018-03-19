@@ -20,6 +20,9 @@ var upperCaseLetters = []rune("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 var numbers = []rune("0123456789")
 
+var dateMap map[string]string
+var initialsMap map[string]string
+
 func randStringRunes(n int) string {
 	b := make([]rune, n)
 	for i := range b {
@@ -43,7 +46,6 @@ func walkies(path string, info os.FileInfo, err error) error {
 	}
 
 	if strings.HasSuffix(strings.ToLower(path), ".csv") {
-		fmt.Println("yay", path)
 		if info.Size() == 0 {
 			fmt.Println(path, "is empty, skipping")
 			return nil
@@ -63,21 +65,17 @@ func walkies(path string, info os.FileInfo, err error) error {
 		fmt.Println(df.Names())
 		fmt.Println(df)
 		df2 := anonymizeInitials(df)
-		df3 := anonymizePtID(df2)
-		df4 := anonymizeDate(df3)
+		// df3 := anonymizePtID(df2)
+		df3 := anonymizeDate(df2)
 		fmt.Println("initials and ptid and date anonymized:")
-		fmt.Println(df4)
-		// pathdir := filepath.Dir(path)
-		// newfile := filepath.Join(pathdir, "new.csv") // FIXME change this
+		fmt.Println(df3)
 
 		outfh, err := os.Create(path)
 		if err != nil {
 			panic(err)
 		}
-		err = df4.WriteCSV(outfh)
+		err = df3.WriteCSV(outfh)
 		outfh.Close()
-
-		// os.Exit(0) // FIXME remove
 
 	}
 	return nil
@@ -85,26 +83,48 @@ func walkies(path string, info os.FileInfo, err error) error {
 
 func anonymizeInitials(df dataframe.DataFrame) dataframe.DataFrame {
 	var s []string
+	ptidCol := df.Col("PTID")
+	ptids := ptidCol.Records()
+
 	for i := 0; i < df.Nrow(); i++ {
-		s = append(s, randStringRunes(3))
+		ptid := ptids[i]
+		var initials string
+		if cached, ok := initialsMap[ptid]; ok {
+			initials = cached
+		} else {
+			initials = randStringRunes(3)
+			initialsMap[ptid] = initials
+		}
+		s = append(s, initials)
 	}
 	df2 := df.Mutate(series.New(s, series.String, "Iniciales"))
 	return df2
 }
 
-func anonymizePtID(df dataframe.DataFrame) dataframe.DataFrame {
-	var s []string
-	for i := 0; i < df.Nrow(); i++ {
-		s = append(s, fmt.Sprintf("%s-%s-%s", randNums(5), randNums(4), randNums(1)))
-	}
-	df2 := df.Mutate(series.New(s, series.String, "PTID"))
-	return df2
-}
+// func anonymizePtID(df dataframe.DataFrame) dataframe.DataFrame {
+// 	var s []string
+// 	for i := 0; i < df.Nrow(); i++ {
+// 		s = append(s, fmt.Sprintf("%s-%s-%s", randNums(5), randNums(4), randNums(1)))
+// 	}
+// 	df2 := df.Mutate(series.New(s, series.String, "PTID"))
+// 	return df2
+// }
 
+// TODO create realistic birth dates
 func anonymizeDate(df dataframe.DataFrame) dataframe.DataFrame {
 	var s []string
+	ptidCol := df.Col("PTID")
+	ptids := ptidCol.Records()
 	for i := 0; i < df.Nrow(); i++ {
-		s = append(s, fmt.Sprintf("%s/%s/%s", randNums(2), randNums(2), randNums(4)))
+		ptid := ptids[i]
+		var date string
+		if cached, ok := dateMap[ptid]; ok {
+			date = cached
+		} else {
+			date = fmt.Sprintf("%s/%s/%s", randNums(2), randNums(2), randNums(4))
+			dateMap[ptid] = date
+		}
+		s = append(s, date)
 	}
 	df2 := df.Mutate(series.New(s, series.String, "FechaNacimiento"))
 	return df2
@@ -116,6 +136,8 @@ func main() {
 		os.Exit(1)
 	}
 	csvdir := os.Args[1]
+	dateMap = make(map[string]string)
+	initialsMap = make(map[string]string)
 	err := filepath.Walk(csvdir, walkies)
 	if err != nil {
 		panic(err)

@@ -150,12 +150,19 @@ See complete documentation at:
 			os.Exit(1)
 		}
 
-		fmt.Println("Moving CSV and SAV files to top level...")
 		rundir := filepath.Join(downloadFolder, fileDate)
-		err = moveFiles(rundir) // TODO needs to behave differently depending on phase??
-		if err != nil {
-			fmt.Printf("Error renaming files: %s.\n", err.Error())
-			os.Exit(1)
+
+		if phase == ClinicalPhase {
+			fmt.Println("Moving CSV and SAV files to top level...")
+			err = moveFiles(rundir) // TODO needs to behave differently depending on phase??
+			if err != nil {
+				fmt.Printf("Error renaming files: %s.\n", err.Error())
+				os.Exit(1)
+			}
+		} else if phase == LabPhase {
+			fmt.Println("Consolidating lab files...")
+			rawLabFileDir := filepath.Join(getDownloadFolder(LabPhase, config), fileDate)
+			err = processLabFiles(config, rawLabFileDir)
 		}
 
 		fmt.Println("Renaming download directory...")
