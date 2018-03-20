@@ -237,6 +237,7 @@ func keyToFileName(key string) (string, error) {
 	key = re.ReplaceAllString(key, "_")
 	// failed regex attempt would not change e.g. CnC to cnc:
 	// re2 := regexp.MustCompile("[^[[:upper:]]]*([[:upper:]]{1})[^[[:upper:]]]*")
+	// negative lookahead would fix this but it's not supported in golang's regexp
 	// key = " " + key // this is silly but i am dumb
 	// matches := re2.FindAllStringSubmatch(key, -1)
 	// for _, match := range matches {
