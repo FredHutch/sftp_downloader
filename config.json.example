@@ -6,7 +6,7 @@
 "rar_decryption_password": "",
 "local_download_folder_clinical": "./clinical",
 "local_download_folder_lab": "./lab",
-"postprocessing_command_clinical": "echo (clinical) current directory is $PWD",
-"postprocessing_command_lab": "echo (lab) current directory is $PWD",
+"postprocessing_command_clinical": "echo -clinical- current directory is $PWD",
+"postprocessing_command_lab": "echo -lab- current directory is $PWD",
 "phi_zip_password": ""
 }

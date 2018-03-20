@@ -37,10 +37,13 @@ Edit the `config.json` file. Values should be as follows:
 * `user` - username to log into SFTP server
 * `password` - password to log into SFTP server
 * `rar_decryption_password` - password to decrypt RAR file
-* `local_download_folder` - folder in which to download/extract RAR file
-* `postprocessing_command` - a command to run after downloading and extraction is complete
+* `local_download_folder_clinical` - folder in which to download/extract clinical data
+* `local_download_folder_lab` - folder in which to download/extract lab data
+* `postprocessing_command_clinical` - a command to run after downloading and extraction of clinical data is complete
   (command will be run in the directory where the files have been archived).
-
+* `postprocessing_command_lab` - a command to run after downloading and extraction of lab data is complete
+  (command will be run in the directory where the files have been archived).
+* `phi_zip_password` - the password with which to encrypt the zip file containing PHI.
 
 
 Using the `crontab -e` command (and your favorite
@@ -66,12 +69,16 @@ for error information.
 When invoked in a crontab, as above, the script will do the following:
 
 * Connect to the SFTP server
-* Download yesterday's file (to download the file from a different day, see the next section).
+* Download yesterday's clinical file (to download the file from a different day, see the next section).
 * Unarchive the RAR file.
 * Move all CSV and SAV files to the top level of the unarchived files and delete all other
   files/directories.
 * Run a post-processing script (based on a command-line that you supply in the `config.json` file)
   in the directory where the files have been unarchived.
+* If there is a lab file for yesterday (or the date supplied), download it,
+  stack all data into a file for each lab type, rename files, remove
+  PHI columns and put them in an encrypted zip file, remove original
+  data and rar file, run a post-processing script for lab files.
 
 
 ## Running the script manually

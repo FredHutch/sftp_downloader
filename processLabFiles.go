@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -247,4 +248,27 @@ func keyToFileName(key string) (string, error) {
 	key += ".csv"
 	// key = strings.TrimSpace(key)
 	return key, nil
+}
+
+func labCleanup(config Config) error {
+	files, err := ioutil.ReadDir(config.LocalDownloadFolderLab)
+	if err != nil {
+		return err
+	}
+	for _, file := range files {
+		fullPath := filepath.Join(config.LocalDownloadFolderLab, file.Name())
+		if strings.HasSuffix(file.Name(), ".rar") {
+			err = os.Remove(fullPath)
+			if err != nil {
+				return err
+			}
+		}
+		if file.IsDir() {
+			err = os.RemoveAll(fullPath)
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }

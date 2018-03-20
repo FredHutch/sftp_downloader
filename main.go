@@ -163,14 +163,29 @@ See complete documentation at:
 			fmt.Println("Consolidating lab files...")
 			rawLabFileDir := filepath.Join(getDownloadFolder(LabPhase, config), fileDate)
 			err = processLabFiles(config, rawLabFileDir)
+
+			fmt.Println("Cleaning up...")
+			err = labCleanup(config)
+			if err != nil {
+				fmt.Println("Error cleaning up lab files:", err.Error())
+				os.Exit(1)
+			}
 		}
 
-		fmt.Println("Renaming download directory...")
-		fileDate, err = renameDownloadDir(config, fileDate, phase)
-		if err != nil {
-			fmt.Printf("Error renaming download directory: %s\n", err.Error())
-			os.Exit(1)
+		if phase == ClinicalPhase {
+			fmt.Println("Renaming download directory...")
+			fileDate, err = renameDownloadDir(config, fileDate, phase)
+			if err != nil {
+				fmt.Printf("Error renaming download directory: %s\n", err.Error())
+				os.Exit(1)
+			}
 		}
+
+		/*
+			lab files (after processing) do not currently end up in a folder
+			that has a date name. perhaps they should. this seems to cause
+			the lab post-processing command to fail.
+		*/
 
 		rundir = filepath.Join(downloadFolder, fileDate)
 		fmt.Printf("Running %s postprocessing command...\n", getPhaseName(phase))
