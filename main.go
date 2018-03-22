@@ -164,12 +164,6 @@ See complete documentation at:
 			rawLabFileDir := filepath.Join(getDownloadFolder(LabPhase, config), fileDate)
 			err = processLabFiles(config, rawLabFileDir)
 
-			fmt.Println("Cleaning up...")
-			err = labCleanup(config)
-			if err != nil {
-				fmt.Println("Error cleaning up lab files:", err.Error())
-				os.Exit(1)
-			}
 		}
 
 		if phase == ClinicalPhase {

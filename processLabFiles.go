@@ -140,7 +140,7 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 		if err != nil {
 			return err
 		}
-		fullpath := filepath.Join(config.LocalDownloadFolderLab, filename)
+		fullpath := filepath.Join(rawLabFileDir, filename)
 		outfh, err := os.Create(fullpath)
 		if err != nil {
 			return err
@@ -156,7 +156,7 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 		if err0 != nil {
 			return err0
 		}
-		phiZipName := filepath.Join(config.LocalDownloadFolderLab, "phi.zip")
+		phiZipName := filepath.Join(rawLabFileDir, "phi.zip")
 		fzip, err := os.Create(phiZipName)
 		if err != nil {
 			return err

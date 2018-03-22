@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/kniren/gota/dataframe"
+	"github.com/otiai10/copy"
 )
 
 func TestGetKey(t *testing.T) {
@@ -28,7 +29,11 @@ func TestProcessLabFiles(t *testing.T) {
 		}
 		config := Config{LocalDownloadFolderLab: tempDir, PhiZipPassword: "foobar"}
 		defer os.RemoveAll(tempDir)
-		err = processLabFiles(config, filepath.Join("testdata", "example_lab_data"))
+		err = copy.Copy(filepath.Join("testdata", "example_lab_data"), tempDir)
+		if err != nil {
+			t.Fail()
+		}
+		err = processLabFiles(config, tempDir)
 		if err != nil {
 			t.Error(err.Error())
 		}
