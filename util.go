@@ -49,7 +49,7 @@ func IsDir(fileName string) (bool, error) {
 
 func renameDownloadDir(config Config, fileDate string, phase Phase) (string, error) {
 	downloadFolder := getDownloadFolder(phase, config)
-	t, err := time.Parse("02-01-2006", fileDate)
+	t, err := time.Parse("2006-01-02", fileDate)
 	if err != nil {
 		return "", fmt.Errorf("Could not convert %s to Time object: %s", fileDate, err.Error())
 	}

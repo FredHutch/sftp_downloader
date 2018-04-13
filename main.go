@@ -55,11 +55,11 @@ func getDateString() (string, error) {
 		if err != nil {
 			return "", fmt.Errorf("error formatting date %s, must be in YYYY-MM-DD format", os.Args[2])
 		}
-		fileDate = t.Format("02-01-2006")
+		fileDate = t.Format("2006-01-02")
 	} else {
 		now := currentTimeFunction()
 		yesterday := now.AddDate(0, 0, -1)
-		fileDate = yesterday.Format("02-01-2006")
+		fileDate = yesterday.Format("2006-01-02")
 	}
 	return fileDate, nil
 }
@@ -166,14 +166,14 @@ See complete documentation at:
 
 		}
 
-		if phase == ClinicalPhase {
-			fmt.Println("Renaming download directory...")
-			fileDate, err = renameDownloadDir(config, fileDate, phase)
-			if err != nil {
-				fmt.Printf("Error renaming download directory: %s\n", err.Error())
-				os.Exit(1)
-			}
-		}
+		// if phase == ClinicalPhase {
+		// 	fmt.Println("Renaming download directory...")
+		// 	fileDate, err = renameDownloadDir(config, fileDate, phase)
+		// 	if err != nil {
+		// 		fmt.Printf("Error renaming download directory: %s\n", err.Error())
+		// 		os.Exit(1)
+		// 	}
+		// }
 
 		/*
 			lab files (after processing) do not currently end up in a folder

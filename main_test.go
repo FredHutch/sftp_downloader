@@ -54,8 +54,8 @@ func TestGetDateString(t *testing.T) {
 		if err != nil {
 			t.Error("unexpected error")
 		}
-		if ds != "02-01-2018" {
-			t.Errorf("Expected '02-01-2018', got '%s'", ds)
+		if ds != "2018-01-02" {
+			t.Errorf("Expected '2018-01-02', got '%s'", ds)
 		}
 
 	})
@@ -67,8 +67,8 @@ func TestGetDateString(t *testing.T) {
 		if err != nil {
 			t.Error("Did not expect error in getDateString()")
 		}
-		if ds != "01-01-2006" {
-			t.Error("Expected 01-01-2006, got", ds)
+		if ds != "2006-01-01" {
+			t.Error("Expected 2006-01-01, got", ds)
 		}
 	})
 

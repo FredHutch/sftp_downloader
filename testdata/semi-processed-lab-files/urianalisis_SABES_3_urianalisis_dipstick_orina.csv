@@ -1,0 +1,231 @@
+IdData,Sede,PTID,FechaVisita,FechaImpresion,Visita,COLOR_ABZACM,ASPECTO_ABZACN,DENSIDAD_ABZACO,PH_ABZACP,LEUCOCITOLEUCOCITOESTERASA_ABZAET,NITRITOS_ABZACQ,PROTEINAS_ABZACR,GLUCOSA_ABZABE,CUERPOS_CETONICOS_ABZACS,UROBILINOGENO_ABZACT,BILIRRUBINA_ABZACU,SANGRE_ABZACV,HEMOGLOBINA_EN_ORINA_ABZAEX,Iniciales,FechaNacimiento
+090000031652,San Miguel,09178-0607-4,09/04/2014,10/04/2014 04:12:23 p.m.,SCR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EEM,98/12/4381
+090000031680,San Miguel,09178-0656-2,10/04/2014,14/04/2014 01:40:30 p.m.,SRC,Amarillo,Ligeramente turbio,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,+,Negativo,ELX,35/93/6981
+090000031730,San Miguel,09178-0444-2,14/04/2014,15/04/2014 02:00:53 p.m.,TAM,Amarillo,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CNK,38/01/3895
+090000031835,San Miguel,09178-0282-4,21/04/2014,23/04/2014 09:07:12 a.m.,TAM,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,IYN,82/46/4993
+090000031836,San Miguel,02178-0423-0,21/04/2014,23/04/2014 09:08:49 a.m.,TAM,Amarillo oscuro,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,XTA,91/47/8243
+090000031897,San Miguel,09178-0109-6,23/04/2014,24/04/2014 05:15:12 p.m.,SCR,Amarillo,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CBD,56/75/0103
+090000031919,San Miguel,09178-0305-2,24/04/2014,28/04/2014 11:53:57 a.m.,TAM,Amarillo,Ligeramente turbio,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PJJ,58/72/5095
+090000032462,San Miguel,09178-0692-4,27/05/2014,28/05/2014 05:26:38 p.m.,TAM,Amarillo,Ligeramente turbio,1.015,6.0,Negativo,Negativo,+,Normal,+,Normal,Negativo,Negativo,Negativo,HLA,04/54/6558
+090000032559,San Miguel,09178-0200-1,30/05/2014,03/06/2014 02:33:04 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PKQ,61/27/6704
+090000032575,San Miguel,52178-0182-5,02/06/2014,03/06/2014 12:36:01 p.m.,TAM,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,+,Normal,++,Normal,Negativo,Negativo,Negativo,ZQU,59/01/3700
+090000032727,San Miguel,09178-0111-0,09/06/2014,11/06/2014 04:24:16 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SDE,74/21/0940
+090000032914,San Miguel,02178-0038-9,17/06/2014,24/06/2014 02:53:56 p.m.,ENR,Amarillo,Ligeramente turbio,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,YSO,57/29/7944
+090000033434,San Miguel,02178-0568-8,16/07/2014,18/07/2014 04:11:29 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CKJ,21/20/2440
+090000033561,San Miguel,02178-0036-2,22/07/2014,24/07/2014 05:36:43 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WQU,96/90/9783
+090000033901,San Miguel,52178-0147-9,13/08/2014,14/08/2014 04:05:33 p.m.,ENR,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZPP,89/45/2964
+090000033983,San Miguel,02178-0691-1,15/08/2014,19/08/2014 03:33:21 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WYR,41/46/9031
+090000034050,San Miguel,09178-0526-8,19/08/2014,21/08/2014 04:28:26 p.m.,W0,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QEE,05/21/6263
+090000034053,San Miguel,02178-0654-3,19/08/2014,27/08/2014 05:05:59 p.m.,ENR,Amarillo,Claro,1.000,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ESE,79/70/2597
+090000034526,San Miguel,09178-0274-5,10/09/2014,16/09/2014 03:34:56 p.m.,ENR,Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,JOF,25/22/3093
+090000034602,San Miguel,41178-0159-5,15/09/2014,18/09/2014 12:37:47 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EBX,85/98/1135
+090000034884,San Miguel,09178-0244-3,25/09/2014,30/09/2014 01:38:28 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,KHW,85/55/9565
+090000035245,San Miguel,09178-0230-6,16/10/2014,21/10/2014 02:49:54 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HJR,69/19/0206
+090000035432,San Miguel,09178-0593-1,27/10/2014,30/10/2014 10:56:13 a.m.,ENR,Amarillo,Turbio,1.005,5.0,+++,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,KCF,36/36/7975
+090000035566,San Miguel,09178-0721-6,04/11/2014,25/03/2015 11:32:55 a.m.,ENR,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,MIO,83/99/6541
+090000035717,San Miguel,09178-0461-5,12/11/2014,14/11/2014 12:43:04 p.m.,ENR,Amarillo,Ligeramente turbio,1.030,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,JYN,23/54/4301
+090000035746,San Miguel,09178-0730-2,13/11/2014,18/11/2014 01:42:41 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CTB,61/44/9306
+090000035787,San Miguel,09178-0368-2,17/11/2014,19/11/2014 10:27:31 a.m.,ENR,Amarillo,Ligeramente turbio,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,++++,Negativo,GEJ,80/97/7999
+090000036002,San Miguel,09178-0557-1,27/11/2014,01/12/2014 03:03:33 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,MKL,70/29/8453
+090000036033,San Miguel,09178-0740-9,01/12/2014,02/12/2014 01:35:33 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PCS,28/16/2438
+090000036077,San Miguel,02178-0207-2,03/12/2014,09/12/2014 01:44:33 p.m.,ENR,Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,JLD,85/82/2610
+090000036088,San Miguel,02178-0420-7,04/12/2014,09/12/2014 01:19:02 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,VPP,42/17/9227
+090000036138,San Miguel,09178-0706-9,09/12/2014,11/12/2014 02:35:33 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,LYE,91/92/8632
+090000036154,San Miguel,09178-0745-0,09/12/2014,11/12/2014 12:43:40 p.m.,ENR,Amarillo,Claro,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,IHL,06/62/3882
+090000036228,San Miguel,09178-0260-0,12/12/2014,16/12/2014 02:51:24 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,YNF,94/22/7410
+090000036253,San Miguel,02178-0778-9,15/12/2014,18/12/2014 02:49:00 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WCF,46/89/1567
+090000036329,San Miguel,09178-0464-3,18/12/2014,23/12/2014 01:58:46 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZOY,47/01/4741
+090000036569,San Miguel,02178-0041-0,07/01/2015,12/01/2015 01:58:19 p.m.,ENR,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,UIG,35/00/5774
+090000036604,San Miguel,02178-0605-7,08/01/2015,13/01/2015 01:01:59 p.m.,ENR,Ambar,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,+,Negativo,Negativo,Negativo,OYX,30/16/6033
+090000036673,San Miguel,02178-0047-5,13/01/2015,15/01/2015 02:26:06 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RGE,33/28/4094
+090000036738,San Miguel,02178-0352-2,15/01/2015,19/01/2015 01:14:19 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PKJ,43/52/6715
+090000036839,San Miguel,02178-0103-1,21/01/2015,26/01/2015 12:06:53 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,XOQ,86/03/6698
+090000036927,San Miguel,02178-0082-6,26/01/2015,02/02/2015 02:33:08 p.m.,ENR,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,FUU,45/18/5379
+090000037030,San Miguel,09178-0609-0,30/01/2015,03/02/2015 12:14:46 p.m.,ENR,Amarillo,Claro,1.005,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,IEB,82/63/0336
+090000037055,San Miguel,09178-0059-6,02/02/2015,04/02/2015 11:51:58 a.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NKY,83/22/8545
+090000037170,San Miguel,02178-0489-9,05/02/2015,09/02/2015 01:56:51 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,UHN,37/76/6215
+090000037271,San Miguel,02178-0569-0,11/02/2015,16/02/2015 12:53:02 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SKO,89/23/1625
+090000037410,San Miguel,02178-0393-9,18/02/2015,20/02/2015 12:31:21 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,,FLC,26/48/5637
+090000037410,San Miguel,02178-0393-9,18/02/2015,20/02/2015 12:31:22 p.m.,ENR,,,,,,,,,,,,,Negativo,FLC,26/48/5637
+090000037449,San Miguel,02178-0751-0,19/02/2015,24/02/2015 02:47:18 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,,,,,,CHQ,62/26/2390
+090000037449,San Miguel,02178-0751-0,19/02/2015,24/02/2015 02:47:19 p.m.,ENR,,,,,,,,,Negativo,Normal,Negativo,Negativo,Negativo,CHQ,62/26/2390
+090000037726,San Miguel,02178-0669-4,10/03/2015,12/03/2015 04:05:13 p.m.,ENR,Amarillo,Ligeramente turbio,1.025,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NGZ,63/26/7635
+090000037770,San Miguel,02178-0395-6,11/03/2015,17/03/2015 03:32:12 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RUW,96/28/7870
+090000038011,San Miguel,09178-0963-4,23/03/2015,26/03/2015 11:23:29 a.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZAN,57/46/8044
+090000038047,San Miguel,02178-0754-7,24/03/2015,26/03/2015 01:01:45 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,BVZ,74/62/9059
+090000038130,San Miguel,09178-0047-5,26/03/2015,31/03/2015 02:48:12 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,DXT,84/08/8378
+090000038200,San Miguel,09178-0110-6,31/03/2015,07/04/2015 05:31:58 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,MJL,27/26/1435
+090000038264,San Miguel,09178-0508-9,06/04/2015,09/04/2015 04:26:25 p.m.,ENR,Ambar,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,++,Negativo,Negativo,Negativo,MFP,11/39/4566
+090000038297,San Miguel,02178-0807-3,07/04/2015,14/04/2015 12:15:30 p.m.,ENR,Amarillo,Turbio,1.020,6.0,Negativo,Negativo,+,Normal,++,Normal,Negativo,Negativo,Negativo,DOB,01/66/9989
+090000038314,San Miguel,09178-1006-7,08/04/2015,13/04/2015 12:34:06 p.m.,ENR,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZNV,92/41/8193
+090000038450,San Miguel,02178-0144-6,14/04/2015,20/04/2015 04:05:59 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,AZT,40/05/4571
+090000038532,San Miguel,09178-0432-2,17/04/2015,21/04/2015 12:08:52 p.m.,ENR,Amarillo,Claro,1.000,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RMN,65/76/6588
+090000038559,San Miguel,02178-0551-6,20/04/2015,24/04/2015 10:07:14 a.m.,ENR,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WSV,17/64/6612
+090000038561,San Miguel,02178-0100-8,20/04/2015,23/04/2015 11:43:02 a.m.,ENR,Amarillo,,,,,,,,,,,,,EZO,39/39/1935
+090000038561,San Miguel,02178-0100-8,20/04/2015,23/04/2015 11:43:03 a.m.,ENR,,Claro,1.000,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EZO,39/39/1935
+090000038606,San Miguel,09178-0907-9,21/04/2015,23/04/2015 10:17:29 a.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GJS,60/33/4949
+090000038732,San Miguel,09178-1031-5,24/04/2015,27/04/2015 01:22:18 p.m.,ENR,Amarillo,Claro,1.005,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,VNV,93/95/2930
+090000038736,San Miguel,02178-0506-2,24/04/2015,27/04/2015 01:16:32 p.m.,ENR,Amarillo,Claro,1.010,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,TXD,60/12/4105
+090000038810,San Miguel,09178-0773-6,28/04/2015,04/05/2015 09:52:27 a.m.,ENR,Amarillo,Claro,1.005,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,TRI,03/38/7120
+090000038847,San Miguel,09178-0921-9,29/04/2015,04/05/2015 03:07:04 p.m.,ENR,Amarillo,Claro,1.005,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,BWA,18/28/4820
+090000038935,San Miguel,09178-0838-2,04/05/2015,05/05/2015 02:28:19 p.m.,ENR,Amarillo,Claro,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PGO,13/33/1035
+090000038994,San Miguel,02178-0435-1,05/05/2015,07/05/2015 04:28:20 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,JIK,84/63/8005
+090000039061,San Miguel,02178-0949-5,07/05/2015,08/05/2015 04:52:37 p.m.,ENR,Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,MTY,30/67/3834
+090000039274,San Miguel,02178-0154-8,18/05/2015,20/05/2015 01:28:46 p.m.,ENR,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,DMY,49/27/9493
+090000039276,San Miguel,09178-0634-9,18/05/2015,19/05/2015 05:47:43 p.m.,ENR,Amarillo,Claro,1.005,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QYU,63/28/3900
+090000039782,San Miguel,02178-0711-4,08/06/2015,11/06/2015 02:31:46 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QKF,12/67/8518
+090000039882,San Miguel,02178-0486-8,11/06/2015,16/06/2015 05:07:07 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EKQ,19/74/8490
+090000040020,San Miguel,02178-0934-4,17/06/2015,23/06/2015 03:39:18 p.m.,ENR,Amarillo,Ligeramente turbio,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,LJZ,03/27/1119
+090000040205,San Miguel,09178-0531-3,25/06/2015,07/07/2015 02:34:06 p.m.,INT,Amarillo,Ligeramente turbio,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,STH,56/25/1508
+090000040352,San Miguel,02178-0329-1,02/07/2015,13/07/2015 04:13:15 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EKB,91/39/9392
+090000040482,San Miguel,02178-0398-7,09/07/2015,13/07/2015 04:49:45 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HOD,44/10/3588
+090000040484,San Miguel,02178-0915-4,09/07/2015,13/07/2015 04:54:10 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZCM,49/92/5900
+090000040608,San Miguel,02178-0083-5,15/07/2015,17/07/2015 03:55:34 p.m.,ENR,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,OUQ,51/51/6730
+090000040764,San Miguel,09178-0859-0,21/07/2015,04/08/2015 03:40:45 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,MHE,78/39/0104
+090000040850,San Miguel,09178-0786-4,24/07/2015,06/08/2015 03:13:35 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,OAQ,88/41/8384
+090000040863,San Miguel,02178-0382-8,24/07/2015,04/08/2015 02:43:38 p.m.,ENR,Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RLC,99/79/9971
+090000041079,San Miguel,09178-0840-0,07/08/2015,13/08/2015 03:40:22 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,KVI,58/18/1481
+090000041081,San Miguel,02178-0721-6,07/08/2015,18/08/2015 11:33:14 a.m.,ENR,Amarillo,Ligeramente turbio,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NFZ,17/21/1226
+090000041271,San Miguel,02178-0302-3,14/08/2015,18/08/2015 05:31:55 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ABD,93/87/2609
+090000041342,San Miguel,02178-0777-0,18/08/2015,24/08/2015 11:54:50 a.m.,ENR,Ambar,Ligeramente turbio,1.025,6.0,Negativo,Negativo,+,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QAX,69/80/7038
+090000041372,San Miguel,09178-1090-2,19/08/2015,24/08/2015 10:35:51 a.m.,ENR,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HFI,21/97/0166
+090000041426,San Miguel,02178-0418-7,21/08/2015,25/08/2015 03:41:33 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,XMK,21/40/2202
+090000041502,San Miguel,09178-1093-4,25/08/2015,04/09/2015 02:34:44 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZRZ,23/13/1039
+090000041503,San Miguel,09178-1092-6,25/08/2015,04/09/2015 02:37:10 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,KRN,13/50/9849
+090000041629,San Miguel,09178-1097-7,01/09/2015,08/09/2015 03:26:26 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WEG,72/34/8340
+090000041940,San Miguel,09178-1102-4,17/09/2015,01/10/2015 03:07:24 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,TEA,77/03/9736
+090000042467,San Miguel,02178-0891-0,19/10/2015,22/10/2015 12:37:42 p.m.,ENR,Amarillo,Claro,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,LHH,50/06/8390
+090000042572,San Miguel,02178-0782-9,22/10/2015,27/10/2015 03:08:34 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WLV,73/45/2376
+090000042646,San Miguel,02178-1022-7,28/10/2015,30/10/2015 04:13:26 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CNB,48/81/4277
+090000042872,San Miguel,09178-1107-7,12/11/2015,17/11/2015 02:58:01 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,KXY,44/64/6425
+090000042907,San Miguel,02178-0633-1,13/11/2015,17/11/2015 03:43:32 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QHZ,74/17/0179
+090000043073,San Miguel,09178-0458-6,24/11/2015,26/11/2015 03:50:54 p.m.,ENR,Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,KVG,13/08/1194
+090000043210,San Miguel,09178-1108-7,07/12/2015,10/12/2015 04:10:20 p.m.,ENR,Amarillo,Claro,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,JSS,08/65/5389
+090000043620,San Miguel,09178-1109-4,05/01/2016,07/01/2016 03:11:42 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,COA,14/33/6450
+090000043865,San Miguel,09178-1110-1,20/01/2016,21/01/2016 04:58:20 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ILY,10/90/6669
+090000043904,San Miguel,09178-1111-6,21/01/2016,22/01/2016 05:11:36 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,AJG,56/80/7708
+090000043993,San Miguel,09178-1112-7,26/01/2016,28/01/2016 05:38:39 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,IBD,40/68/8183
+090000044055,San Miguel,09178-0854-2,29/01/2016,02/02/2016 04:34:22 p.m.,ENR,Amarillo,Claro,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CNY,92/11/8772
+090000044124,San Miguel,09178-1114-3,03/02/2016,08/02/2016 01:22:08 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,,,,,VJT,62/69/5970
+090000044124,San Miguel,09178-1114-3,03/02/2016,08/02/2016 01:22:09 p.m.,ENR,,,,,,,,,,Normal,Negativo,Negativo,Negativo,VJT,62/69/5970
+090000044317,San Miguel,09178-1115-4,18/02/2016,22/02/2016 11:08:08 a.m.,ENR,Amarillo,Ligeramente turbio,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NZV,19/90/1046
+090000044335,San Miguel,09178-1117-6,19/02/2016,23/02/2016 02:42:16 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,IXU,79/60/2720
+090000044336,San Miguel,09178-1116-1,19/02/2016,23/02/2016 02:47:21 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,MRP,94/63/8970
+090000044370,San Miguel,09178-1113-4,22/02/2016,24/02/2016 01:25:32 p.m.,ENR,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HAL,40/27/5614
+090000044527,San Miguel,09178-0973-9,02/03/2016,07/03/2016 01:20:40 p.m.,ENR,Amarillo,Claro,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,COQ,62/72/0974
+090000044635,San Miguel,09178-1118-4,08/03/2016,11/03/2016 01:02:35 p.m.,ENR,Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QKY,57/19/4433
+090000044711,San Miguel,02178-0821-3,11/03/2016,14/03/2016 04:47:18 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,AAN,99/30/3966
+090000044733,San Miguel,02178-0954-5,15/03/2016,17/03/2016 02:26:35 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,,,,USN,69/01/8577
+090000044733,San Miguel,02178-0954-5,15/03/2016,17/03/2016 02:26:36 p.m.,ENR,,,,,,,,,,,Negativo,Negativo,Negativo,USN,69/01/8577
+090000044781,San Miguel,02178-0809-4,16/03/2016,21/03/2016 03:36:46 p.m.,ENR,Amarillo,Ligeramente turbio,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WAC,70/49/3000
+090000044829,San Miguel,02178-0864-0,18/03/2016,22/03/2016 03:04:31 p.m.,ENR,Amarillo,Claro,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NSM,40/31/4438
+090000044855,San Miguel,09178-1120-2,21/03/2016,29/03/2016 12:46:27 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,DDV,61/65/0746
+090000045264,San Miguel,02178-0962-3,27/04/2016,04/05/2016 02:05:31 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,+,Normal,Negativo,Normal,Negativo,Negativo,Negativo,UGN,39/83/7652
+090000046425,San Miguel,09178-1121-4,04/10/2016,11/10/2016 03:34:09 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,TCU,24/24/3492
+410000007257,Barranco,02178-0004-5,09/07/2013,10/07/2013 03:47:38 p.m.,Tamizaje,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,,Negativo,Negativo,UHJ,44/43/5905
+410000007339,Barranco,52178-0017-6,16/07/2013,18/07/2013 10:15:24 a.m.,Tamizaje,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PDR,25/99/8668
+410000007468,Barranco,52178-0046-8,24/07/2013,25/07/2013 06:16:44 p.m.,Tamizaje,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HJI,11/58/5866
+410000007505,Barranco,52178-0048-1,26/07/2013,31/07/2013 05:24:48 p.m.,Tamizaje,Amarillo,Ligeramente turbio,1.025,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,JCR,24/74/0609
+410000007573,Barranco,02178-0132-6,05/08/2013,06/08/2013 04:07:16 p.m.,Tamizaje,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,LBJ,25/37/9748
+410000007630,Barranco,02178-0160-9 ,08/08/2013,09/08/2013 11:49:47 a.m.,Tamizaje,Amarillo,Turbio,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NBQ,69/32/2915
+410000007650,Barranco,09178-0099-2 ,09/08/2013,12/08/2013 05:13:40 p.m.,Tamizaje,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,VTP,65/15/2464
+410000007877,Barranco,09178-0176-3 ,27/08/2013,29/08/2013 05:35:11 p.m.,Tamizaje,Ambar,Ligeramente turbio,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,+,Negativo,Negativo,Negativo,CKX,05/35/1075
+410000007884,Barranco,52178-0184-1,27/08/2013,29/08/2013 05:20:21 p.m.,Tamizaje,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WIR,99/76/0480
+410000007949,Barranco,02178-0294-6 ,02/09/2013,03/09/2013 03:50:42 p.m.,Tamizaje,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,BRO,17/77/7161
+410000008009,Barranco,02178-0301-0 ,05/09/2013,09/09/2013 02:49:12 p.m.,Tamizaje,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SDD,78/49/3809
+410000008221,Barranco,09178-0265-9,18/09/2013,31/10/2013 04:48:24 p.m.,Tamizaje,Amarillo,Claro,1.005,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,BNM,57/87/1532
+410000008252,Barranco,09178-0276-6,20/09/2013,24/09/2013 02:29:40 p.m.,Tamizaje,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WOA,02/93/7185
+410000008325,Barranco,02178-0269-2,27/09/2013,01/10/2013 10:47:48 a.m.,TAMIZAJE,Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,OSG,85/53/0274
+410000008327,Barranco,02178-0425-3,27/09/2013,01/10/2013 10:48:56 a.m.,Tamizaje,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QEJ,76/58/3528
+410000008699,Barranco,02178-0264-4,23/10/2013,24/10/2013 04:56:31 p.m.,Tamizaje,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HHA,41/41/7010
+410000008769,Barranco,52178-0170-0,29/10/2013,31/10/2013 02:31:38 p.m.,Tamizaje,Amarillo,Ligeramente turbio,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RRY,28/50/9499
+410000008977,Barranco,09178-0426-9,08/11/2013,11/11/2013 10:48:33 a.m.,TAM,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,JQH,45/75/9247
+410000009061,Barranco,52178-0428-2,13/11/2013,15/11/2013 12:35:43 p.m.,Tamizaje,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CFE,56/09/0833
+410000009088,Barranco,09178-0139-0,14/11/2013,18/11/2013 11:14:28 a.m.,Tamizaje,Amarillo,Claro,1.010,6.0,Negativo,Negativo,,,,,,,,YSB,65/23/2865
+410000009088,Barranco,09178-0139-0,14/11/2013,18/11/2013 11:14:29 a.m.,Tamizaje,,,,,,,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,YSB,65/23/2865
+410000009099,Barranco,02178-0342-0,15/11/2013,18/11/2013 12:38:13 p.m.,Tamizaje,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GUS,95/57/5242
+410000009169,Barranco,02178-0484-7,20/11/2013,21/11/2013 02:33:55 p.m.,Tamizaje,Amarillo,Ligeramente turbio,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,+,+,JMP,49/88/7205
+410000009238,Barranco,09178-0179-2,25/11/2013,26/11/2013 01:36:25 p.m.,Tamizaje,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,IKU,36/84/2778
+410000009298,Barranco,52178-0488-1,28/11/2013,29/11/2013 02:00:19 p.m.,Tamizaje,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RJZ,19/07/6624
+410000009324,Barranco,02178-0164-5,29/11/2013,19/02/2014 12:16:35 p.m.,Tamizaje,Amarillo,Claro,1.025,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,LEK,20/88/6382
+410000009416,Barranco,09178-0142-2,05/12/2013,10/12/2013 03:55:18 p.m.,Tamizaje,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QGR,66/52/2604
+410000009443,Barranco,02178-0005-0,10/12/2013,12/12/2013 02:14:26 p.m.,Tamizaje,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZFP,71/23/4253
+410000009493,Barranco,02178-0552-8,12/12/2013,16/12/2013 05:05:44 p.m.,Scr,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SWH,95/86/1768
+410000009737,Barranco,09178-0434-6,09/01/2014,13/01/2014 10:23:02 a.m.,"Int, SCR",Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SYE,37/00/3462
+410000009771,Barranco,52178-0539-7,13/01/2014,14/01/2014 03:03:31 p.m.,SCR,Amarillo,Claro,1.020,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,UXE,74/21/2907
+410000009820,Barranco,52178-0153-0,14/01/2014,17/01/2014 12:33:39 p.m.,SCR,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SFI,37/80/4745
+410000009892,Barranco,09178-0521-0,17/01/2014,20/01/2014 12:51:47 p.m.,"Int, SCR",Amarillo,Claro,1.005,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EAB,34/05/1681
+410000009898,Barranco,02178-0384-4,17/01/2014,20/01/2014 01:52:25 p.m.,SCR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,IFL,71/44/9211
+410000009981,Barranco,02178-0566-1,23/01/2014,27/01/2014 09:57:52 a.m.,SCR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,OJV,51/00/6608
+410000010071,Barranco,02178-0525-2,28/01/2014,30/01/2014 02:21:30 p.m.,SCR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,UEP,39/66/5462
+410000010084,Barranco,09178-0145-1,29/01/2014,31/01/2014 12:16:10 p.m.,SCR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,YZO,38/13/9068
+410000010165,Barranco,02178-0376-1,03/02/2014,04/02/2014 01:53:52 p.m.,SCR,Amarillo,Ligeramente turbio,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NVA,00/78/9460
+410000010168,Barranco,52178-0548-7,03/02/2014,04/02/2014 01:50:49 p.m.,SCR,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SQT,75/06/3038
+410000010407,Barranco,52178-0022-5,19/02/2014,21/02/2014 12:02:33 p.m.,SCR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GTS,78/43/2622
+410000010432,Barranco,52178-0291-4,20/02/2014,21/02/2014 12:56:24 p.m.,SCR,Amarillo,Ligeramente turbio,1.010,7.0,Negativo,Negativo,Negativo,Normal,+,Normal,Negativo,Negativo,Negativo,PLZ,11/32/8071
+410000010624,Barranco,02178-0715-1,27/02/2014,03/03/2014 01:55:46 p.m.,SCR,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GNA,87/78/7219
+410000010625,Barranco,02178-0389-2,27/02/2014,03/03/2014 01:54:21 p.m.,SCR,Amarillo,Claro,1.005,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SWX,23/48/3344
+410000010878,Barranco,02178-0406-3,10/03/2014,11/03/2014 05:02:37 p.m.,SCR,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RJB,18/72/7474
+410000011000,Barranco,02178-0604-2,13/03/2014,17/03/2014 09:52:13 a.m.,SCR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NFJ,70/72/1612
+410000011029,Barranco,52178-0574-8,14/03/2014,17/03/2014 03:04:24 p.m.,SCR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,DWU,09/52/6374
+410000011079,Barranco,02178-0187-3,17/03/2014,18/03/2014 09:49:01 a.m.,SCR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,VYF,66/94/4082
+410000011084,Barranco,52178-0499-7,17/03/2014,18/03/2014 09:51:42 a.m.,SCR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ADJ,25/28/4325
+410000011381,Barranco,41178-0022-5,28/03/2014,31/03/2014 01:49:32 p.m.,SCR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HEO,61/67/5319
+410000011402,Barranco,52178-0418-7,31/03/2014,01/04/2014 06:10:19 p.m.,SCR,Amarillo,Claro,1.010,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EEI,25/37/6884
+410000011416,Barranco,52178-0416-0,31/03/2014,02/04/2014 05:24:23 p.m.,SCR,Amarillo,Ligeramente turbio,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,OLL,33/92/6815
+410000011596,Barranco,02178-0312-1,08/04/2014,09/04/2014 04:18:37 p.m.,SCR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,UZZ,21/53/7062
+410000011832,Barranco,52178-0012-4,21/04/2014,23/04/2014 02:24:26 p.m.,ENR,Amarillo oscuro,Ligeramente turbio,1.025,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZTH,38/21/7121
+410000011987,Barranco,41178-0080-3,29/04/2014,02/05/2014 01:24:36 p.m.,TAM,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WDW,39/80/9832
+410000012021,Barranco,52178-0318-4,30/04/2014,02/05/2014 10:07:44 a.m.,SCR,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,WLD,38/70/3938
+410000012081,Barranco,52178-0311-3,05/05/2014,06/05/2014 02:21:48 p.m.,SCR,Amarillo,Claro,1.025,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,XRY,37/80/4282
+410000012153,Barranco,02178-0137-4,07/05/2014,09/05/2014 12:12:11 p.m.,SCR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NNK,10/71/2401
+410000012704,Barranco,41178-0084-2,04/06/2014,06/06/2014 01:46:39 p.m.,ENR,Amarillo,Claro,1020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,CLM,48/80/6423
+410000012705,Barranco,52178-0218-8,04/06/2014,06/06/2014 01:50:09 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,BPG,85/93/4696
+410000012887,Barranco,41178-0138-8,13/06/2014,17/06/2014 12:24:45 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,++,++,OAY,20/07/5752
+410000013091,Barranco,52178-0643-8,26/06/2014,30/06/2014 01:18:07 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PQE,98/84/1521
+410000013104,Barranco,02178-0068-0,26/06/2014,30/06/2014 12:25:00 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RAA,50/43/0155
+410000013393,Barranco,02178-0001-3,14/07/2014,17/07/2014 03:51:46 p.m.,ENR,Amarillo,Claro,1.005,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GUF,30/57/6488
+410000013448,Barranco,52178-0060-5,16/07/2014,18/07/2014 04:08:22 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,LTJ,98/83/2569
+410000013726,Barranco,41178-0050-8,05/08/2014,07/08/2014 02:29:43 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GYV,50/75/4883
+410000013793,Barranco,52178-0436-7,08/08/2014,12/08/2014 03:34:19 p.m.,ENR,Amarillo,Claro,1.015,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HAV,40/88/7826
+410000014235,Barranco,52178-0482-3,29/08/2014,04/09/2014 01:45:07 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,AAP,38/07/0892
+410000014506,Barranco,52178-0508-9,11/09/2014,16/09/2014 04:46:50 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EYK,13/89/9788
+410000014552,Barranco,41178-0217-8,12/09/2014,16/09/2014 02:01:59 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EUS,96/55/4667
+410000014779,Barranco,52178-0656-2,24/09/2014,25/09/2014 03:07:19 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HIY,56/88/9447
+410000015042,Barranco,52178-0028-7,07/10/2014,09/10/2014 04:45:25 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,FMU,95/50/9897
+410000015562,Barranco,02178-0692-4,05/11/2014,10/11/2014 09:35:40 a.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RMK,00/38/7700
+410000016127,Barranco,52178-0172-8,16/12/2014,18/12/2014 02:57:54 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NVS,92/19/9523
+410000016202,Barranco,41178-0208-6,22/12/2014,23/12/2014 02:48:12 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QYK,10/35/3771
+410000016383,Barranco,41178-0176-3,07/01/2015,12/01/2015 01:07:44 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,KEH,70/80/0524
+410000016487,Barranco,52178-0703-0,15/01/2015,20/01/2015 12:00:09 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,EXA,16/39/1486
+410000016548,Barranco,52178-0197-0,20/01/2015,22/01/2015 12:18:42 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,OOM,01/07/6718
+410000016629,Barranco,52178-0235-2,26/01/2015,03/02/2015 12:50:03 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,YCX,97/57/9561
+410000016763,Barranco,52178-0033-6,04/02/2015,06/02/2015 04:21:44 p.m.,ENR,Amarillo,Claro,1.025,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,LVJ,70/63/1077
+410000017126,Barranco,52178-0720-0,27/02/2015,04/03/2015 10:52:11 a.m.,ENR,Amarillo,Ligeramente turbio,1.020,5,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SSN,45/15/3811
+410000017359,Barranco,52178-0449-0,18/03/2015,19/03/2015 04:49:33 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,XJE,21/50/0759
+410000017378,Barranco,41178-0269-3,19/03/2015,23/03/2015 09:49:49 a.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,PDX,32/04/0744
+410000017635,Barranco,52178-0389-2,08/04/2015,14/04/2015 02:23:19 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,+,Normal,++,Normal,Negativo,Negativo,Negativo,JDK,97/46/0850
+410000017694,Barranco,52178-0275-0,14/04/2015,21/04/2015 11:29:00 a.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HHR,11/61/2987
+410000017726,Barranco,41178-0060-5,15/04/2015,20/04/2015 03:28:35 p.m.,ENR,Amarillo,Ligeramente turbio,1.010,6.0,Negativo,Negativo,Negativo,+++,Negativo,Normal,Negativo,Negativo,Negativo,WHU,39/41/7708
+410000018205,Barranco,52178-0666-0,19/05/2015,21/05/2015 09:43:25 a.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,VNU,74/37/3531
+410000018438,Barranco,52178-0388-5,02/06/2015,05/06/2015 03:10:54 p.m.,ENR,Amarillo,Claro,1.020,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,YJG,06/92/5660
+410000018578,Barranco,52178-0452-9,10/06/2015,18/06/2015 03:44:57 p.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,FOH,70/85/9618
+410000018849,Barranco,52178-0821-3,26/06/2015,07/07/2015 12:43:49 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,TEZ,00/62/5659
+410000019002,Barranco,41178-0177-1,08/07/2015,13/07/2015 02:58:44 p.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,VUF,13/69/6813
+410000019004,Barranco,52178-0608-8,08/07/2015,13/07/2015 03:02:43 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ZOB,69/18/5298
+410000019143,Barranco,52178-0584-6,15/07/2015,17/07/2015 03:50:55 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HKI,20/71/3941
+410000019192,Barranco,52178-0404-4,16/07/2015,21/07/2015 01:32:39 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,RYI,11/17/6994
+410000019449,Barranco,41178-0233-7,03/08/2015,14/08/2015 12:27:55 p.m.,ENR,Amarillo,Claro,1.010,7.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,SIF,17/93/9534
+410000019626,Barranco,52178-0554-4,12/08/2015,18/08/2015 04:20:34 p.m.,Enr,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HLN,78/29/0601
+410000019691,Barranco,52178-0614-4,17/08/2015,19/08/2015 10:31:23 a.m.,ENR,Amarillo,Claro,1.015,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,XBM,42/71/2028
+410000019716,Barranco,52178-0619-2,18/08/2015,25/08/2015 05:30:26 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,DQL,29/06/1956
+410000019785,Barranco,02178-0032-7,21/08/2015,25/08/2015 04:45:44 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,BTX,33/51/7665
+410000019864,Barranco,52178-0486-8,26/08/2015,03/09/2015 05:38:00 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,HKM,32/69/2141
+410000020198,Barranco,41178-0280-3,17/09/2015,21/09/2015 11:29:08 a.m.,ENR,Amarillo,Claro,1.010,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QCR,25/84/0751
+410000020222,Barranco,41178-0127-2,18/09/2015,22/09/2015 03:39:07 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GHS,67/91/6284
+410000020849,Barranco,52178-0862-9,04/11/2015,12/11/2015 02:40:48 p.m.,ENR,Amarillo,Claro,1.015,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,QMS,46/07/9407
+410000021131,Barranco,52178-0848-5,30/11/2015,07/12/2015 03:29:48 p.m.,ENR,Amarillo,Claro,1.005,6.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,TYQ,93/08/6274
+410000021228,Barranco,52178-0679-9,10/12/2015,15/12/2015 02:27:12 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,ATY,63/32/3105
+410000021301,Barranco,41178-0058-3,16/12/2015,17/12/2015 04:40:17 p.m.,ENR,Amarillo,Claro,1.010,8.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,NPB,61/72/8023
+410000021352,Barranco,52178-0581-4,21/12/2015,23/12/2015 04:13:19 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GCJ,32/98/1162
+410000021960,Barranco,09178-0716-7,04/02/2016,08/02/2016 01:50:08 p.m.,ENR,Amarillo,Claro,1.020,5.0,Negativo,Negativo,Negativo,Normal,Negativo,Normal,Negativo,Negativo,Negativo,GTR,11/83/6671
