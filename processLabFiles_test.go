@@ -12,9 +12,21 @@ import (
 
 func TestGetKey(t *testing.T) {
 	t.Run("test1", func(t *testing.T) {
-		input := "testdata/example_lab_data/REPORTE-CSV-BD-LAB/MERLIN/Biología Molecular/Carga Viral HIV1 Abbott RT-09032018223003.csv"
+		input := "testdata/example_lab_data/REPORTE-CSV-BD-LAB/MERLIN/Biología Molecular/MERLIN-Biología Molecular-Carga Viral HIV1 Abbott RT-20180406223001.csv"
 		actual := getKey(input)
-		expected := "Biología Molecular/Carga Viral HIV1 Abbott RT"
+		expected := "Biología Molecular/MERLIN-Biología Molecular-Carga Viral HIV1 Abbott RT"
+		if actual != expected {
+			t.Errorf("expected %s, got %s", expected, actual)
+		}
+		input = "testdata/example_lab_data/REPORTE-CSV-BD-LAB/MERLIN/BSL-III/SABES 1/BSL III/SABES 1-BSL III-Carga Viral HIV1 Xpert-20180406223001.csv"
+		actual = getKey(input)
+		expected = "BSL III/SABES 1-BSL III-Carga Viral HIV1 Xpert"
+		if actual != expected {
+			t.Errorf("expected %s, got %s", expected, actual)
+		}
+		input = "testdata/example_lab_data/REPORTE-CSV-BD-LAB/SABES 2A/BSL III/SABES 2A-BSL III-Carga Viral HIV1 Xpert-20180406223001.csv"
+		actual = getKey(input)
+		expected = "BSL III/SABES 2A-BSL III-Carga Viral HIV1 Xpert"
 		if actual != expected {
 			t.Errorf("expected %s, got %s", expected, actual)
 		}
@@ -29,6 +41,8 @@ func TestProcessLabFiles(t *testing.T) {
 		}
 		config := Config{LocalDownloadFolderLab: tempDir, PhiZipPassword: "foobar"}
 		defer os.RemoveAll(tempDir)
+		// fmt.Println("tempDir is", tempDir)
+
 		err = copy.Copy(filepath.Join("testdata", "example_lab_data"), tempDir)
 		if err != nil {
 			t.Fail()
@@ -44,7 +58,7 @@ func TestProcessLabFiles(t *testing.T) {
 func TestPtidExists(t *testing.T) {
 	// var df dataframe.DataFrame
 
-	f, err := os.Open("testdata/example_lab_data/REPORTE-CSV-BD-LAB/MERLIN/Anglolab/Gamma Glutamil Transpeptidasa-09032018223003.csv")
+	f, err := os.Open("testdata/example_lab_data/REPORTE-CSV-BD-LAB/MERLIN/Anglolab/MERLIN-Anglolab-Gamma Glutamil Transpeptidasa-20180406223001.csv")
 	if err != nil {
 		t.Fail()
 	}

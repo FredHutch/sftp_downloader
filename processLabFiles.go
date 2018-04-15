@@ -136,9 +136,9 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 		return err
 	}
 	for k, v := range dfMap {
-		filename, err := keyToFileName(k)
-		if err != nil {
-			return err
+		filename, err1 := keyToFileName(k)
+		if err1 != nil {
+			return err1
 		}
 		fullpath := filepath.Join(rawLabFileDir, filename)
 		outfh, err := os.Create(fullpath)
@@ -174,6 +174,16 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 		zipw.Flush()
 
 	}
+
+	m, err := groupFilesForCombining(rawLabFileDir)
+	if err != nil {
+		return err
+	}
+	for k, v := range m {
+		combineCsvs(rawLabFileDir, k, v...)
+		// TODO rename files that did NOT get combined so that they do not have lab type twice
+	}
+
 	return nil
 }
 

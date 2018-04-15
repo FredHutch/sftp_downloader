@@ -6,7 +6,6 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
 )
@@ -85,6 +84,62 @@ func in(item int, slice []int) bool {
 	return false
 }
 
+type fileSegments struct {
+	labType    string
+	studyName  string
+	suffix     string
+	experiment string
+}
+
+func getFileSegments(input string) fileSegments {
+	var fs fileSegments
+	fs.labType = getLabType(input)
+	ltStart := strings.LastIndex(input, fs.labType)
+	expStart := ltStart + len(fs.labType) + 1
+	fs.experiment = input[expStart:len(input)]
+	fs.experiment = strings.Replace(fs.experiment, ".csv", "", 1)
+	//anglolab_SABES_2a_anglolab_amilasa.csv
+
+	snStart := len(fs.labType) + 1
+
+	tmp := input[snStart:ltStart]
+	segs := strings.Split(tmp, "_")
+	fs.studyName = segs[0]
+	//fs.suffix = segs[1]
+	fs.suffix = strings.Join(segs[1:len(segs)-1], "_")
+
+	if fs.studyName == "SABES" {
+		fs.studyName += "_" + string(fs.suffix[0])
+	}
+
+	return fs
+}
+
+func getLabType(s string) string {
+	longStudies := []string{"biologia_molecular", "DISA_II_c_s_chorrillos_i", "DISA_v", "BSL_III", "NAMRU_6"}
+	for _, longStudy := range longStudies {
+		if strings.HasPrefix(s, longStudy) {
+			return longStudy
+		}
+	}
+	segs := strings.Split(s, "_")
+	return segs[0]
+}
+
+func getStudyName(s string) string {
+	labType := getLabType(s)
+
+	snStart := len(labType) + 1
+	var out string
+	for i := snStart; i < len(s); i++ {
+		if string(s[i]) == "_" {
+			break
+		}
+		out += string(s[i])
+	}
+	return out
+}
+
 // FIXME TODO add a function that will list all the csv files (in semi-processed)
 // and return a list of groups of files that can be combined, to be fed into combineCsvs().
 // It should also return 'orphans' that don't get combined as these still need
@@ -109,42 +164,9 @@ Basically, _PL, _a, _b after MERLIN_ can be lumped into one file per lab type.
 -          Sabes 2 and 2a can be combined.
 -          Sabes 3, 3a_, and 3b_ can be combined.
 */
-func combineCsvs(csvs ...string) (newCsvName string, err error) {
-	fmt.Println(csvs[0])
-	// dir1 := path.Dir(csv1)
-	// dir2 := path.Dir(csv2)
-	// if dir1 != dir2 {
-	// 	fmt.Println("Directories of two CSVs to combine should be the same!")
-	// 	os.Exit(1)
-	// }
-	// base1 := path.Base(csv1)
-	// base2 := path.Base(csv2)
-
-	segs := strings.Split(path.Base(csvs[0]), "_")
-	// FIXME TODO this logic will need to change as there is one lab type (biologia_molecular) that has an underscore in it.
-	// This needs to be treated as one segment.
-	labType := segs[0]
-	studyName := segs[1]
-	// fmt.Println("labType is", labType, "and studyName is", studyName)
-
-	// FIXME TODO this method of generating the output file name probably has to change
-	// For example, if combining
-
-	newNameSegs := []string{studyName, labType}
-	foundLabType := false
-	for i := 2; i < len(segs); i++ {
-		if segs[i] == labType {
-			foundLabType = true
-			continue
-		}
-		if foundLabType {
-			newNameSegs = append(newNameSegs, segs[i])
-		} else {
-			// don't do nuthin'
-		}
-	}
-	dir := path.Dir(csvs[0])
-	newName := filepath.Join(dir, strings.Join(newNameSegs, "_"))
+func combineCsvs(outDir string, newNameInfo key, csvs ...string) (newCsvName string, err error) {
+	newName := filepath.Join(outDir, fmt.Sprintf("%s_%s_%s.csv", newNameInfo.study,
+		newNameInfo.labType, newNameInfo.experiment))
 
 	newFile, err := os.Create(newName)
 	if err != nil {
@@ -155,7 +177,7 @@ func combineCsvs(csvs ...string) (newCsvName string, err error) {
 	w := csv.NewWriter(newFile)
 
 	for idx, csvFileName := range csvs {
-		csvfile, err := os.Open(csvFileName)
+		csvfile, err := os.Open(filepath.Join(outDir, csvFileName))
 		if err != nil {
 			fmt.Println("error opening csv", csvFileName)
 			return "", err
@@ -175,8 +197,6 @@ func combineCsvs(csvs ...string) (newCsvName string, err error) {
 			if first {
 				first = false
 				if idx == 0 {
-					fmt.Println("header record is")
-					fmt.Println(record)
 					if err = w.Write(record); err != nil {
 						return "", err
 					}
@@ -184,8 +204,6 @@ func combineCsvs(csvs ...string) (newCsvName string, err error) {
 
 				}
 			} else {
-				fmt.Println("in endless for loop, first is", first, "and idx is", idx)
-				fmt.Println("writing a data record")
 				if err = w.Write(record); err != nil {
 					return "", err
 				}
@@ -195,7 +213,10 @@ func combineCsvs(csvs ...string) (newCsvName string, err error) {
 
 		w.Flush()
 		csvfile.Close()
-		os.Remove(csvFileName)
+		err = os.Remove(filepath.Join(outDir, csvFileName))
+		if err != nil {
+			return "", err
+		}
 	}
 
 	if err0 := newFile.Close(); err0 != nil {
@@ -203,4 +224,32 @@ func combineCsvs(csvs ...string) (newCsvName string, err error) {
 	}
 
 	return newName, nil
+}
+
+type key struct {
+	experiment string
+	labType    string
+	study      string
+}
+
+func groupFilesForCombining(inputDir string) (mm map[key][]string, err error) {
+	fileInfos, err := ioutil.ReadDir(inputDir)
+	if err != nil {
+		return nil, err
+	}
+	var fileNames []string
+	for _, fileInfo := range fileInfos {
+		if strings.HasSuffix(fileInfo.Name(), ".csv") {
+			fileNames = append(fileNames, fileInfo.Name())
+		}
+	}
+	var m map[key][]string
+	m = make(map[key][]string)
+	for _, fileName := range fileNames {
+		fs := getFileSegments(fileName)
+		study := fs.studyName
+		kee := key{fs.experiment, fs.labType, study}
+		m[kee] = append(m[kee], fileName)
+	}
+	return m, nil
 }

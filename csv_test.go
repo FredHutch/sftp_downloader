@@ -69,33 +69,29 @@ func TestCombineCsvs(t *testing.T) {
 
 		var testers = []struct {
 			inputFiles             []string
+			nameComponents         key
 			expectedOutputFileName string
 			expectedNumberOfLines  int
 		}{
 			{
 				[]string{"anglolab_MERLIN_a_anglolab_gamma_glutamil_transpeptidasa.csv", "anglolab_MERLIN_anglolab_gamma_glutamil_transpeptidasa.csv"},
+				key{"gamma_glutamil_transpeptidasa", "anglolab", "MERLIN"},
 				"MERLIN_anglolab_gamma_glutamil_transpeptidasa.csv",
 				3,
 			},
 			{
 				[]string{"anglolab_MERLIN_PL_a_anglolab_estudio_bioquimico_de_LCR.csv", "anglolab_MERLIN_PL_b_anglolab_estudio_bioquimico_de_LCR.csv"},
+				key{"estudio_bioquimico_de_LCR", "anglolab", "MERLIN"},
 				"MERLIN_anglolab_estudio_bioquimico_de_LCR.csv",
 				3,
 			},
 		}
 
-		fmt.Println(testers)
-
 		copy.Copy("testdata/semi-processed-lab-files", tempDir)
 
-		// // fmt.Println("tempDir is", tempDir)
-
 		for _, tester := range testers {
-			for i := range tester.inputFiles {
-				tester.inputFiles[i] = filepath.Join(tempDir, tester.inputFiles[i])
-			}
 			tester.expectedOutputFileName = filepath.Join(tempDir, tester.expectedOutputFileName)
-			newName, err := combineCsvs(tester.inputFiles...)
+			newName, err := combineCsvs(tempDir, tester.nameComponents, tester.inputFiles...)
 
 			if err != nil {
 				t.Error("got an unexpected error: ", err.Error())
@@ -103,8 +99,6 @@ func TestCombineCsvs(t *testing.T) {
 			if newName != tester.expectedOutputFileName {
 				t.Error("expected", tester.expectedOutputFileName, "got", newName)
 			}
-
-			fmt.Println("newName is", newName)
 
 			newFile, err := os.Open(newName)
 			if err != nil {
@@ -120,12 +114,13 @@ func TestCombineCsvs(t *testing.T) {
 			}
 
 			for _, inputFile := range tester.inputFiles {
-				exists, err := FileExists(inputFile)
+				fullPath := filepath.Join(tempDir, inputFile)
+				exists, err := FileExists(fullPath)
 				if err != nil {
 					t.Fail()
 				}
 				if exists {
-					t.Error(inputFile, "should not exist!")
+					t.Error(fullPath, "should not exist!")
 				}
 			}
 
@@ -152,4 +147,67 @@ func lineCounter(r io.Reader) (int, error) {
 			return count, err
 		}
 	}
+}
+
+func TestGetLabType(t *testing.T) {
+	actual := getLabType("foo_bar")
+	expected := "foo"
+	if actual != expected {
+		t.Error("got", actual, "expected", expected)
+	}
+	actual = getLabType("biologia_molecular_foo")
+	expected = "biologia_molecular"
+	if actual != expected {
+		t.Error("got", actual, "expected", expected)
+	}
+
+}
+
+func TestGetFileSegments(t *testing.T) {
+	res := getFileSegments("anglolab_SABES_2a_anglolab_amilasa.csv")
+	if res.labType != "anglolab" {
+		t.Error("expected anglolab, got", res.labType)
+	}
+	if res.experiment != "amilasa" {
+		t.Error("expected amilasa, got", res.experiment)
+	}
+	var segtesters = []struct {
+		input    string
+		segments fileSegments
+	}{
+		{
+			"anglolab_SABES_2a_anglolab_amilasa.csv",
+			fileSegments{"anglolab", "SABES_2", "2a", "amilasa"},
+		},
+		{
+			"anglolab_SABES_3b_TD_anglolab_TSH_ultrasensible.csv",
+			fileSegments{"anglolab", "SABES_3", "3b_TD", "TSH_ultrasensible"},
+		},
+		{
+			"DISA_II_c_s_chorrillos_i_SABES_3b_TD_DISA_II_c_s_chorrillos_i_investigacion_bacteriologica_en_tuberculosis.csv",
+			fileSegments{"DISA_II_c_s_chorrillos_i", "SABES_3", "3b_TD", "investigacion_bacteriologica_en_tuberculosis"},
+		},
+		{
+			"bioquimica_MERLIN_b_CU_bioquimica_transaminasa_piruvica_TGP_ALT.csv",
+			fileSegments{"bioquimica", "MERLIN", "b_CU", "transaminasa_piruvica_TGP_ALT"},
+		},
+		{
+			"BSL_III_SABES_1_BSL_III_carga_viral_HIV1_xpert.csv",
+			fileSegments{"BSL_III", "SABES_1", "1", "carga_viral_HIV1_xpert"},
+		},
+		{
+			"BSL_III_SABES_2a_BSL_III_carga_viral_HIV1_xpert.csv",
+			fileSegments{"BSL_III", "SABES_2", "2a", "carga_viral_HIV1_xpert"},
+		},
+	}
+	for _, tester := range segtesters {
+		actual := getFileSegments(tester.input)
+		if actual != tester.segments {
+			t.Errorf("Expected\n %+v, got \n%+v\n", tester.segments, actual)
+		}
+	}
+}
+
+func TestGroupFilesForCombining(t *testing.T) {
+	groupFilesForCombining("testdata/semi-processed-lab-files")
 }
