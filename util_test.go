@@ -90,6 +90,24 @@ func TestIsDir(t *testing.T) {
 
 }
 
+func TestChangeDate(t *testing.T) {
+	var datetests = []struct {
+		in  string
+		out string
+	}{
+		{"25/10/2002", "10/25/2002"},
+		{"08-07-2014", "07/08/2014"},
+		{"14.07.16", "07/14/2016"},
+		{"19/07/2016 03:48:33 p.m.", "07/19/2016 03:48:33 p.m."},
+	}
+	for _, datetest := range datetests {
+		actual := changeDate(datetest.in)
+		if actual != datetest.out {
+			t.Error("got", actual, "expected", datetest.out)
+		}
+	}
+}
+
 //func renameDownloadDir(config Config, fileDate string) (string, error)
 // func TestRenameDownloadDir(t *testing.T) {
 // 	tempDir, err := ioutil.TempDir("", "sftp_downloader_test")

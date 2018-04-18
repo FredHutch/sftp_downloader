@@ -6,6 +6,8 @@ import (
 	path0 "path"
 	"path/filepath"
 	"strings"
+
+	"github.com/kniren/gota/dataframe"
 )
 
 // Rename can be overridden for testing
@@ -37,6 +39,31 @@ func removeSuffix(filename string) string {
 	return out
 }
 
+func changeClinicalDates(path, newname string) error {
+	f, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	newDf := dataframe.ReadCSV(f,
+		dataframe.HasHeader(true),
+		dataframe.DetectTypes(false))
+
+	newDf = newDf.Capply(convertDate)
+	outfh, err := os.Create(newname)
+	if err != nil {
+		return err
+	}
+	err = newDf.WriteCSV(outfh, dataframe.WriteHeader(true))
+	if err != nil {
+		return err
+	}
+	outfh.Close()
+
+	return nil
+
+}
+
 func moveFiles(root string) error {
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 		if !predicate(root, path) {
@@ -50,7 +77,12 @@ func moveFiles(root string) error {
 		if ok {
 			return fmt.Errorf("File %s already exists", newname)
 		}
-		err = Rename(path, newname)
+
+		if strings.HasSuffix(newname, ".sav") || info.Size() == 0 {
+			err = Rename(path, newname)
+			return err
+		}
+		err = changeClinicalDates(path, newname)
 		return err
 	})
 

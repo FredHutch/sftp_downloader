@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"time"
 	"unicode"
 
@@ -74,4 +75,23 @@ func convertAccentedToPlain(accented string) (string, error) {
 		return "", err
 	}
 	return result, nil
+}
+
+// change date from dd/mm/yyyy to mm/dd/yyyy
+func changeDate(input string) string {
+	// fmt.Println(input)
+	seps := []string{"/", "-", "."}
+	for _, sep := range seps {
+		re := regexp.MustCompile(fmt.Sprintf("([0-9]{2})%s([0-9]{2})%s([.]*)", sep, sep))
+		if re.MatchString(input) {
+			// return re.ReplaceAllString(input, fmt.Sprintf("${2}%s${1}%s${3}", sep, sep))
+			out := re.ReplaceAllString(input, "${2}/${1}/${3}")
+			re2 := regexp.MustCompile("([0-9]{2})/([0-9]{2})/([0-9]{2})$")
+			if re2.MatchString(out) {
+				return re2.ReplaceAllString(out, "${1}/${2}/20${3}")
+			}
+			return out
+		}
+	}
+	return input
 }

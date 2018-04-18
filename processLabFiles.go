@@ -22,6 +22,19 @@ var ptidMap map[string]bool
 
 var phiDataFrame dataframe.DataFrame
 
+func convertDate(s series.Series) series.Series {
+	if strings.Index(strings.ToLower(s.Name), "fecha") > -1 {
+		var out []string
+		strs := s.Records()
+		for _, item := range strs {
+			changed := changeDate(item)
+			out = append(out, changed)
+		}
+		return series.Strings(out)
+	}
+	return s
+}
+
 func walkFn(path string, info os.FileInfo, err error) error {
 
 	if info.IsDir() {
@@ -52,6 +65,7 @@ func walkFn(path string, info os.FileInfo, err error) error {
 		dataframe.HasHeader(true),
 		dataframe.DetectTypes(false))
 
+	newDf = newDf.Capply(convertDate)
 	dfFromMap, ok := dfMap[key]
 	if ok {
 		df = dfFromMap
