@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -35,6 +36,62 @@ func convertDate(s series.Series) series.Series {
 	return s
 }
 
+// TODO do this for clinical files as well as lab files?
+func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
+	var m map[string]int
+	m = make(map[string]int)
+
+	idDataCol := df.Select([]string{"IdData"}).Col("IdData").Records()
+	// fmt.Println(idDataCol)
+
+	for _, idData := range idDataCol {
+		elem, ok := m[idData]
+		if ok {
+			m[idData] = elem + 1
+		} else {
+			m[idData] = 1
+		}
+	}
+
+	for k, v := range m {
+		if v > 2 {
+			return df, errors.New("more than 2 rows with the same IdData")
+		} else if v > 1 {
+			// rows := df.Subset([]string{k})
+			fil := df.Filter(
+				dataframe.F{
+					Colname:    "IdData",
+					Comparator: series.Eq,
+					Comparando: k,
+				})
+			fmt.Println(fil)
+
+			remainder := df.Filter(
+				dataframe.F{
+					Colname:    "IdData",
+					Comparator: series.Neq,
+					Comparando: k,
+				})
+
+			// merge the rows in fil into a single row, then
+			// rbind that and remainder, and return it
+
+			// fmt.Println(rows)
+		}
+	}
+
+	// records := df.Records()
+	//
+	// for _, rec := range records {
+	// 	fmt.Println(rec)
+	// }
+	// fmt.Println(len(records))
+	// fmt.Println(records[0])
+
+	return df, nil
+
+}
+
 func walkFn(path string, info os.FileInfo, err error) error {
 
 	if info.IsDir() {
@@ -66,6 +123,12 @@ func walkFn(path string, info os.FileInfo, err error) error {
 		dataframe.DetectTypes(false))
 
 	newDf = newDf.Capply(convertDate)
+
+	// newDf, err = mergeDuplicateRows(newDf)
+	// if err != nil {
+	// 	return err
+	// }
+
 	dfFromMap, ok := dfMap[key]
 	if ok {
 		df = dfFromMap
@@ -155,9 +218,9 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 			return err1
 		}
 		fullpath := filepath.Join(rawLabFileDir, filename)
-		outfh, err := os.Create(fullpath)
-		if err != nil {
-			return err
+		outfh, errx := os.Create(fullpath)
+		if errx != nil {
+			return errx
 		}
 		err = v.WriteCSV(outfh, dataframe.WriteHeader(true))
 		if err != nil {
@@ -171,15 +234,15 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 			return err0
 		}
 		phiZipName := filepath.Join(rawLabFileDir, "phi.zip")
-		fzip, err := os.Create(phiZipName)
-		if err != nil {
-			return err
+		fzip, erry := os.Create(phiZipName)
+		if erry != nil {
+			return erry
 		}
 		zipw := zip.NewWriter(fzip)
 		defer zipw.Close()
-		w, err := zipw.Encrypt("phi.csv", config.PhiZipPassword, zip.StandardEncryption)
-		if err != nil {
-			return err
+		w, erra := zipw.Encrypt("phi.csv", config.PhiZipPassword, zip.StandardEncryption)
+		if erra != nil {
+			return erra
 		}
 		_, err = io.Copy(w, bytes.NewReader(buffer.Bytes()))
 		if err != nil {

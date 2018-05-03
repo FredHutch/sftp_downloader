@@ -33,6 +33,36 @@ func TestGetKey(t *testing.T) {
 	})
 }
 
+func TestMergeDuplicateRows(t *testing.T) {
+	t.Run("test1", func(t *testing.T) {
+
+		path := filepath.Join("testdata", "semi-processed-lab-files",
+			"citometria_SABES_3_citometria_linf_CD3_CD4_CD8.csv")
+
+		f, err := os.Open(path)
+		if err != nil {
+			t.Fail()
+		}
+		defer f.Close()
+
+		df := dataframe.ReadCSV(f,
+			dataframe.HasHeader(true),
+			dataframe.DetectTypes(false))
+
+		out, err := mergeDuplicateRows(df)
+		if err != nil {
+			t.Fail()
+		}
+		expectedRows := df.Nrow() - 1
+		actualRows := out.Nrow()
+
+		if actualRows != expectedRows {
+			t.Error("expected", expectedRows, "rows in data frame, got", actualRows)
+		}
+
+	})
+}
+
 func TestProcessLabFiles(t *testing.T) {
 	t.Run("test1", func(t *testing.T) {
 		tempDir, err := ioutil.TempDir("", "sftp-test-dir")
