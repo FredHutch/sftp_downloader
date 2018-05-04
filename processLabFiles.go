@@ -42,7 +42,6 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 	m = make(map[string]int)
 
 	idDataCol := df.Select([]string{"IdData"}).Col("IdData").Records()
-	// fmt.Println(idDataCol)
 
 	for _, idData := range idDataCol {
 		elem, ok := m[idData]
@@ -56,15 +55,13 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 	for k, v := range m {
 		if v > 2 {
 			return df, errors.New("more than 2 rows with the same IdData")
-		} else if v > 1 {
-			// rows := df.Subset([]string{k})
+		} else if v == 2 {
 			fil := df.Filter(
 				dataframe.F{
 					Colname:    "IdData",
 					Comparator: series.Eq,
 					Comparando: k,
 				})
-			fmt.Println(fil)
 
 			remainder := df.Filter(
 				dataframe.F{
@@ -75,6 +72,46 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 
 			// merge the rows in fil into a single row, then
 			// rbind that and remainder, and return it
+			records := fil.Records()
+			records = append(records[:0], records[1:]...)
+			singleRec := make([]string, len(records[0]))
+
+			singleRec[0] = k
+
+			for i := 1; i < len(records[0]); i++ {
+				if records[0][i] == "" {
+					singleRec[i] = records[1][i]
+				} else if records[1][i] == "" {
+					singleRec[i] = records[0][i]
+				} else {
+					if records[0][i] == records[1][i] {
+						singleRec[i] = records[0][i]
+					} else {
+						if df.Names()[i] == "FechaImpresion" {
+							singleRec[i] = strings.Split(records[0][i], " ")[0]
+						} else {
+							return df, errors.New("values didn't match, can't merge")
+						}
+					}
+				}
+			}
+
+			single := dataframe.LoadRecords(
+				[][]string{
+					df.Names(),
+					singleRec,
+				},
+				dataframe.DetectTypes(false),
+				dataframe.DefaultType(series.String),
+			)
+
+			df = remainder.RBind(single)
+
+			// TODO sort here by IdData
+
+			df = df.Arrange(
+				dataframe.Sort("IdData"),
+			)
 
 			// fmt.Println(rows)
 		}
@@ -124,10 +161,10 @@ func walkFn(path string, info os.FileInfo, err error) error {
 
 	newDf = newDf.Capply(convertDate)
 
-	// newDf, err = mergeDuplicateRows(newDf)
-	// if err != nil {
-	// 	return err
-	// }
+	newDf, err = mergeDuplicateRows(newDf)
+	if err != nil {
+		return err
+	}
 
 	dfFromMap, ok := dfMap[key]
 	if ok {

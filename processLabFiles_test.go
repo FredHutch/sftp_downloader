@@ -1,12 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/kniren/gota/dataframe"
+	"github.com/kniren/gota/series"
 	"github.com/otiai10/copy"
 )
 
@@ -51,13 +54,57 @@ func TestMergeDuplicateRows(t *testing.T) {
 
 		out, err := mergeDuplicateRows(df)
 		if err != nil {
+			fmt.Println(err.Error())
 			t.Fail()
+			return
 		}
-		expectedRows := df.Nrow() - 1
+
+		expectedRows := df.Nrow() - 2
 		actualRows := out.Nrow()
 
 		if actualRows != expectedRows {
 			t.Error("expected", expectedRows, "rows in data frame, got", actualRows)
+		}
+
+		firstRow := out.Subset([]int{0})
+		lastRow := out.Subset([]int{out.Nrow() - 1})
+
+		actualFirstRow := firstRow.Records()[1][0]
+		actualLastRow := lastRow.Records()[1][0]
+
+		expectedFirstRow := "090000031652"
+		expectedLastRow := "410000021960"
+
+		if actualFirstRow != expectedFirstRow {
+			t.Error("first row should be", expectedFirstRow, ", got", actualFirstRow)
+		}
+
+		if actualLastRow != expectedLastRow {
+			t.Error("last row should be", expectedLastRow, ", got", actualLastRow)
+		}
+
+		df1 := out.Filter(
+			dataframe.F{
+				Colname:    "IdData",
+				Comparator: series.Eq,
+				Comparando: "410000009898"},
+		)
+		df2 := out.Filter(
+			dataframe.F{
+				Colname:    "IdData",
+				Comparator: series.Eq,
+				Comparando: "090000045264"},
+		)
+
+		d1 := df1.Col("FechaImpresion").Records()[0]
+		d2 := df2.Col("FechaImpresion").Records()[0]
+
+		if strings.Index(d1, " ") != -1 {
+			t.Error("space occurs in FechaImpression")
+		}
+
+		if strings.Index(d2, " ") != -1 {
+			t.Error("space occurs in FechaImpression")
 		}
 
 	})
