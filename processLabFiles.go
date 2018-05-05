@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -66,6 +67,12 @@ func walkFn(path string, info os.FileInfo, err error) error {
 		dataframe.DetectTypes(false))
 
 	newDf = newDf.Capply(convertDate)
+
+	newDf, err = mergeDuplicateRows(newDf)
+	if err != nil {
+		return err
+	}
+
 	dfFromMap, ok := dfMap[key]
 	if ok {
 		df = dfFromMap
@@ -130,6 +137,91 @@ func walkFn(path string, info os.FileInfo, err error) error {
 	dfMap[key] = df
 
 	return nil
+
+}
+
+// TODO do this for clinical files as well as lab files?
+func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
+	var m map[string]int
+	m = make(map[string]int)
+
+	idDataCol := df.Select([]string{"IdData"}).Col("IdData").Records()
+
+	for _, idData := range idDataCol {
+		elem, ok := m[idData]
+		if ok {
+			m[idData] = elem + 1
+		} else {
+			m[idData] = 1
+		}
+	}
+
+	for k, v := range m {
+		if v > 2 {
+			return df, errors.New("more than 2 rows with the same IdData")
+		} else if v == 2 {
+			fil := df.Filter(
+				dataframe.F{
+					Colname:    "IdData",
+					Comparator: series.Eq,
+					Comparando: k,
+				})
+
+			remainder := df.Filter(
+				dataframe.F{
+					Colname:    "IdData",
+					Comparator: series.Neq,
+					Comparando: k,
+				})
+
+			// merge the rows in fil into a single row, then
+			// rbind that and remainder, and return it
+			records := fil.Records()
+			records = append(records[:0], records[1:]...)
+			singleRec := make([]string, len(records[0]))
+
+			singleRec[0] = k
+
+			for i := 1; i < len(records[0]); i++ {
+				if records[0][i] == "" {
+					singleRec[i] = records[1][i]
+				} else if records[1][i] == "" {
+					singleRec[i] = records[0][i]
+				} else {
+					if records[0][i] == records[1][i] {
+						singleRec[i] = records[0][i]
+					} else {
+						if df.Names()[i] == "FechaImpresion" {
+							singleRec[i] = strings.Split(records[0][i], " ")[0]
+						} else {
+							return df, errors.New("values didn't match, can't merge")
+						}
+					}
+				}
+			}
+
+			single := dataframe.LoadRecords(
+				[][]string{
+					df.Names(),
+					singleRec,
+				},
+				dataframe.DetectTypes(false),
+				dataframe.DefaultType(series.String),
+			)
+
+			df = remainder.RBind(single)
+
+			// TODO sort here by IdData
+
+			df = df.Arrange(
+				dataframe.Sort("IdData"),
+			)
+
+			// fmt.Println(rows)
+		}
+	}
+
+	return df, nil
 
 }
 
