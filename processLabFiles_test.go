@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"testing"
 
@@ -179,4 +180,41 @@ func TestMergeDuplicateRows(t *testing.T) {
 		}
 
 	})
+
+	t.Run("rows can't be merged", func(t *testing.T) {
+		df0 := dataframe.LoadRecords(
+			[][]string{
+				[]string{"IdData", "B"},
+				[]string{"foo", "bar"},
+				[]string{"foo", "bat"},
+			},
+		)
+		out, err := mergeDuplicateRows(df0)
+		if err != nil {
+			t.Error("unexpected error:", err.Error())
+			return
+		}
+		if !reflect.DeepEqual(df0, out) {
+			t.Error("dataframes do not match")
+		}
+	})
+
+	t.Run("merge identical records", func(t *testing.T) {
+		df0 := dataframe.LoadRecords(
+			[][]string{
+				[]string{"IdData", "B"},
+				[]string{"foo", "bat"},
+				[]string{"foo", "bat"},
+			},
+		)
+		out, err := mergeDuplicateRows(df0)
+		if err != nil {
+			t.Error("unexpected error:", err.Error())
+			return
+		}
+		if out.Nrow() != 1 {
+			t.Error("expected 1 row, got", out.Nrow())
+		}
+	})
+
 }

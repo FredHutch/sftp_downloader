@@ -163,6 +163,10 @@ See complete documentation at:
 			fmt.Println("Consolidating lab files...")
 			rawLabFileDir := filepath.Join(getDownloadFolder(LabPhase, config), fileDate)
 			err = processLabFiles(config, rawLabFileDir)
+			if err != nil {
+				fmt.Println("Error processing lab files:", err.Error())
+				os.Exit(1)
+			}
 
 		}
 

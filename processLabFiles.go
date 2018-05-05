@@ -70,6 +70,7 @@ func walkFn(path string, info os.FileInfo, err error) error {
 
 	newDf, err = mergeDuplicateRows(newDf)
 	if err != nil {
+		fmt.Println("got an error:", err.Error(), "path is", path)
 		return err
 	}
 
@@ -140,6 +141,18 @@ func walkFn(path string, info os.FileInfo, err error) error {
 
 }
 
+func compareSlices(s1 []string, s2 []string) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+	for i := 0; i < len(s1); i++ {
+		if s1[i] != s2[i] {
+			return false
+		}
+	}
+	return true
+}
+
 // TODO do this for clinical files as well as lab files?
 func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 	var m map[string]int
@@ -156,6 +169,7 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 		}
 	}
 
+Loop:
 	for k, v := range m {
 		if v > 2 {
 			return df, errors.New("more than 2 rows with the same IdData")
@@ -182,22 +196,28 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 
 			singleRec[0] = k
 
-			for i := 1; i < len(records[0]); i++ {
-				if records[0][i] == "" {
-					singleRec[i] = records[1][i]
-				} else if records[1][i] == "" {
-					singleRec[i] = records[0][i]
-				} else {
-					if records[0][i] == records[1][i] {
+			if compareSlices(records[0], records[1]) {
+				singleRec = records[0]
+			} else {
+				for i := 1; i < len(records[0]); i++ {
+					if records[0][i] == "" {
+						singleRec[i] = records[1][i]
+					} else if records[1][i] == "" {
 						singleRec[i] = records[0][i]
 					} else {
-						if df.Names()[i] == "FechaImpresion" {
-							singleRec[i] = strings.Split(records[0][i], " ")[0]
+						if records[0][i] == records[1][i] {
+							singleRec[i] = records[0][i]
 						} else {
-							return df, errors.New("values didn't match, can't merge")
+							if df.Names()[i] == "FechaImpresion" {
+								singleRec[i] = strings.Split(records[0][i], " ")[0]
+							} else {
+								// these records should not be merged
+								break Loop
+							}
 						}
 					}
 				}
+
 			}
 
 			single := dataframe.LoadRecords(
@@ -237,9 +257,9 @@ func getKey(path string) string {
 
 func processLabFiles(config Config, rawLabFileDir string) error {
 	ptidMap = make(map[string]bool)
-	err := filepath.Walk(rawLabFileDir, walkFn)
-	if err != nil {
-		return err
+	errp := filepath.Walk(rawLabFileDir, walkFn)
+	if errp != nil {
+		return errp
 	}
 	for k, v := range dfMap {
 		filename, err1 := keyToFileName(k)
@@ -247,11 +267,11 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 			return err1
 		}
 		fullpath := filepath.Join(rawLabFileDir, filename)
-		outfh, err := os.Create(fullpath)
-		if err != nil {
-			return err
+		outfh, errz := os.Create(fullpath)
+		if errz != nil {
+			return errz
 		}
-		err = v.WriteCSV(outfh, dataframe.WriteHeader(true))
+		err := v.WriteCSV(outfh, dataframe.WriteHeader(true))
 		if err != nil {
 			return err
 		}
