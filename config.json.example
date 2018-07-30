@@ -9,5 +9,6 @@
 "local_download_folder_tnt": "./tnt",
 "postprocessing_command_clinical": "echo -clinical- current directory is $PWD",
 "postprocessing_command_lab": "echo -lab- current directory is $PWD",
+"postprocessing_command_tnt": "echo -tnt- current directory is $PWD",
 "phi_zip_password": ""
 }
