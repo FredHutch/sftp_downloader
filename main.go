@@ -168,6 +168,17 @@ See complete documentation at:
 				os.Exit(1)
 			}
 
+		} else if phase == TNTPhase {
+			fmt.Println("need to do more stuff here after extracting tnt files")
+			/*
+				TODOS:
+				rename e.g.
+				TNTstudies-Enrolamiento-20180719223543.csv
+				to
+				enr.TNT
+				waiting for clarification on exactly what needs to be done
+			*/
+
 		}
 
 		// if phase == ClinicalPhase {

@@ -10,12 +10,20 @@ import (
 	"github.com/FredHutch/sftp_downloader/iface"
 )
 
+func getMonthFirstDate(dayFirstDate string) string {
+	segs := strings.Split(dayFirstDate, "-")
+	return fmt.Sprintf("%s-%s-%s", segs[0], segs[2], segs[1])
+}
+
 func getFileNameToDownload(fileDate string, config Config, sftpclient iface.Sftper, phase Phase) (string, error) {
 	var filePattern string
 	if phase == ClinicalPhase {
 		filePattern = fmt.Sprintf("Reportes_diarios_acumulados-%s", fileDate)
 	} else if phase == LabPhase {
 		filePattern = fmt.Sprintf("Reportes_diarios_acumulados_laboratorio-%s", fileDate)
+	} else if phase == TNTPhase {
+		// yyyy-mm-dd
+		filePattern = fmt.Sprintf("Reportes_diarios_acumulados_TNT-%s", fileDate)
 	}
 	remoteDir := "/" // TODO factor this out to json config
 	matchingFiles, err := sftpclient.ReadDir(remoteDir)
@@ -39,11 +47,12 @@ func getDownloadFolder(phase Phase, config Config) string {
 		return config.LocalDownloadFolderClinical
 	} else if phase == LabPhase {
 		return config.LocalDownloadFolderLab
-	} else {
-		fmt.Println("Invalid phase:", phase)
-		os.Exit(1)
-		return ""
+	} else if phase == TNTPhase {
+		return config.LocalDownloadFolderTNT
 	}
+	fmt.Println("Invalid phase:", phase)
+	os.Exit(1)
+	return ""
 }
 
 func doDownload(remoteFile string, config Config, sftpclient iface.Sftper, phase Phase) (rarFile string, retErr error) {

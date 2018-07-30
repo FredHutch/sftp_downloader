@@ -15,31 +15,37 @@ type Config struct {
 	Password                      string `json:"password"`
 	LocalDownloadFolderClinical   string `json:"local_download_folder_clinical"`
 	LocalDownloadFolderLab        string `json:"local_download_folder_lab"`
+	LocalDownloadFolderTNT        string `json:"local_download_folder_tnt"`
 	RarDecryptionPassword         string `json:"rar_decryption_password"`
 	PostProcessingCommandClinical string `json:"postprocessing_command_clinical"`
 	PostProcessingCommandLab      string `json:"postprocessing_command_lab"`
 	PhiZipPassword                string `json:"phi_zip_password"`
 }
 
-// Phase represents which phase of downloading we are doing (Clinical or Lab)
+// Phase represents which phase of downloading we are doing (Clinical/Lab/TNT)
 type Phase int
 
 const (
 	// ClinicalPhase is bla
 	ClinicalPhase Phase = iota
+	// TNTPhase is bla
+	TNTPhase
 	// LabPhase is bla
 	LabPhase
 )
 
 var (
-	phases = []Phase{ClinicalPhase, LabPhase}
+	phases = []Phase{ClinicalPhase, LabPhase, TNTPhase}
 )
 
 func getPhaseName(phase Phase) string {
-	if phase == ClinicalPhase {
+	switch phase {
+	case ClinicalPhase:
 		return "clinical"
+	case LabPhase:
+		return "lab"
 	}
-	return "lab"
+	return "tnt"
 }
 
 // GetConfig populates the Config struct from a json file
