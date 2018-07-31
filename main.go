@@ -177,6 +177,17 @@ See complete documentation at:
 				to
 				enr.TNT
 				waiting for clarification on exactly what needs to be done
+				 - within each download, keep only the most recent file of each type
+				 (Enrolamiento and VisitSummary).
+				- rename to enr.TNT.csv and vs.TNT.csv. (getting rid of the date bit. I guess)
+				- within each of those files, convert all *Fecha* columns from
+				  dd/mm/yyyy to mm/dd/yyyy.
+				- in VS, “NroParticipante” should be renamed to “PTID”
+				- IN ENR, “PID” should be renamed ”PTID”,
+				  And PIDSabes can keep the name or be renamed to “PTID_SABES”
+
+
+
 			*/
 
 		}
