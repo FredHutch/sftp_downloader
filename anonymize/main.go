@@ -22,6 +22,7 @@ var numbers = []rune("0123456789")
 
 var dateMap map[string]string
 var initialsMap map[string]string
+var ptidMap map[string]string
 
 func randStringRunes(n int) string {
 	b := make([]rune, n)
@@ -65,8 +66,8 @@ func walkies(path string, info os.FileInfo, err error) error {
 		fmt.Println(df.Names())
 		fmt.Println(df)
 		df2 := anonymizeInitials(df)
-		// df3 := anonymizePtID(df2)
-		df3 := anonymizeDate(df2)
+		df3 := anonymizePtID(df2)
+		df3 = anonymizeDate(df3)
 		fmt.Println("initials and ptid and date anonymized:")
 		fmt.Println(df3)
 
@@ -101,14 +102,24 @@ func anonymizeInitials(df dataframe.DataFrame) dataframe.DataFrame {
 	return df2
 }
 
-// func anonymizePtID(df dataframe.DataFrame) dataframe.DataFrame {
-// 	var s []string
-// 	for i := 0; i < df.Nrow(); i++ {
-// 		s = append(s, fmt.Sprintf("%s-%s-%s", randNums(5), randNums(4), randNums(1)))
-// 	}
-// 	df2 := df.Mutate(series.New(s, series.String, "PTID"))
-// 	return df2
-// }
+func anonymizePtID(df dataframe.DataFrame) dataframe.DataFrame {
+	var s []string
+	ptidCol := df.Col("PTID")
+	ptids := ptidCol.Records()
+	for i := 0; i < df.Nrow(); i++ {
+		ptid := ptids[i]
+		var newptid string
+		if cached, ok := ptidMap[ptid]; ok {
+			newptid = cached
+		} else {
+			newptid = fmt.Sprintf("%s-%s-%s", randNums(5), randNums(4), randNums(1))
+			ptidMap[ptid] = newptid
+		}
+		s = append(s, newptid)
+	}
+	df2 := df.Mutate(series.New(s, series.String, "PTID"))
+	return df2
+}
 
 // TODO create realistic birth dates
 func anonymizeDate(df dataframe.DataFrame) dataframe.DataFrame {
@@ -138,6 +149,7 @@ func main() {
 	csvdir := os.Args[1]
 	dateMap = make(map[string]string)
 	initialsMap = make(map[string]string)
+	ptidMap = make(map[string]string)
 	err := filepath.Walk(csvdir, walkies)
 	if err != nil {
 		panic(err)
