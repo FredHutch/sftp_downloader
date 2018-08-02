@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+
+	"github.com/kniren/gota/dataframe"
 )
 
 func deleteOlderFiles(path string) error {
@@ -43,6 +45,77 @@ func deleteOlderFiles(path string) error {
 				}
 			}
 		}
+	}
+	return nil
+}
+
+func moveFilesUpOneLevel(rundir string) error {
+	oldDir := filepath.Join(rundir, "REPORTE-TNTSTUDIES")
+	files, err := ioutil.ReadDir(oldDir)
+	if err != nil {
+		return err
+	}
+	for _, f := range files {
+		err = os.Rename(filepath.Join(oldDir, f.Name()), filepath.Join(rundir, f.Name()))
+		if err != nil {
+			return err
+		}
+	}
+	err = os.Remove(oldDir)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func renameFiles(rundir string) error {
+	files, err := ioutil.ReadDir(rundir)
+	if err != nil {
+		return err
+	}
+	// assume there are only 2 files, one enr and one vs
+	for _, f := range files {
+		if strings.Index(f.Name(), "Enrolamiento") > -1 {
+			err = os.Rename(filepath.Join(rundir, f.Name()), filepath.Join(rundir, "enr.TNT.csv"))
+		} else {
+			err = os.Rename(filepath.Join(rundir, f.Name()), filepath.Join(rundir, "vs.TNT.csv"))
+		}
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func convertTNTDates(rundir string) error {
+
+	listing, err := ioutil.ReadDir(rundir)
+	if err != nil {
+		return err
+	}
+	for _, finfo := range listing {
+		// fmt.Println("haha", finfo)
+		f, err := os.Open(filepath.Join(rundir, finfo.Name()))
+		if err != nil {
+			return err
+		}
+		newDf := dataframe.ReadCSV(f, dataframe.HasHeader(true), dataframe.DetectTypes(false))
+		f.Close()
+		newDf = newDf.Capply(convertDate)
+		// TODO - change column names here?
+		outfh, err := os.Create(filepath.Join(rundir, finfo.Name()))
+		if err != nil {
+			return err
+		}
+		err = newDf.WriteCSV(outfh, dataframe.WriteHeader(true))
+		if err != nil {
+			return err
+		}
+		err = outfh.Close()
+		if err != nil {
+			return err
+		}
+
 	}
 	return nil
 }
