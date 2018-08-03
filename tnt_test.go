@@ -73,6 +73,7 @@ func TestConvertTNTDates(t *testing.T) {
 
 	var colname string
 	var expected string
+	expectedCol := "PTID"
 	for _, finfo := range files {
 		if strings.Index(finfo.Name(), "enr") > -1 {
 			colname = "FechaEnr"
@@ -91,6 +92,9 @@ func TestConvertTNTDates(t *testing.T) {
 		actual := sub.Col(colname).Records()[0]
 		if actual != expected {
 			t.Error("expected", expected, "got", actual)
+		}
+		if !stringInSlice(expectedCol, df.Names()) {
+			t.Error("expected column", expectedCol, "in columns", df.Names())
 		}
 	}
 }

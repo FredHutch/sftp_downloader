@@ -94,7 +94,6 @@ func convertTNTDates(rundir string) error {
 		return err
 	}
 	for _, finfo := range listing {
-		// fmt.Println("haha", finfo)
 		f, err := os.Open(filepath.Join(rundir, finfo.Name()))
 		if err != nil {
 			return err
@@ -102,7 +101,11 @@ func convertTNTDates(rundir string) error {
 		newDf := dataframe.ReadCSV(f, dataframe.HasHeader(true), dataframe.DetectTypes(false))
 		f.Close()
 		newDf = newDf.Capply(convertDate)
-		// TODO - change column names here?
+		if strings.Index(finfo.Name(), "enr") > -1 {
+			newDf = newDf.Rename("PTID", "Pid")
+		} else { // vs
+			newDf = newDf.Rename("PTID", "NroParticipante")
+		}
 		outfh, err := os.Create(filepath.Join(rundir, finfo.Name()))
 		if err != nil {
 			return err

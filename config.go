@@ -35,7 +35,9 @@ const (
 )
 
 var (
-	phases = []Phase{ClinicalPhase, LabPhase, TNTPhase}
+	// FIXME TODO
+	// phases = []Phase{ClinicalPhase, LabPhase, TNTPhase}
+	phases = []Phase{TNTPhase}
 )
 
 func getPhaseName(phase Phase) string {

@@ -39,9 +39,11 @@ Edit the `config.json` file. Values should be as follows:
 * `rar_decryption_password` - password to decrypt RAR file
 * `local_download_folder_clinical` - folder in which to download/extract clinical data
 * `local_download_folder_lab` - folder in which to download/extract lab data
+* `local_download_folder_tnt` - folder in which to download/extract TNT data
 * `postprocessing_command_clinical` - a command to run after downloading and extraction of clinical data is complete
   (command will be run in the directory where the files have been archived).
 * `postprocessing_command_lab` - a command to run after downloading and extraction of lab data is complete
+* `postprocessing_command_tnt` - a command to run after downloading and extraction of TNT data is complete
   (command will be run in the directory where the files have been archived).
 * `phi_zip_password` - the password with which to encrypt the zip file containing PHI.
 
@@ -79,6 +81,8 @@ When invoked in a crontab, as above, the script will do the following:
   stack all data into a file for each lab type, rename files, remove
   PHI columns and put them in an encrypted zip file, remove original
   data and rar file, run a post-processing script for lab files.
+* Download TNT data for the specified date (yesterday if no date specified), 
+  unarchive it, and optionally run a post-processing command.
 
 
 ## Running the script manually

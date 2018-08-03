@@ -171,24 +171,6 @@ See complete documentation at:
 		} else if phase == TNTPhase {
 			fmt.Println("need to do more stuff here after extracting tnt files")
 			fmt.Println("rundir is", rundir)
-			/*
-				TODOS:
-				waiting for clarification on exactly what needs to be done
-				 X within each download, keep only the most recent file of each type
-				 (Enrolamiento and VisitSummary). (supposedly peru has fixed this
-				but it can't hurt to continue to do it (i think))
-				X rename to enr.TNT.csv and vs.TNT.csv. (getting rid of the date bit. I guess)
-				 X get rid of REPORTE-TNTSTUDIES dir, meaning: move files up one level from
-				  {rundir}/REPORTE-TNTSTUDIES to {rundir}, and removing the REPORTE-TNTSTUDIES dir.
-				X within each of those files, convert all *Fecha* columns from
-				  dd/mm/yyyy to mm/dd/yyyy.
-				- in VS, “NroParticipante” should be renamed to “PTID”
-				- IN ENR, “PID” should be renamed ”PTID”,
-				  And PIDSabes can keep the name or be renamed to “PTID_SABES”
-
-
-
-			*/
 			err = moveFilesUpOneLevel(rundir)
 			if err != nil {
 				fmt.Println("Error renaming tnt files:", err.Error())
