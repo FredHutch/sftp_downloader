@@ -137,9 +137,10 @@ See complete documentation at:
 		if err != nil {
 			fmt.Printf("Could not download file: %s\n", err.Error())
 			if phase == ClinicalPhase {
-				os.Exit(1)
-			} else {
-				os.Exit(0)
+				exitCodes = append(exitCodes, 1)
+				continue
+			} else if phase == LabPhase {
+				continue
 			}
 		}
 
@@ -169,8 +170,6 @@ See complete documentation at:
 			}
 
 		} else if phase == TNTPhase {
-			fmt.Println("need to do more stuff here after extracting tnt files")
-			fmt.Println("rundir is", rundir)
 			err = moveFilesUpOneLevel(rundir)
 			if err != nil {
 				fmt.Println("Error renaming tnt files:", err.Error())
