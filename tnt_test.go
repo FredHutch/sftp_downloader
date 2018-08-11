@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -96,5 +97,44 @@ func TestConvertTNTDates(t *testing.T) {
 		if !stringInSlice(expectedCol, df.Names()) {
 			t.Error("expected column", expectedCol, "in columns", df.Names())
 		}
+	}
+}
+
+func TestMoveFilesUpOneLevel(t *testing.T) {
+	tempDir, err := ioutil.TempDir("", "sftpdownloader-testing")
+	if err != nil {
+		fmt.Println("fail0", err.Error())
+		t.Fail()
+	}
+	defer os.RemoveAll(tempDir)
+	f, err := os.Create(filepath.Join(tempDir, "1.txt"))
+	if err != nil {
+		fmt.Println("fail1", err.Error())
+		t.Fail()
+	}
+	f.Close()
+	fulldir := filepath.Join(tempDir, "REPORTE-TNTSTUDIES")
+	err = mkdir(fulldir)
+	if err != nil {
+		fmt.Println("fail2", err.Error())
+		t.Fail()
+	}
+	f, err = os.Create(filepath.Join(fulldir, "f1.txt"))
+	if err != nil {
+		fmt.Println("fail3", err.Error())
+		t.Fail()
+	}
+	f.Close()
+	err = moveFilesUpOneLevel(tempDir)
+	if err != nil {
+		t.Error("did not expect error, got", err.Error())
+	}
+	infos, err := ioutil.ReadDir(tempDir)
+	if err != nil {
+		fmt.Println("got an error reading tempDir")
+		t.Fail()
+	}
+	if len(infos) != 2 {
+		t.Error("Expected len(infos) to be 2, got", len(infos))
 	}
 }

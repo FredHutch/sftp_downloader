@@ -101,10 +101,12 @@ func UncompressFile(rarFile, fileDate string, config Config, phase Phase) error 
 	if err != nil {
 		return fmt.Errorf("Error checking directory existence")
 	}
-	if exists {
-		return fmt.Errorf("Uncompress destination directory '%s' already exists", destFolder)
+	if !exists {
+		err = os.Mkdir(destFolder, os.ModePerm)
+		if err != nil {
+			return fmt.Errorf(err.Error())
+		}
 	}
-	err = os.Mkdir(destFolder, os.ModePerm)
 	err = Open(rarFile, destFolder, config.RarDecryptionPassword)
 	if err != nil {
 		return fmt.Errorf(err.Error())

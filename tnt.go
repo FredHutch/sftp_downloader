@@ -73,11 +73,10 @@ func renameFiles(rundir string) error {
 	if err != nil {
 		return err
 	}
-	// assume there are only 2 files, one enr and one vs
 	for _, f := range files {
 		if strings.Index(f.Name(), "Enrolamiento") > -1 {
 			err = os.Rename(filepath.Join(rundir, f.Name()), filepath.Join(rundir, "enr.TNT.csv"))
-		} else {
+		} else if strings.Index(f.Name(), "VisitSummary") > -1 {
 			err = os.Rename(filepath.Join(rundir, f.Name()), filepath.Join(rundir, "vs.TNT.csv"))
 		}
 		if err != nil {
@@ -94,6 +93,12 @@ func convertTNTDates(rundir string) error {
 		return err
 	}
 	for _, finfo := range listing {
+		if finfo.IsDir() {
+			continue
+		}
+		if !(strings.Index(finfo.Name(), "enr.TNT") > -1 || strings.Index(finfo.Name(), "vs.TNT") > -1) {
+			continue
+		}
 		f, err := os.Open(filepath.Join(rundir, finfo.Name()))
 		if err != nil {
 			return err
@@ -101,10 +106,14 @@ func convertTNTDates(rundir string) error {
 		newDf := dataframe.ReadCSV(f, dataframe.HasHeader(true), dataframe.DetectTypes(false))
 		f.Close()
 		newDf = newDf.Capply(convertDate)
-		if strings.Index(finfo.Name(), "enr") > -1 {
-			newDf = newDf.Rename("PTID", "Pid")
-		} else { // vs
-			newDf = newDf.Rename("PTID", "NroParticipante")
+		if strings.Index(finfo.Name(), "enr.TNT") > -1 {
+			if stringInSlice("Pid", newDf.Names()) {
+				newDf = newDf.Rename("PTID", "Pid")
+			}
+		} else if strings.Index(finfo.Name(), "vs.TNT") > -1 { // vs
+			if stringInSlice("NroParticipante", newDf.Names()) {
+				newDf = newDf.Rename("PTID", "NroParticipante")
+			}
 		}
 		outfh, err := os.Create(filepath.Join(rundir, finfo.Name()))
 		if err != nil {
