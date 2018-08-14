@@ -12,8 +12,10 @@ import (
 func getScriptName(config Config, phase Phase) string {
 	if phase == ClinicalPhase {
 		return config.PostProcessingCommandClinical
+	} else if phase == LabPhase {
+		return config.PostProcessingCommandLab
 	}
-	return config.PostProcessingCommandLab
+	return config.PostProcessingCommandTnt
 }
 
 func runScript(cmdline string, rundir string) (int, string, error) {

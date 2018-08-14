@@ -19,6 +19,7 @@ type Config struct {
 	RarDecryptionPassword         string `json:"rar_decryption_password"`
 	PostProcessingCommandClinical string `json:"postprocessing_command_clinical"`
 	PostProcessingCommandLab      string `json:"postprocessing_command_lab"`
+	PostProcessingCommandTnt      string `json:"postprocessing_command_tnt"`
 	PhiZipPassword                string `json:"phi_zip_password"`
 }
 
