@@ -108,7 +108,216 @@ func TestKeyToFileName(t *testing.T) {
 	}
 }
 
+func TestMergeFunction(t *testing.T) {
+	t.Run("merge-blank", func(t *testing.T) {
+		df := dataframe.LoadRecords(
+			[][]string{
+				{"A", "B", "C", "D"},
+				{"a", "", "c", "d"},
+				{"a", "b", "c", "d"},
+			},
+		)
+		actual := merge(df, []int{0, 1})
+		if actual.Nrow() != 1 {
+			t.Errorf("Expected 1 row, got %d.", actual.Nrow())
+		}
+		expected := []string{"a", "b", "c", "d"}
+		data := actual.Subset(0).Records()[1]
+		if !strEqual(data, expected) {
+			t.Error("Expected", expected, "got", data)
+		}
+		fmt.Println(data)
+	})
+
+	t.Run("merge-identical", func(t *testing.T) {
+		df := dataframe.LoadRecords(
+			[][]string{
+				{"A", "B", "C", "D"},
+				{"a", "b", "c", "d"},
+				{"a", "b", "c", "d"},
+			},
+		)
+		actual := merge(df, []int{0, 1})
+		if actual.Nrow() != 1 {
+			t.Errorf("Expected 1 row, got %d.", actual.Nrow())
+		}
+		expected := []string{"a", "b", "c", "d"}
+		data := actual.Subset(0).Records()[1]
+		if !strEqual(data, expected) {
+			t.Error("Expected", expected, "got", data)
+		}
+		fmt.Println(data)
+	})
+
+	t.Run("cannot-merge", func(t *testing.T) {
+		df := dataframe.LoadRecords(
+			[][]string{
+				{"A", "B", "C", "D"},
+				{"a", "b", "c", "e"},
+				{"a", "b", "c", "d"},
+			},
+		)
+		fmt.Println("---")
+		// col := df.Col("B")
+		// col.Set(0, series.Strings("x"))
+		// col.Set(1, series.Strings("y"))
+		// df = df.Mutate(col)
+		// fmt.Println(df)
+		// t.Fail()
+		fmt.Println("---")
+
+		actual := merge(df, []int{0, 1})
+		if actual.Nrow() != 2 {
+			t.Errorf("Expected 2 rows, got %d.", actual.Nrow())
+		}
+
+		ok := true
+		for i := 0; i < actual.Nrow(); i++ {
+			if !strEqual(df.Subset(i).Records()[1], actual.Subset(i).Records()[1]) {
+				ok = false
+				break
+			}
+		}
+		if !ok {
+			t.Error("expected:", df, "got:", actual)
+		}
+	})
+
+}
+
+func TestGetAllPairs(t *testing.T) {
+	t.Run("foot-test", func(t *testing.T) {
+		x := getAllPairs(6)
+		expected := [][]int{
+			{0, 1}, {0, 2}, {0, 3}, {0, 4}, {0, 5}, {1, 2}, {1, 3}, {1, 4}, {1, 5}, {2, 3}, {2, 4}, {2, 5}, {3, 4}, {3, 5}, {4, 5},
+		}
+		if len(x) != len(expected) {
+			t.Errorf("expected length %d; got length %d", len(expected), len(x))
+		} else {
+			ok := true
+			for i := 0; i < len(x); i++ {
+				if !Equal(x[i], expected[i]) {
+					ok = false
+					break
+				}
+			}
+			if !ok {
+				t.Error("expected:\n", expected, "got:\n", x)
+			}
+
+		}
+	})
+}
+
+//TODO merge with the rest of the TestMergeDuplicateRows tests
+func TestMergeDuplicateRows3(t *testing.T) {
+	t.Run("multiple-mergeable-and-non-mergeable", func(t *testing.T) {
+		df0 := dataframe.LoadRecords(
+			[][]string{
+				{"IdData", "B"},
+				{"aoo", "bar"},    // 1. Cannot be merged
+				{"aoo", "bat"},    // 2. Cannot be merged.
+				{"aoo", "quux"},   // 3. Can be merged with 4.
+				{"aoo", "quux"},   // 4.
+				{"bar", "cluck"},  // 5. Can be merged with 6 and 7.
+				{"bar", "cluck"},  // 6.
+				{"bar", "cluck"},  // 7.
+				{"bar", "hodad"},  // 8. Doesn't match anything else so can't be merged.
+				{"bar", "oblast"}, // 9. Can be merged with 10
+				{"bar", "oblast"}, // 10.
+			},
+		)
+
+		// TODO save this into a variable when ready
+		_ = dataframe.LoadRecords(
+			[][]string{
+				{"IdData", "B", "C", "D"},
+				{"aoo", "-", "", ""},  // 1. 1-3 can be merged.
+				{"aoo", "", "-", ""},  // 2.
+				{"aoo", "", "", "-"},  // 3.
+				{"aoo", "+", "", ""},  // 4. 4 and 5 can be merged.
+				{"aoo", "+", "", "+"}, // 5.
+				// {"bar", "cluck"},     // 5. Can be merged with 6 and 7.
+				// {"bar", "cluck"},     // 6.
+				// {"bar", "cluck"},     // 7.
+				// {"bar", "hodad"},     // 8. Doesn't match anything else so can't be merged.
+				// {"bar", "oblast"},    // 9. Can be merged with 10
+				// {"bar", "oblast"},    // 10.
+			},
+		)
+
+		_, err := mergeDuplicateRows(df0)
+		if err != nil {
+			t.Error("unexpected error:", err.Error())
+			return
+		}
+		// if out.Nrow() != 1 {
+		// 	t.Error("expected 1 row, got", out.Nrow())
+		// }
+
+	})
+}
+
+//TODO merge with the rest of the TestMergeDuplicateRows tests
+func TestMergeDuplicateRows2(t *testing.T) {
+
+	t.Run("multiple-IdData-rows", func(t *testing.T) {
+		path := filepath.Join("testdata", "multiple-id-data.csv")
+		f, err := os.Open(path)
+		if err != nil {
+			t.Fail()
+		}
+		defer f.Close()
+		df := dataframe.ReadCSV(f,
+			dataframe.HasHeader(true),
+			dataframe.DefaultType(series.String),
+			dataframe.DetectTypes(false))
+
+		merged, err := mergeDuplicateRows(df)
+		if err != nil {
+			fmt.Println(err.Error())
+			t.Fail()
+			return
+		}
+
+		if merged.Nrow() != 1 {
+			t.Error("expected 1 row, got", merged.Nrow())
+		}
+
+		type mergeTest struct {
+			n        string
+			expected string
+		}
+		var mergeTests = []mergeTest{
+			{"090000062236", "090000062236"},
+			{"San Miguel", "San Miguel"},
+			{"32158-6972-6", "32158-6972-6"},
+			{"SHZ", "SHZ"},
+			{"13/23/2575", "13/23/2575"},
+			{"10/02/2020", "10/02/2020"},
+			{"11/02/2020 03:36:35 p.m.", "11/02/2020 03:36:35 p.m."},
+			{"INT,W230", "INT,W230"},
+			{"Si", "Si"},
+			{"CT no detectado", "CT no detectado"},
+			{"NG no detectado", "NG no detectado"},
+			{"10/02/2020", "10/02/2020"},
+			{"Las muestras de orina guardada", "Las muestras de orina guardada"},
+		}
+
+		records := merged.Records()[1]
+		for idx, tt := range mergeTests {
+			actual := records[idx]
+			if actual != tt.expected {
+				t.Errorf("expected %s, actual %s", tt.expected, actual)
+			}
+		}
+
+	})
+
+}
+
 func TestMergeDuplicateRows(t *testing.T) {
+
 	t.Run("test1", func(t *testing.T) {
 
 		path := filepath.Join("testdata", "semi-processed-lab-files",
@@ -184,9 +393,9 @@ func TestMergeDuplicateRows(t *testing.T) {
 	t.Run("rows can't be merged", func(t *testing.T) {
 		df0 := dataframe.LoadRecords(
 			[][]string{
-				[]string{"IdData", "B"},
-				[]string{"foo", "bar"},
-				[]string{"foo", "bat"},
+				{"IdData", "B"},
+				{"foo", "bar"},
+				{"foo", "bat"},
 			},
 		)
 		out, err := mergeDuplicateRows(df0)
@@ -194,6 +403,10 @@ func TestMergeDuplicateRows(t *testing.T) {
 			t.Error("unexpected error:", err.Error())
 			return
 		}
+		if out.Nrow() != 2 {
+			t.Errorf("Expected 2 rows, got %d", out.Nrow())
+		}
+		// Don't understand the following warning, neither arg is an error!
 		if !reflect.DeepEqual(df0, out) {
 			t.Error("dataframes do not match")
 		}
