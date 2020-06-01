@@ -108,6 +108,95 @@ func TestKeyToFileName(t *testing.T) {
 	}
 }
 
+func TestGetMergedValue(t *testing.T) {
+	t.Run("test-all-the-same", func(t *testing.T) {
+		col := series.Strings([]string{"foo", "foo", "foo"})
+		mergedValue, canBeMerged := getMergedValue(col)
+		if mergedValue != "foo" || !canBeMerged {
+			t.Error("Expected mergedValue foo, got", mergedValue, "expected canBeMerged true, got", canBeMerged)
+		}
+	})
+
+	t.Run("test-one-nonblank", func(t *testing.T) {
+		col := series.Strings([]string{"", "foo", ""})
+		mergedValue, canBeMerged := getMergedValue(col)
+		if mergedValue != "foo" || !canBeMerged {
+			t.Error("Expected mergedValue foo, got", mergedValue, "expected canBeMerged true, got", canBeMerged)
+		}
+	})
+
+	t.Run("test-cant-be-merged", func(t *testing.T) {
+		col := series.Strings([]string{"foo", "", "bar"})
+		_, canBeMerged := getMergedValue(col)
+		if canBeMerged {
+			t.Error("Expected canBeMerged false, got", canBeMerged)
+		}
+	})
+
+	t.Run("test-cant-be-merged2", func(t *testing.T) {
+		col := series.Strings([]string{"foo", "quux", "bar"})
+		_, canBeMerged := getMergedValue(col)
+		if canBeMerged {
+			t.Error("Expected canBeMerged false, got", canBeMerged)
+		}
+	})
+
+}
+
+func TestMerge(t *testing.T) {
+	t.Run("test1", func(*testing.T) {
+		df := dataframe.LoadRecords([][]string{
+			{"a", "b", "", ""},
+			{"a", "", "c", ""},
+			{"a", "", "", "d"},
+		}, dataframe.DefaultType(series.String), dataframe.DetectTypes(false), dataframe.HasHeader(false))
+		df.SetNames("IdData", "B", "C", "D")
+		dfOut := merge(df)
+		if dfOut.Nrow() != 1 {
+			t.Error("Expected 1 row, got", dfOut.Nrow())
+		}
+		expected := []string{"a", "b", "c", "d"}
+		actual := dfOut.Records()[1]
+		if !compareSlices(expected, actual) {
+			t.Error("Expected", expected, ", got", actual, ".")
+		}
+	})
+
+	t.Run("test2", func(*testing.T) {
+		df := dataframe.LoadRecords([][]string{
+			{"a", "b", "", ""},
+			{"a", "haha", "c", ""},
+			{"a", "", "", "d"},
+		}, dataframe.DefaultType(series.String), dataframe.DetectTypes(false), dataframe.HasHeader(false))
+		df.SetNames("IdData", "B", "C", "D")
+		dfOut := merge(df)
+		//dante
+		if !reflect.DeepEqual(df, dfOut) { // should probably heed the warning
+			t.Error("Expected df and dfOut to match, but they don't.")
+		}
+
+	})
+
+	t.Run("test3", func(*testing.T) {
+		df := dataframe.LoadRecords([][]string{
+			{"a", "b", "", "", "e"},
+			{"a", "", "c", "", "e"},
+			{"a", "", "", "d", "e"},
+		}, dataframe.DefaultType(series.String), dataframe.DetectTypes(false), dataframe.HasHeader(false))
+		df.SetNames("IdData", "B", "C", "D", "E")
+		dfOut := merge(df)
+		if dfOut.Nrow() != 1 {
+			t.Error("Expected 1 row, got", dfOut.Nrow())
+		}
+		expected := []string{"a", "b", "c", "d", "e"}
+		actual := dfOut.Records()[1]
+		if !compareSlices(expected, actual) {
+			t.Error("Expected", expected, ", got", actual, ".")
+		}
+	})
+
+}
+
 func TestMergeDuplicateRows(t *testing.T) {
 	t.Run("test1", func(t *testing.T) {
 

@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -153,6 +152,63 @@ func compareSlices(s1 []string, s2 []string) bool {
 	return true
 }
 
+func allTheSame(list []string) bool {
+	// invariants: len(list) will be > 1
+	for i := 0; i < len(list); i++ {
+		if i > 0 {
+			if list[i] != list[i-1] {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+func getMergedValue(col series.Series) (string, bool) {
+	// invariants (should assert...):
+	// - all IdData values will be the same
+	// - there will be more than 1 row in the column
+	records := col.Records()
+	if allTheSame(records) { // should be true of IdData column....
+		return records[0], true
+	}
+	empties := 0
+	var nonEmpty int
+	for i := 0; i < col.Len(); i++ { // TODO convert to range?
+		record := records[i]
+		if record == "" {
+			empties++
+		} else {
+			nonEmpty = i
+		}
+	}
+	if empties == (col.Len() - 1) {
+		return records[nonEmpty], true
+	}
+	return "", false
+}
+
+func merge(df dataframe.DataFrame) dataframe.DataFrame {
+	// invariants: all IdData values will be the same
+	// there will be >= 2 rows
+
+	singleRec := make([]string, df.Ncol())
+	for colIdx := 0; colIdx < df.Ncol(); colIdx++ {
+		col := df.Col(df.Names()[colIdx])
+		mergedValue, canBeMerged := getMergedValue(col)
+		if !canBeMerged { // if any column cannot be merged,
+			return df // then this whole data frame cannot be merged. (is this true?)
+		}
+		singleRec[colIdx] = mergedValue
+
+	}
+	dfOut := dataframe.LoadRecords([][]string{
+		singleRec,
+	}, dataframe.DefaultType(series.String), dataframe.DetectTypes(false), dataframe.HasHeader(false))
+	dfOut.SetNames(df.Names()...)
+	return dfOut
+}
+
 // TODO do this for clinical files as well as lab files?
 func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 	var m map[string]int
@@ -171,9 +227,10 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 
 Loop:
 	for k, v := range m {
-		if v > 2 {
-			return df, errors.New("more than 2 rows with the same IdData")
-		} else if v == 2 {
+		// if v > 2 {
+		// 	return df, errors.New("more than 2 rows with the same IdData")
+		/*} else*/
+		if v /*==* 2*/ > 1 {
 			fil := df.Filter(
 				dataframe.F{
 					Colname:    "IdData",
@@ -187,6 +244,8 @@ Loop:
 					Comparator: series.Neq,
 					Comparando: k,
 				})
+
+			// merged := merge(fil)
 
 			// merge the rows in fil into a single row, then
 			// rbind that and remainder, and return it
