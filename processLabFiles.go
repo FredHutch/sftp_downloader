@@ -292,8 +292,11 @@ func merge(df dataframe.DataFrame, pair []int) dataframe.DataFrame {
 			[][]string{
 				firstRow,
 			}, dataframe.HasHeader(false),
+			dataframe.DefaultType(series.String),
+			dataframe.DetectTypes(false),
 		)
 		newDf.SetNames(df.Names()...)
+		fmt.Println("merge0: returning ", newDf.Nrow(), "row(s)")
 		return newDf
 	}
 	// fmt.Println("hi0")
@@ -323,6 +326,8 @@ func merge(df dataframe.DataFrame, pair []int) dataframe.DataFrame {
 		// fmt.Println("hi2")
 
 		// rows cannot be merged, just return a df of our input rows
+		fmt.Println("merge1: returning ", df.Subset(pair).Nrow(), "row(s)")
+
 		return df.Subset(pair)
 	}
 
@@ -334,9 +339,9 @@ func merge(df dataframe.DataFrame, pair []int) dataframe.DataFrame {
 		dataframe.DefaultType(series.String),
 	)
 	newDf.SetNames(df.Names()...)
-	fmt.Println(newDf)
+	// fmt.Println(newDf)
 	// fmt.Println("hi3")
-
+	fmt.Println("merge2: returning", newDf.Nrow(), "row(s)")
 	return newDf
 
 }
@@ -349,30 +354,54 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 	var rowHash map[string]int
 	rowHash = make(map[string]int)
 
-	for i := 0; i < df.Nrow(); i++ {
-		row := df.Subset(i).Records()[1]
-		hashStr := strings.Join(row[:], "\t")
-		rowHash[hashStr] = 1
-	}
+	// for i := 0; i < df.Nrow(); i++ {
+	// 	row := df.Subset(i).Records()[1]
+	// 	hashStr := strings.Join(row[:], "\t")
+	// 	fmt.Println("hashStr0:", hashStr)
+	// 	rowHash[hashStr] = 1
+	// }
 
 	// for numRows != df.Nrow() {
+	newDf := dataframe.New()
+	newDf.SetNames(df.Names()...)
+
 	for {
+		fmt.Println("numRows == ", numRows)
 		pairs := getAllPairs(df.Nrow())
-		newDf := dataframe.New()
-		newDf.SetNames(df.Names()...)
 		for _, pair := range pairs {
 			mret := merge(df, pair)
+			// fmt.Println("mret.Nrow():", mret.Nrow())
+			// fmt.Println("mret:\n", mret)
 			for i := 0; i < mret.Nrow(); i++ {
 				rowDf := mret.Subset(i)
+				// fmt.Println("rowDf.Records():\n", rowDf.Records())
 				hashStr := strings.Join(rowDf.Records()[1][:], "\t")
+				// fmt.Println("hashStr1:", hashStr)
+				// fmt.Println("hashStr:", hashStr)
+				// TODO FIXME OOPS! Any row that emerges unchanged from
+				// the merging process will never be added back in
+				// (assuming this works correctly which is an open question).
 				_, inHash := rowHash[hashStr]
 				if !inHash {
-					newDf = newDf.RBind(rowDf)
+					fmt.Println("adding row....")
+					// fmt.Println("rowDf.Nrow():", rowDf.Nrow())
+					if newDf.Nrow() == 0 {
+						newDf = rowDf.Copy()
+					} else {
+						newDf = newDf.RBind(rowDf)
+					}
+					fmt.Println("newDf.Nrow():", newDf.Nrow())
+					rowHash[hashStr] = 1
+					// fmt.Println("newDf.Nrow():", newDf.Nrow())
+				} else {
+					fmt.Println("not adding row bc it's in hash")
 				}
 			}
 
 		}
-		df = newDf
+		// fmt.Println("newDf.nrow():", newDf.Nrow())
+		df = newDf.Copy()
+		fmt.Println("df.Nrow():", df.Nrow())
 		if numRows == df.Nrow() { // no change
 			break
 		} else {
