@@ -37,7 +37,49 @@ func TestGetKey(t *testing.T) {
 	})
 }
 
+func TestWalkFn(t *testing.T) {
+	t.Run("test1", func(t *testing.T) {
+		errp := filepath.Walk("testdata/walkdir", walkFn)
+		if errp != nil {
+			t.Error("Expected no error, got", errp.Error())
+		}
+	})
+}
+
+func TestInsertColumn(t *testing.T) {
+	t.Run("test1", func(t *testing.T) {
+		df := dataframe.LoadRecords(
+			[][]string{
+				{"A", "C", "D"},
+				{"a", "c", "d"},
+			}, dataframe.HasHeader(true),
+			dataframe.DetectTypes(false),
+			dataframe.DefaultType(series.String),
+		)
+		columnToInsert := series.New([]string{"b"}, series.String, "B")
+		df2 := insertColumn(df, columnToInsert, 1)
+		if df2.Ncol() != 4 {
+			t.Error("Expected 4 columns, got", df2.Ncol())
+		}
+		expectedColumns := []string{"A", "B", "C", "D"}
+		if !compareSlices(expectedColumns, df2.Names()) {
+			t.Error("Expected columns", expectedColumns, "got", df2.Names())
+		}
+		if df2.Nrow() != 1 {
+			t.Error("expected 1 row, got", df2.Nrow())
+		}
+		expectedRow := []string{"a", "b", "c", "d"}
+		if !compareSlices(expectedRow, df2.Records()[1]) {
+			t.Error("expected row", expectedRow, "got", df2.Records()[1])
+		}
+
+	})
+}
+
 func TestProcessLabFiles(t *testing.T) {
+	// NOTE: This test will fail if `ulimit -n` is set too low.
+	// On MacOS it is 256 by default. Running `ulimit -n 1024` causes the test
+	// to pass.
 	t.Run("test1", func(t *testing.T) {
 		tempDir, err := ioutil.TempDir("", "sftp-test-dir")
 		if err != nil {

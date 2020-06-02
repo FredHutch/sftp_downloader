@@ -163,6 +163,7 @@ See complete documentation at:
 		} else if phase == LabPhase {
 			fmt.Println("Consolidating lab files...")
 			rawLabFileDir := filepath.Join(getDownloadFolder(LabPhase, config), fileDate)
+			fmt.Println("DEBUG: rawLabFileDir is", rawLabFileDir)
 			err = processLabFiles(config, rawLabFileDir)
 			if err != nil {
 				fmt.Println("Error processing lab files:", err.Error())

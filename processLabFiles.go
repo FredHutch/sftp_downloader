@@ -35,8 +35,20 @@ func convertDate(s series.Series) series.Series {
 	return s
 }
 
-func walkFn(path string, info os.FileInfo, err error) error {
+func existingColumns(df dataframe.DataFrame, columnNames []string) []string {
+	var out []string
+	actualNames := df.Names()
+	for i := 0; i < len(actualNames); i++ {
+		for j := 0; j < len(columnNames); j++ {
+			if columnNames[j] == actualNames[i] {
+				out = append(out, actualNames[i])
+			}
+		}
+	}
+	return out
+}
 
+func walkFn(path string, info os.FileInfo, err error) error {
 	if info.IsDir() {
 		return nil
 	}
@@ -46,6 +58,8 @@ func walkFn(path string, info os.FileInfo, err error) error {
 	if !strings.HasSuffix(strings.ToLower(path), ".csv") {
 		return nil
 	}
+	segments := strings.Split(path, "/")
+	project := segments[len(segments)-3]
 
 	key := getKey(path)
 
@@ -67,8 +81,18 @@ func walkFn(path string, info os.FileInfo, err error) error {
 
 	newDf = newDf.Capply(convertDate)
 
+	if !strIsInSlice(newDf.Names(), "Proyecto") {
+		recs := make([]string, newDf.Nrow())
+		for i := 0; i < newDf.Nrow(); i++ {
+			recs[i] = project
+		}
+		col := series.New(recs, series.String, "Proyecto")
+		newDf = insertColumn(newDf, col, 2)
+	}
+
 	newDf, err = mergeDuplicateRows(newDf)
 	if err != nil {
+		fmt.Println("debug2")
 		fmt.Println("got an error:", err.Error(), "path is", path)
 		return err
 	}
@@ -79,14 +103,14 @@ func walkFn(path string, info os.FileInfo, err error) error {
 	}
 
 	// make a new df from the phi columms + ptid of newDf
-	phiColumnNames := []string{"PTID", "Iniciales", "FechaNacimiento"}
+	phiColumnNames := existingColumns(newDf, []string{"PTID", "Iniciales", "FechaNacimiento"})
 	newPhi := newDf.Select(phiColumnNames)
 
 	var indicesToKeep []int
 
 	var wantedRows []int
 
-	columnsToRemove := []string{"Iniciales", "FechaNacimiento"}
+	columnsToRemove := existingColumns(newPhi, []string{"Iniciales", "FechaNacimiento"})
 	for i, name := range newDf.Names() {
 		if !stringInSlice(name, columnsToRemove) {
 			indicesToKeep = append(indicesToKeep, i)
@@ -99,6 +123,10 @@ func walkFn(path string, info os.FileInfo, err error) error {
 	// append phi rows to phiDataFrame
 
 	ptids := newPhi.Col("PTID").Records()
+
+	if ptidMap == nil {
+		ptidMap = make(map[string]bool)
+	}
 
 	if r, c := phiDataFrame.Dims(); r == 0 && c == 0 {
 		for _, ptid := range ptids {
@@ -138,6 +166,17 @@ func walkFn(path string, info os.FileInfo, err error) error {
 
 	return nil
 
+}
+
+func insertColumn(df dataframe.DataFrame, col series.Series, insertBefore int) dataframe.DataFrame {
+	var seriesList []series.Series
+	for i := 0; i < df.Ncol(); i++ {
+		if i == insertBefore {
+			seriesList = append(seriesList, col)
+		}
+		seriesList = append(seriesList, df.Col(df.Names()[i]))
+	}
+	return dataframe.New(seriesList...)
 }
 
 func compareSlices(s1 []string, s2 []string) bool {
@@ -214,6 +253,16 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 	var m map[string]int
 	m = make(map[string]int)
 
+	if strIsInSlice(df.Names(), "FechaImpresion") {
+		col := df.Col("FechaImpresion")
+		for i := 0; i < col.Len(); i++ {
+			val := col.Val(i).(string)
+			val = strings.Split(val, " ")[0]
+			col.Set(i, series.Strings(val))
+		}
+		df = df.Mutate(col)
+	}
+
 	idDataCol := df.Select([]string{"IdData"}).Col("IdData").Records()
 
 	for _, idData := range idDataCol {
@@ -225,12 +274,9 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 		}
 	}
 
-Loop:
+	// Loop:
 	for k, v := range m {
-		// if v > 2 {
-		// 	return df, errors.New("more than 2 rows with the same IdData")
-		/*} else*/
-		if v /*==* 2*/ > 1 {
+		if v > 1 {
 			fil := df.Filter(
 				dataframe.F{
 					Colname:    "IdData",
@@ -245,63 +291,28 @@ Loop:
 					Comparando: k,
 				})
 
-			// merged := merge(fil)
+			merged := merge(fil)
 
-			// merge the rows in fil into a single row, then
-			// rbind that and remainder, and return it
-			records := fil.Records()
-			records = append(records[:0], records[1:]...)
-			singleRec := make([]string, len(records[0]))
-
-			singleRec[0] = k
-
-			if compareSlices(records[0], records[1]) {
-				singleRec = records[0]
-			} else {
-				for i := 1; i < len(records[0]); i++ {
-					if records[0][i] == "" {
-						singleRec[i] = records[1][i]
-					} else if records[1][i] == "" {
-						singleRec[i] = records[0][i]
-					} else {
-						if records[0][i] == records[1][i] {
-							singleRec[i] = records[0][i]
-						} else {
-							if df.Names()[i] == "FechaImpresion" {
-								singleRec[i] = strings.Split(records[0][i], " ")[0]
-							} else {
-								// these records should not be merged
-								break Loop
-							}
-						}
-					}
-				}
-
-			}
-
-			single := dataframe.LoadRecords(
-				[][]string{
-					df.Names(),
-					singleRec,
-				},
-				dataframe.DetectTypes(false),
-				dataframe.DefaultType(series.String),
-			)
-
-			df = remainder.RBind(single)
-
-			// TODO sort here by IdData
+			df = remainder.RBind(merged)
 
 			df = df.Arrange(
 				dataframe.Sort("IdData"),
 			)
 
-			// fmt.Println(rows)
 		}
 	}
 
 	return df, nil
 
+}
+
+func strIsInSlice(slice []string, searchString string) bool {
+	for _, item := range slice {
+		if item == searchString {
+			return true
+		}
+	}
+	return false
 }
 
 func getKey(path string) string {
@@ -327,6 +338,7 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 		}
 		fullpath := filepath.Join(rawLabFileDir, filename)
 		outfh, errz := os.Create(fullpath)
+		defer outfh.Close()
 		if errz != nil {
 			return errz
 		}
@@ -334,7 +346,7 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 		if err != nil {
 			return err
 		}
-		outfh.Close()
+		// outfh.Close()
 
 		var buffer bytes.Buffer
 		err0 := phiDataFrame.WriteCSV(&buffer, dataframe.WriteHeader(true))

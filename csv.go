@@ -11,6 +11,7 @@ import (
 )
 
 // remove PHI columns from filename, in-place
+// Note: it appears this function is not called, except from a unit test.
 func removePHI(filename string) error {
 	file, err := os.Open(filename)
 	defer file.Close()
@@ -96,12 +97,13 @@ func getFileSegments(input string) fileSegments {
 	fs.labType = getLabType(input)
 	ltStart := strings.LastIndex(input, fs.labType)
 	expStart := ltStart + len(fs.labType) + 1
-	fs.experiment = input[expStart:len(input)]
+	fs.experiment = input[expStart: /*len(input)*/]
 	fs.experiment = strings.Replace(fs.experiment, ".csv", "", 1)
 	//anglolab_SABES_2a_anglolab_amilasa.csv
 
 	snStart := len(fs.labType) + 1
-
+	// fmt.Println(fs)
+	// fmt.Println("input is", input, ", snStart is", snStart, ", ltStart is", ltStart)
 	tmp := input[snStart:ltStart]
 	segs := strings.Split(tmp, "_")
 	fs.studyName = segs[0]
