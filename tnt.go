@@ -49,8 +49,8 @@ func deleteOlderFiles(path string) error {
 	return nil
 }
 
-func moveFilesUpOneLevel(rundir string) error {
-	oldDir := filepath.Join(rundir, "REPORTE-TNTSTUDIES")
+func moveFilesUp(rundir string) error {
+	oldDir := filepath.Join(rundir, "REPORTE-CSV-CONTENEDOR", "REPORTE-TNTSTUDIES")
 	files, err := ioutil.ReadDir(oldDir)
 	if err != nil {
 		return err
@@ -61,7 +61,10 @@ func moveFilesUpOneLevel(rundir string) error {
 			return err
 		}
 	}
-	err = os.Remove(oldDir)
+	segs := strings.Split(oldDir, string(filepath.Separator))
+	segs = segs[:len(segs)-1]
+	upDir := strings.Join(segs, string(filepath.Separator))
+	err = os.RemoveAll(upDir)
 	if err != nil {
 		return err
 	}

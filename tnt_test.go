@@ -113,7 +113,7 @@ func TestMoveFilesUpOneLevel(t *testing.T) {
 		t.Fail()
 	}
 	f.Close()
-	fulldir := filepath.Join(tempDir, "REPORTE-TNTSTUDIES")
+	fulldir := filepath.Join(tempDir, "REPORTE-CSV-CONTENEDOR", "REPORTE-TNTSTUDIES")
 	err = mkdir(fulldir)
 	if err != nil {
 		fmt.Println("fail2", err.Error())
@@ -125,7 +125,7 @@ func TestMoveFilesUpOneLevel(t *testing.T) {
 		t.Fail()
 	}
 	f.Close()
-	err = moveFilesUpOneLevel(tempDir)
+	err = moveFilesUp(tempDir)
 	if err != nil {
 		t.Error("did not expect error, got", err.Error())
 	}
@@ -133,6 +133,9 @@ func TestMoveFilesUpOneLevel(t *testing.T) {
 	if err != nil {
 		fmt.Println("got an error reading tempDir")
 		t.Fail()
+	}
+	for _, info := range infos {
+		fmt.Println(info.Name())
 	}
 	if len(infos) != 2 {
 		t.Error("Expected len(infos) to be 2, got", len(infos))

@@ -293,7 +293,7 @@ func mergeDuplicateRows(df dataframe.DataFrame) (dataframe.DataFrame, error) {
 
 			merged := merge(fil)
 
-			df = remainder.RBind(merged)
+			df = remainder.RBind(merged) // TODO handle error if df.Err != nil??
 
 			df = df.Arrange(
 				dataframe.Sort("IdData"),
@@ -331,6 +331,7 @@ func processLabFiles(config Config, rawLabFileDir string) error {
 	if errp != nil {
 		return errp
 	}
+
 	for k, v := range dfMap {
 		filename, err1 := keyToFileName(k)
 		if err1 != nil {

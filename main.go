@@ -171,7 +171,7 @@ See complete documentation at:
 			}
 
 		} else if phase == TNTPhase {
-			err = moveFilesUpOneLevel(rundir)
+			err = moveFilesUp(rundir)
 			if err != nil {
 				fmt.Println("Error renaming tnt files:", err.Error())
 				os.Exit(1)

@@ -34,16 +34,17 @@ func TestGetKey(t *testing.T) {
 		if actual != expected {
 			t.Errorf("expected %s, got %s", expected, actual)
 		}
+
 	})
 }
 
 func TestWalkFn(t *testing.T) {
-	t.Run("test1", func(t *testing.T) {
-		errp := filepath.Walk("testdata/walkdir", walkFn)
-		if errp != nil {
-			t.Error("Expected no error, got", errp.Error())
-		}
-	})
+	// -       t.Run("test1", func(t *testing.T) {
+	// 	-               errp := filepath.Walk("testdata/walkdir", walkFn)
+	// 	-               if errp != nil {
+	// 	-                       t.Error("Expected no error, got", errp.Error())
+	// 	-               }
+	// 	-       })
 }
 
 func TestInsertColumn(t *testing.T) {
@@ -99,6 +100,7 @@ func TestProcessLabFiles(t *testing.T) {
 		}
 
 	})
+
 }
 
 func TestPtidExists(t *testing.T) {

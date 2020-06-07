@@ -102,8 +102,6 @@ func getFileSegments(input string) fileSegments {
 	//anglolab_SABES_2a_anglolab_amilasa.csv
 
 	snStart := len(fs.labType) + 1
-	// fmt.Println(fs)
-	// fmt.Println("input is", input, ", snStart is", snStart, ", ltStart is", ltStart)
 	tmp := input[snStart:ltStart]
 	segs := strings.Split(tmp, "_")
 	fs.studyName = segs[0]
