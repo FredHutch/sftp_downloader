@@ -5,14 +5,12 @@ build_test:
     - curl -LO https://dl.google.com/go/go1.13.12.linux-amd64.tar.gz
     - tar zxf go1.13.12.linux-amd64.tar.gz
     - export PATH=$PATH:$(pwd)/go/bin
-    - export LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
-    - go install -ldflags "$LDFLAGS"
-    - go build -ldflags "$LDFLAGS" -o sftp_downloader
+    - ./build.sh
   
 deploy:
   only:
     refs:
        - master
   script:
-    - aws s3 cp sftp_downloader s3://$AWS_S3_BUCKET/sftp_downloader/ --acl public-read
+    - aws s3 cp builds/sftp_downloader_linux s3://$AWS_S3_BUCKET/sftp_downloader/ --acl public-read
   
