@@ -2,8 +2,8 @@
   
 build_test:
   script:
-    - curl -LO https://dl.google.com/go/go1.13.12.linux-amd64.tar.gz
-    - tar zxf go1.13.12.linux-amd64.tar.gz
+    # - curl -LO https://dl.google.com/go/go1.13.12.linux-amd64.tar.gz
+    # - tar zxf go1.13.12.linux-amd64.tar.gz
     - export GOPATH=$HOME/go
     - export PATH=$GOPATH/bin:$PATH
     - export LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
@@ -14,6 +14,9 @@ deploy:
     refs:
        - master
   script:
+    - export GOPATH=$HOME/go
+    - export PATH=$GOPATH/bin:$PATH
+    - export LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
     - git checkout master
     - go build -ldflags "$LDFLAGS" -o sftp_downloader
     - aws s3 cp sftp_downloader s3://$AWS_S3_BUCKET/sftp_downloader/ --acl public-read
