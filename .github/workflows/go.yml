@@ -27,8 +27,8 @@ jobs:
 
     - name: Build
       run:  |
-        ./build.sh
-        cp builds/sftp_downloader_linux ./sftp_downloader
+        git branch
+        LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)" go build -v .
       
     - name: Upload binary to S3 bucket
       uses: tpaschalis/s3-sync-action@master
