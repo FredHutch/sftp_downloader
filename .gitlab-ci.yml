@@ -17,8 +17,8 @@ deploy:
   script:
     - export GOPATH=$HOME/go
     - export PATH=$GOPATH/bin:$PATH
-    - export LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
     - git checkout master
+    - export LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
     - rm -f sftp_downloader && go build -ldflags "$LDFLAGS" -o sftp_downloader
     - aws s3 cp sftp_downloader s3://$AWS_S3_BUCKET/sftp_downloader/ --acl public-read
   
