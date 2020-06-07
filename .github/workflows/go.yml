@@ -26,9 +26,13 @@ jobs:
     #     fi
 
     - name: Build
+      env:
+        LDFLAGS: "-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
+        PATH: "$PATH:$GOPATH:/bin"
       run:  |
         git branch
-        LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)" go build -v .
+        go install -ldflags "$LDFLAGS"
+        GOOS=linux   GOARCH=amd64 go build -ldflags "$LDFLAGS" -o sftp_downloader
       
     - name: Upload binary to S3 bucket
       uses: tpaschalis/s3-sync-action@master
