@@ -4,7 +4,9 @@ build_test:
   script:
     - curl -LO https://dl.google.com/go/go1.13.12.linux-amd64.tar.gz
     - tar zxf go1.13.12.linux-amd64.tar.gz
-    - export PATH=$PATH:$(pwd)/go/bin
+    - export PATH=:$(pwd)/go/bin:$PATH
+    - export GOPATH=$(pwd)/go
+    - GO111MODULE=on go get github.com/golang/mock/mockgen@latest
     - ./build.sh
   
 deploy:
