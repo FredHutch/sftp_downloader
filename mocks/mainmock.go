@@ -37,6 +37,7 @@ func (m *MockSftper) EXPECT() *MockSftperMockRecorder {
 
 // Close mocks base method
 func (m *MockSftper) Close() error {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Close")
 	ret0, _ := ret[0].(error)
 	return ret0
@@ -44,11 +45,13 @@ func (m *MockSftper) Close() error {
 
 // Close indicates an expected call of Close
 func (mr *MockSftperMockRecorder) Close() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockSftper)(nil).Close))
 }
 
 // Create mocks base method
 func (m *MockSftper) Create(arg0 string) (iface.Filer, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Create", arg0)
 	ret0, _ := ret[0].(iface.Filer)
 	ret1, _ := ret[1].(error)
@@ -57,11 +60,13 @@ func (m *MockSftper) Create(arg0 string) (iface.Filer, error) {
 
 // Create indicates an expected call of Create
 func (mr *MockSftperMockRecorder) Create(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockSftper)(nil).Create), arg0)
 }
 
 // Lstat mocks base method
 func (m *MockSftper) Lstat(arg0 string) (os.FileInfo, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Lstat", arg0)
 	ret0, _ := ret[0].(os.FileInfo)
 	ret1, _ := ret[1].(error)
@@ -70,11 +75,13 @@ func (m *MockSftper) Lstat(arg0 string) (os.FileInfo, error) {
 
 // Lstat indicates an expected call of Lstat
 func (mr *MockSftperMockRecorder) Lstat(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Lstat", reflect.TypeOf((*MockSftper)(nil).Lstat), arg0)
 }
 
 // Open mocks base method
 func (m *MockSftper) Open(arg0 string) (io.Reader, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Open", arg0)
 	ret0, _ := ret[0].(io.Reader)
 	ret1, _ := ret[1].(error)
@@ -83,11 +90,13 @@ func (m *MockSftper) Open(arg0 string) (io.Reader, error) {
 
 // Open indicates an expected call of Open
 func (mr *MockSftperMockRecorder) Open(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Open", reflect.TypeOf((*MockSftper)(nil).Open), arg0)
 }
 
 // ReadDir mocks base method
 func (m *MockSftper) ReadDir(arg0 string) ([]os.FileInfo, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "ReadDir", arg0)
 	ret0, _ := ret[0].([]os.FileInfo)
 	ret1, _ := ret[1].(error)
@@ -96,11 +105,13 @@ func (m *MockSftper) ReadDir(arg0 string) ([]os.FileInfo, error) {
 
 // ReadDir indicates an expected call of ReadDir
 func (mr *MockSftperMockRecorder) ReadDir(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ReadDir", reflect.TypeOf((*MockSftper)(nil).ReadDir), arg0)
 }
 
 // Walk mocks base method
 func (m *MockSftper) Walk(arg0 string) iface.Walker {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Walk", arg0)
 	ret0, _ := ret[0].(iface.Walker)
 	return ret0
@@ -108,6 +119,7 @@ func (m *MockSftper) Walk(arg0 string) iface.Walker {
 
 // Walk indicates an expected call of Walk
 func (mr *MockSftperMockRecorder) Walk(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Walk", reflect.TypeOf((*MockSftper)(nil).Walk), arg0)
 }
 
@@ -136,6 +148,7 @@ func (m *MockFiler) EXPECT() *MockFilerMockRecorder {
 
 // Close mocks base method
 func (m *MockFiler) Close() error {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Close")
 	ret0, _ := ret[0].(error)
 	return ret0
@@ -143,11 +156,13 @@ func (m *MockFiler) Close() error {
 
 // Close indicates an expected call of Close
 func (mr *MockFilerMockRecorder) Close() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockFiler)(nil).Close))
 }
 
 // Write mocks base method
 func (m *MockFiler) Write(arg0 []byte) (int, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Write", arg0)
 	ret0, _ := ret[0].(int)
 	ret1, _ := ret[1].(error)
@@ -156,6 +171,7 @@ func (m *MockFiler) Write(arg0 []byte) (int, error) {
 
 // Write indicates an expected call of Write
 func (mr *MockFilerMockRecorder) Write(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Write", reflect.TypeOf((*MockFiler)(nil).Write), arg0)
 }
 
@@ -184,6 +200,7 @@ func (m *MockWalker) EXPECT() *MockWalkerMockRecorder {
 
 // Err mocks base method
 func (m *MockWalker) Err() error {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Err")
 	ret0, _ := ret[0].(error)
 	return ret0
@@ -191,11 +208,13 @@ func (m *MockWalker) Err() error {
 
 // Err indicates an expected call of Err
 func (mr *MockWalkerMockRecorder) Err() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Err", reflect.TypeOf((*MockWalker)(nil).Err))
 }
 
 // Path mocks base method
 func (m *MockWalker) Path() string {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Path")
 	ret0, _ := ret[0].(string)
 	return ret0
@@ -203,11 +222,13 @@ func (m *MockWalker) Path() string {
 
 // Path indicates an expected call of Path
 func (mr *MockWalkerMockRecorder) Path() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Path", reflect.TypeOf((*MockWalker)(nil).Path))
 }
 
 // Step mocks base method
 func (m *MockWalker) Step() bool {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Step")
 	ret0, _ := ret[0].(bool)
 	return ret0
@@ -215,5 +236,6 @@ func (m *MockWalker) Step() bool {
 
 // Step indicates an expected call of Step
 func (mr *MockWalkerMockRecorder) Step() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Step", reflect.TypeOf((*MockWalker)(nil).Step))
 }

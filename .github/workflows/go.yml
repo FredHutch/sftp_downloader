@@ -26,7 +26,8 @@ jobs:
     #     fi
 
     - name: Build
-      run: go build -v .
+      run: ./build.sh
+      run: cp builds/sftp_downloader_linux ./sftp_downloader
       
     - name: Upload binary to S3 bucket
       uses: tpaschalis/s3-sync-action@master

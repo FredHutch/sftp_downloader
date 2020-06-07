@@ -34,6 +34,7 @@ func (m *MockReader) EXPECT() *MockReaderMockRecorder {
 
 // Read mocks base method
 func (m *MockReader) Read(arg0 []byte) (int, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Read", arg0)
 	ret0, _ := ret[0].(int)
 	ret1, _ := ret[1].(error)
@@ -42,5 +43,6 @@ func (m *MockReader) Read(arg0 []byte) (int, error) {
 
 // Read indicates an expected call of Read
 func (mr *MockReaderMockRecorder) Read(arg0 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Read", reflect.TypeOf((*MockReader)(nil).Read), arg0)
 }

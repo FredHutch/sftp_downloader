@@ -17,4 +17,4 @@ mkdir -p builds mocks
 
 GOOS=linux   GOARCH=amd64 go build -ldflags "$LDFLAGS" -o builds/sftp_downloader_linux
 GOOS=windows GOARCH=amd64 go build -ldflags "$LDFLAGS"  -o builds/sftp_downloader_x64.exe
-GOOS=darwin  GOARCH=amd64 go build -ldflags "$LDFLAGS" -o builds/ftp_downloader_mac
+GOOS=darwin  GOARCH=amd64 go build -ldflags "$LDFLAGS" -o builds/sftp_downloader_mac
