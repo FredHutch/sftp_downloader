@@ -4,8 +4,8 @@ build_test:
   script:
     - curl -LO https://dl.google.com/go/go1.13.12.linux-amd64.tar.gz
     - tar zxf go1.13.12.linux-amd64.tar.gz
-    - export PATH=:$(pwd)/go/bin:$PATH
-    - export GOPATH=$(pwd)/go
+    - export PATH=:/usr/local/go/bin:$PATH
+    - export GOPATH=/usr/local/go
     - GO111MODULE=on go get github.com/golang/mock/mockgen@latest
     - export LDFLAGS="-X main.gitCommit=$(git rev-parse --short HEAD) -X main.gitBranch=$(git rev-parse --abbrev-ref HEAD)"
     - go install -ldflags "$LDFLAGS"
